@@ -195,6 +195,26 @@ def main():
     REPORT["crawl"] = {"max_pages": max_pages, "crawled": crawled,
                        "discovered_same_domain": len(seen)}
 
+    # F2. 出馬表系ページ（父・母父の同コース成績が1ページに揃う画面の調査）
+    #     全レース対応か重賞限定か、URLに race_id/日付をどう渡すかを確認する。
+    entry = save("srch6_entry", *fetch(f"{BASE}/srch6.php"))
+    ea = entry.get("analysis", {})
+    cand = []
+    for href in ea.get("links", []):
+        u = urllib.parse.urljoin(f"{BASE}/", href)
+        if urllib.parse.urlparse(u).netloc == "umarengod.com" and u not in cand:
+            cand.append(u)
+    # 出馬表らしきリンクを最大8件たどる
+    picked = [u for u in cand if re.search(r"(shutuba|syutuba|race|umav|touroku|srch6)", u, re.I)][:8]
+    for u in picked:
+        pu = urllib.parse.urlparse(u)
+        save(f"entry_{pu.path}_{pu.query}", *fetch(u))
+    REPORT["entry_pages"] = {"from_srch6": cand[:40], "followed": picked}
+    for c in REPORT["checks"]:
+        a = c.get("analysis", {})
+        if a and ("登録馬一覧" in (a.get("text_head") or "") or "産駒の同コース" in (a.get("text_head") or "")):
+            print("  ★ 父・母父の同コース成績ページ候補:", c["name"], c.get("url"))
+
     # G. netkeiba の血統ページ候補
     sys.path.insert(0, str(ROOT / "scraper"))
     import netkeiba as nk  # noqa: E402
