@@ -1,0 +1,52 @@
+name: build-race-engine
+
+on:
+  schedule:
+    - cron: "30 22 * * 5,6"   # UTC 金・土 22:30 = JST 土・日 7:30（出馬表確定後）
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "対象日 YYYYMMDD（空欄=今日 JST）"
+        required: false
+        default: ""
+      race_id:
+        description: "1レースだけ作る場合の netkeiba race_id（任意）"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-write
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: build race-engine JSON
+        env:
+          IN_DATE: ${{ github.event.inputs.date }}
+          IN_RACE: ${{ github.event.inputs.race_id }}
+        run: |
+          D="${IN_DATE:-$(TZ=Asia/Tokyo date +%Y%m%d)}"
+          if [ -n "$IN_RACE" ]; then
+            python engine/build.py --date "$D" --race "$IN_RACE"
+          else
+            python engine/build.py --date "$D"
+          fi
+      - name: commit data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/race-engine
+          if git diff --staged --quiet; then echo "変更なし"; exit 0; fi
+          git commit -m "race-engine: $(TZ=Asia/Tokyo date +%Y%m%d-%H%M)"
+          git pull --rebase
+          git push
