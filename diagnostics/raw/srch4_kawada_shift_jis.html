@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<HEAD>
+<META http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>騎手／調教師の成績検索</TITLE>
+<META name="keywords" content="騎手,調教師,競走成績">
+<META name="description" content="騎手／調教師のリーディングや成績を表示、検索します">
+<link rel="shortcut icon" href="favicon.ico">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="init.css">
+<script type="text/javascript" src="postcommon.js"></script>
+<script type='text/javascript' src='jquery-ui-1.9.2.custom/js/jquery-1.8.3.js'></script>
+<script type='text/javascript' src='jquery-ui-1.9.2.custom/development-bundle/ui/minified/jquery-ui.custom.min.js'></script>
+<script type='text/javascript' src='jquery-ui-multiselect-widget-master/src/jquery.multiselect.js'></script>
+<script type='text/javascript' src='jquery-ui-multiselect-widget-master/demos/assets/prettify.js'></script>
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.9.2.custom/css/base/jquery-ui-1.9.2.custom.min.css" />
+<link rel="stylesheet" type="text/css" href="jquery-ui-multiselect-widget-master/jquery.multiselect.css" />
+<link rel="stylesheet" type="text/css" href="jquery-ui-multiselect-widget-master/demos/assets/style.css" />
+<link rel="stylesheet" type="text/css" href="jquery-ui-multiselect-widget-master/demos/assets/prettify.css" />
+<script type="text/javascript">
+<!--
+jQuery(function($) {
+	jQuery("#multiSelectSample1").multiselect({
+		selectedList: 100,
+		height: 200,
+		minWidth: 140,
+		checkAllText: "全選択",
+		uncheckAllText: "全選択解除",
+		noneSelectedText: "ALL",
+		selectedText: "# 個選択"
+	});
+
+	jQuery("#multiSelectSample2").multiselect({
+		selectedList: 100,
+		height: 200,
+		minWidth: 100,
+		checkAllText: "全選択",
+		uncheckAllText: "全選択解除",
+		noneSelectedText: "ALL",
+		selectedText: "# 個選択"
+	});
+});
+execflg   = 0;
+timid = 0;
+firstimid = 0;
+function blinkStart() {
+	//点滅テキスト
+	text = "データの集計中です… しばらくお待ちください。<br>数分かかる場合もあります m(_ _)m";
+	document.getElementById("alertmsg").innerHTML = "<br><br><br><span style='color:cyan;font-size:18px;font-weight:bold;'>　　"+text+"</span><br><br><br>";
+    document.getElementById('alertmsg').style.opacity^=1;
+	firstimid = 0;
+	timid = setInterval("document.getElementById('alertmsg').style.opacity^=1",750);/*以降は500ms毎に切り替え */
+}
+
+function blinkAlert(){
+	var text;
+	var val,i;
+
+	if(execflg != 0){
+		return false;
+	}
+
+	//点滅周期
+    firstimid = setTimeout(blinkStart,2000); /*１発目だけは2秒後 */
+	execflg = 1;
+
+	ScrollWindow("alertmsg");
+	
+	return true;
+}
+function ScrollWindow(elem) {
+	
+	return;	//とりあえずスクロールはしない
+
+    var element = document.getElementById(elem);
+    var rect = element.getBoundingClientRect();
+    var elemtop = rect.top + window.pageYOffset;
+    document.documentElement.scrollTop = elemtop;
+}
+function onloadTimerStop() {
+	if(firstimid != 0) clearTimeout(firstimid);
+	if(timid != 0) clearInterval(timid);
+	execflg   = 0;
+	document.getElementById("alertmsg").innerHTML = "";
+}
+function btnswp(obj, gif, sw) {
+	imgtbl = ["nintatsu.gif","etc_srch4.gif"];
+
+	img = imgtbl[gif];
+	if (sw == 1)
+		img = img.replace(".gif","_on.gif");
+	obj.src = img;
+}
+function javapost(id, year){
+	switch(id) {
+		case 1:	//年間成績での年切替
+			document.form1.tbl1_year.value = year;
+			break;
+		case 2:	//コンビ画面の左側の年切替
+			document.form1.tbl2_year.value = year;
+			break;
+		case 3:	//コース成績の左側の年切替
+			document.form1.tbl3_year.value = year;
+			break;
+		case 4:	//コース成績の右側の年切替
+			document.form1.tbl4_year.value = year;
+			break;
+		case 5:	//騎手コース状態別
+			document.form1.tbl5_year.value = year;
+			break;
+		case 6:	//騎手リーディングでの年切替
+			document.form1.tbl6_year.value = year;
+			break;
+		case 7:	//調教師リーディングでの年切替
+			document.form1.tbl7_year.value = year;
+			break;
+		case 8:	//コンビ画面の右側の年切替
+			document.form1.tbl8_year.value = year;
+			break;
+		case 10:	//TAB切替
+			document.form1.ktab.value = year;
+			break;
+		case 11:	//TAB切替
+			document.form1.ttab.value = year;
+			break;
+		case 12:	//並べ替え
+			document.form1.sort_caple.value = year;
+			break;
+		case 13:	//並べ替え
+			document.form1.sort_caple2.value = year;
+			break;
+		case 777:
+			document.form1.owner.value = year;
+			break;
+		case 888:
+			document.form1.teki.value = year;
+			break;
+		case 666:
+			document.form1.firm.value = year;
+			break;
+		case 999:
+			break;
+		default:
+			return;
+	}
+	document.form1.post_act.value = id;
+	document.form1.submit();
+}
+function javapost2(id, kind){
+	switch(id) {
+		case 1:	//年間成績での年スクロール
+			document.form1.tbl1_yearscroll.value = kind;
+			break;
+		case 2:	//コンビ画面の左側の年スクロール
+			document.form1.tbl2_yearscroll.value = kind;
+			break;
+		case 3:	//コース成績の左側の年スクロール
+			document.form1.tbl3_yearscroll.value = kind;
+			break;
+		case 4:	//コース成績の右側の年スクロール
+			document.form1.tbl4_yearscroll.value = kind;
+			break;
+		case 5:	//騎手コース状態別
+			document.form1.tbl5_yearscroll.value = kind;
+			break;
+		case 6:	//騎手リーディングでの年スクロール
+			document.form1.tbl6_yearscroll.value = kind;
+			break;
+		case 7:	//調教師リーディングでの年スクロール
+			document.form1.tbl7_yearscroll.value = kind;
+			break;
+		case 8:	//コンビ画面の右側の年スクロール
+			document.form1.tbl8_yearscroll.value = kind;
+			break;
+	}
+	document.form1.tbl_yearscrolldist.value = id;
+	document.form1.post_act.value = 111;
+	document.form1.submit();
+}
+// -->
+</script>
+<style type="text/css"> 
+<!-- 
+body {margin:8px}
+table{font-size:12px;table-layout:fixed;color:black}
+
+.tblhead th{background:url(tback_green30.gif);font-weight:normal;text-align:center;padding:2px 4px;border:1px solid lime}
+
+td{text-align:center;padding:4px 4px 4px 4px;border:1px solid lime}
+.leading th{background:url(tback_green50.gif);text-align:center;padding:2px 4px;border:1px solid cyan;font-weight:normal}
+.leading td{text-align:center;padding:4px 4px 4px 4px;border:1px solid lime}
+
+.inform th{background:url(tback_green30.gif);text-align:center;color:black;font-weight:normal;border:1px solid lime;padding:2px}
+.inform td{border:1px solid lime;padding:2px;}
+.inform {width:240px;text-align:left;}
+.nline0 {background:#FFFFFF}
+.nline1 {background:#E8ECF5}
+.line0 {background:url(tback_gray20.gif)}
+.line1 {background:url(tback_gray20.gif)}
+.neql td{border-top:1px solid lime;border-bottom:0px}
+.nchg td{border-top:1px solid black}
+
+.left_tbl  {/*width:360px;*/float:left;border:0px solid red}
+.right_tbl {/*width:360px;*/float:right;border:0px solid yellow;}
+.tbl_title {font-size:14px;color:white}
+.tbl_title td{border:0px;padding:1px}
+
+.race_list th{background:/*#bcffbc*/url(tback_green30.gif);font-weight:normal;border:1px solid lime;}
+.race_list td{background:url(tback_gray20.gif);background-repeat:repeat-x;background-size:contain}
+.cond td{padding:1px;text-align:left;background:#e0ffe0;color:black;border:1px solid lime}
+.cond th{padding:2px;border:1px solid lime;background:url(tback_yellow30.gif)}
+.tblhead2 th{background:url(tback_green40.gif);font-weight:normal;text-align:center;padding:2px 4px;border:1px solid cyan}
+.tblhead3 th{background:url(tback_green50.gif);font-weight:normal;text-align:center;padding:2px 4px;border:1px solid cyan}
+.linex td{background:url(tback_gray50.gif)}
+.leadingx td{border:0px;padding:0px}
+.fm {font-family:meiryo}
+
+/* spanに適用する場合 */
+.swaku1{padding:0px 3px;background:white;color:black}
+.swaku2{padding:0px 3px;background:black;color:white}
+.swaku3{padding:0px 3px;background:red;color:white}
+.swaku4{padding:0px 3px;background:blue;color:white}
+.swaku5{padding:0px 3px;background:yellow;color:black}
+.swaku6{padding:0px 3px;background:green;color:white}
+.swaku7{padding:0px 3px;background:orange;color:black}
+.swaku8{padding:0px 3px;background:pink;color:black}
+
+/* divに適用する場合 */
+.waku1{margin-left:4px;width:14px;padding:2px;background:white;color:black}
+.waku2{margin-left:4px;width:14px;padding:2px;background:black;color:white}
+.waku3{margin-left:4px;width:14px;padding:2px;background:red;color:white}
+.waku4{margin-left:4px;width:14px;padding:2px;background:blue;color:white}
+.waku5{margin-left:4px;width:14px;padding:2px;background:yellow;color:black}
+.waku6{margin-left:4px;width:14px;padding:2px;background:green;color:white}
+.waku7{margin-left:4px;width:14px;padding:2px;background:orange;color:black}
+.waku8{margin-left:4px;width:14px;padding:2px;background:pink;color:black}
+
+.ttitle {color:white;font-size:14px;padding:4px 0px 2px 0px}
+.f10{font-size:12px}
+.f8{font-size:10px}
+.sort1 {color:red/*firebrick*/;font-weight:bold}
+.c_red {color:red}
+.c_right {text-align:right}
+.sf {font-size:10px}
+.xx td{padding:1px 2px}
+
+.dummy_row th{border:0px}
+.race_list a:link { color: blue; }
+.race_list a:visited { color: blue; }
+.race_list a:active { color: red; }
+.race_list a:hover { color: red; }
+
+.umauma {font-family='Meiryo'}
+.umauma table{font-size:12px;/*table-layout:fixed;*/color:black;font-family:Meiryo}
+.umauma th{font-size:12px;background:url(tback_green30.gif);color:black;font-weight:normal;
+           text-align:center;padding:3px 4px 3px 4px;border:1px solid lime;}
+.umauma td{text-align:center;padding:3px 4px 3px 4px;border:1px solid lime;background:#fDfDfD}
+.etc30guide {margin-left:15%}
+.etc30guide li{padding-top:2px;padding-bottom:4px}
+
+-->
+</style> 
+</head>
+<body onload='onloadTimerStop()'>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99050473-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="5518304011"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+-->
+<center><div style='margin:6px 0px 12px 0px'>
+</div><div class='main' style='margin-top:10px;width:920px;border:0px solid green'><div style='padding-bottom:10px;text-align:center;border:0px solid blue'><span class='blink' style='font-size:14px'><a href='javascript:history.go(-1)'>BACK</a><a style='margin-left:22px' href='index.php'>HOME</a><a style='margin-left:22px' href='srch1.php'>最近のﾚｰｽ結果</a><a style='margin-left:22px' href='srch3.php'>馬名で検索</a><a style='margin-left:22px' href='srch2.php'>条件で検索</a><a style='margin-left:22px' href='srch6.php'>出馬表から検索</a><a style='margin-left:22px' href='etcfatherm.php'>種牡馬・母父成績</a></span></div><div id='alertmsg' style='font-size:12px;margin-top:10px;margin-bottom:4px;width:100%'></div><script>blinkAlert();</script><h1 style='margin:6px 0px;font-weight:normal'>指定した騎手または調教師の成績の統計やレース一覧などを表示します♪</h1><div class='inform' style='text-align:center;border:0px solid green;'><form name='form1' action='/srch4.php' method='post'><table><tbody><tr bgcolor='#eaffea'><th style='width:54px'>騎手名</th><td style='width:180px'><input style='width:100px' name='ks' value='��c����'>&nbsp;&nbsp;<INPUT name='k1' type='submit' value='検索'></td></tr><tr bgcolor='#eaffea'><th>調教師名</th><td><input style='width:100px' name='ky' value=''>&nbsp;&nbsp;<INPUT name='t1' type='submit' value='検索'></td></tr><tr><td colspan='2' style='border:0px;padding:6px 0px 0px 0px'><INPUT style='' name='k2' type='submit' value='騎手リーディング'><INPUT style='margin-top:6px;' name='t2' type='submit' value='調教師リーディング'></td></tr></tbody></table><br>↓新様式のリーディング表示↓<img src='new3.gif' style='vertical-align:top'><a style='' href='etcsrch4.php' title='新様式！　騎手・調教師リーディング'><img src='etc_srch4.gif' style='padding-bottom:1px' alt='（新）騎手・調教師リーディング'  onmouseover='btnswp(this,1,1)' onmouseout='btnswp(this,1,0)'></a><input type='hidden' name='post_act' value='0'><input type='hidden' name='mode' value='3'><input type='hidden' name='top_caple' value='0'><input type='hidden' name='top_caple2' value='0'><input type='hidden' name='sort_caple' value='0'><input type='hidden' name='sort_caple2' value='0'><input type='hidden' name='top_kl' value='0'><input type='hidden' name='top_tl' value='0'><input type='hidden' name='ktab' value='3'><input type='hidden' name='ttab' value='1'><input type='hidden' name='rs_top' value='0'><input type='hidden' name='tbl1_year' value='2026'><input type='hidden' name='tbl2_year' value='2026'><input type='hidden' name='tbl3_year' value='2026'><input type='hidden' name='tbl4_year' value='2026'><input type='hidden' name='tbl5_year' value='2026'><input type='hidden' name='tbl6_year' value='2026'><input type='hidden' name='tbl7_year' value='2026'><input type='hidden' name='tbl8_year' value='2026'><input type='hidden' name='tbl1_startyear' value='2026'><input type='hidden' name='tbl1_yearscroll' value=''><input type='hidden' name='tbl2_startyear' value='2026'><input type='hidden' name='tbl2_yearscroll' value=''><input type='hidden' name='tbl3_startyear' value='2026'><input type='hidden' name='tbl3_yearscroll' value=''><input type='hidden' name='tbl4_startyear' value='2026'><input type='hidden' name='tbl4_yearscroll' value=''><input type='hidden' name='tbl5_startyear' value='2026'><input type='hidden' name='tbl5_yearscroll' value=''><input type='hidden' name='tbl6_startyear' value='2026'><input type='hidden' name='tbl6_yearscroll' value=''><input type='hidden' name='tbl7_startyear' value='2026'><input type='hidden' name='tbl7_yearscroll' value=''><input type='hidden' name='tbl8_startyear' value='2026'><input type='hidden' name='tbl8_yearscroll' value=''><input type='hidden' name='tbl_yearscrolldist' value=''></div></div><div class='blink' style='margin-top:10px;margin-bottom:8px;color:cyan;font-size:14px'></div><!-- SMART WIN -->
+<DIV style='text-align:center;width:780px'>
+<DIV style='margin-bottom:4px;width:384px;color:black;padding:2px;float:left'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<!-- umarengod1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="2823644470"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<DIV style='margin-bottom:4px;width:384px;color:black;padding:2px;float:left'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<!-- umarengod2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="5237629798"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+<br style='clear:both'>	
+<BR>
+<!-- WORLD -->
+
+<div style="clear:both;padding:16px 0px 2px 0px;font-size:16px;font-weight:bold;color:white">
+<!--
+明けましておめでとうございます。
+<br>
+ただ今、システムメンテナンスを行っております。<br>
+動作が不安定になることもありますので、ご了承ください。　m(_&nbsp;_)m
+-->
+</div>
+<div class='blink' style='margin-top:10px;color:cyan;font-size:14px'></div><div align='center' style='width:1020px;margin-top:10px;border:0px solid blue'>騎手名に該当するデータがありません<input type='hidden' name='x_yy1' value=''><input type='hidden' name='x_mm1' value=''><input type='hidden' name='x_dd1' value=''><input type='hidden' name='x_yy2' value=''><input type='hidden' name='x_mm2' value=''><input type='hidden' name='x_dd2' value=''><input type='hidden' name='x_grade' value=''><input type='hidden' name='hname' value=''></td></tr></tbody></table></form><div style='margin:20px 0px 12px 0px'></div><form name='form_race_result' action='race_result.php' method='post'><input type='hidden' name='rec' value=''></form><form name='form_srch3' action='srch3.php' method='post'><input type='hidden' name='hn' value=''><input type='hidden' name='birthyear' value=''><input type='hidden' name='seni' value='1'></form><form name='form_srch4' action='srch4.php' method='post'><input type='hidden' name='ks' value=''><input type='hidden' name='ky' value=''><input type='hidden' name='seni' value='1'></form><br>
+<br>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="3435096835"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</body>
+</html>
+
