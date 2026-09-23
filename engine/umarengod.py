@@ -116,36 +116,62 @@ def parse_stats_table(html: str, name_header: str = "騎手名") -> tuple[dict, 
     meta["table_found"] が False なら「取得失敗（ページ構造が想定外）」であり、成績0ではない。"""
     from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "lxml")
-    best, nrows = None, -1
+    # umarengod は「検索フォームを含む外側テーブル」の中に「成績の内側テーブル」がある入れ子構造。
+    # 単純に行数最大を選ぶと外側を掴み、フォーム見出しと結合したヘッダー行を読んで列がずれる。
+    # → 内側（入れ子テーブルを持たない）を優先し、その中で行数最大を選ぶ。
+    cands = []
     for t in soup.find_all("table"):
         txt = _norm_header(t.get_text())
         if name_header in txt and "出走" in txt and "複勝率" in txt:
-            rows = t.find_all("tr")
-            if len(rows) > nrows:
-                best, nrows = t, len(rows)
-    meta = {"table_found": best is not None, "column_mode": None, "rows": 0}
+            cands.append((0 if t.find("table") is None else 1, -len(t.find_all("tr")), t))
+    cands.sort(key=lambda x: (x[0], x[1]))
+    best = cands[0][2] if cands else None
+    meta = {"table_found": best is not None, "column_mode": None, "rows": 0, "validated": None}
     out: dict = {}
     if best is None:
         return out, meta
 
-    # ヘッダー行（td/th どちらでも）から列位置を決める
+    def _cmap_from(tr) -> dict | None:
+        cells = [c.get_text(strip=True) for c in tr.find_all(["th", "td"])]
+        idx = [i for i, c in enumerate(cells) if _norm_header(c) == name_header]
+        # 名前列が先頭付近にない行は、フォーム見出し等と結合した行なので採用しない
+        if not idx or idx[0] > 3:
+            return None
+        cmap = {"name": idx[0]}
+        for i, c in enumerate(cells):
+            if i == idx[0]:
+                continue
+            k = _header_key(c)
+            if k and k not in cmap:
+                cmap[k] = i
+        return cmap if {"starts", "place_rate"} <= set(cmap) else None
+
+    def _valid(cols: dict) -> bool:
+        """データ行に当ててみて筋が通るか検算（名前が数字だけ、複勝率が範囲外などを弾く）。"""
+        need = max(cols.values())
+        for tr in best.find_all("tr"):
+            cells = [c.get_text(strip=True) for c in tr.find_all("td")]
+            if len(cells) <= need:
+                continue
+            nm = cells[cols["name"]]
+            if not nm or _norm_header(nm) == name_header:
+                continue
+            st, pr = _to_int(cells[cols["starts"]]), _rate(cells[cols["place_rate"]])
+            if re.fullmatch(r"[\d.,%％\-]+", nm) or st is None or pr is None or not 0.0 <= pr <= 1.0:
+                return False
+            return True
+        return False
+
     cols = None
     for tr in best.find_all("tr"):
-        cells = [c.get_text(strip=True) for c in tr.find_all(["th", "td"])]
-        if any(_norm_header(c) == name_header for c in cells):
-            cmap = {}
-            for i, c in enumerate(cells):
-                if _norm_header(c) == name_header:
-                    cmap["name"] = i
-                else:
-                    k = _header_key(c)
-                    if k and k not in cmap:
-                        cmap[k] = i
-            if "name" in cmap and "starts" in cmap and "place_rate" in cmap:
-                cols = cmap
+        c = _cmap_from(tr)
+        if c and _valid(c):
+            cols, meta["column_mode"], meta["validated"] = c, "header", True
             break
-    meta["column_mode"] = "header" if cols else "fixed_index"
-    cols = cols or FIXED_INDEX
+    if cols is None:                      # ヘッダーが読めない/検算に落ちたら既知の固定位置
+        cols = FIXED_INDEX
+        meta["column_mode"] = "fixed_index"
+        meta["validated"] = _valid(cols)
     need = max(cols.values())
 
     for tr in best.find_all("tr"):
@@ -169,6 +195,18 @@ def parse_stats_table(html: str, name_header: str = "騎手名") -> tuple[dict, 
         for k in ("win_return_pct", "place_return_pct"):
             if k in cols:
                 rec[k] = _to_float(cells[cols[k]])
+        # 実仕様: 勝率0・回収率0の騎手はセルが空欄になる（欠損ではなく0）。
+        # 率は着度数から厳密に導けるので、空欄はそこから補う。
+        w, s2, s3, st = rec.get("wins"), rec.get("seconds"), rec.get("thirds"), rec["starts"]
+        if None not in (w, s2, s3) and st:
+            if rec.get("win_rate") is None:
+                rec["win_rate"] = round(w / st, 3)
+            if rec.get("quinella_rate") is None:
+                rec["quinella_rate"] = round((w + s2) / st, 3)
+            if rec.get("win_return_pct") is None and w == 0:
+                rec["win_return_pct"] = 0.0
+            if rec.get("place_return_pct") is None and (w + s2 + s3) == 0:
+                rec["place_return_pct"] = 0.0
         out[norm_name(raw_name)] = rec
     meta["rows"] = len(out)
     return out, meta
