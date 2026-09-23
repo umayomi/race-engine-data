@@ -13,6 +13,7 @@ from __future__ import annotations
 import datetime
 import re
 import time
+import unicodedata
 
 URL_JOCKEY = "https://umarengod.com/etcsrch4.php"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -102,13 +103,33 @@ def _rate(s):
     return v / 100.0 if v > 1.0 else v
 
 
+APPRENTICE = "▲△☆★◇◎○※"
+
+
+def split_name(name: str) -> tuple[str | None, str]:
+    """騎手名 → (イニシャル, 核)。外国人騎手のイニシャルは捨てずに保持する。
+      「Ｃ．ルメール」→("C","ルメール") / 「Ｍデムーロ」→("M","デムーロ")（ドット無しも可）
+      「▲小林美」→(None,"小林美") / 「鮫島駿」→(None,"鮫島駿")
+    イニシャルを捨てると Ｍ．デムーロ と Ｃ．デムーロ が同一キーに衝突して別人を返す事故になる。"""
+    n = unicodedata.normalize("NFKC", name or "")      # 全角英字・全角ピリオドを半角へ
+    n = re.sub(r"[\s.・･]+", "", n).lstrip(APPRENTICE)
+    m = re.match(r"^([A-Za-z])(.+)$", n)               # 日本人名は英字で始まらない
+    if m:
+        return m.group(1).upper(), m.group(2)
+    return None, n
+
+
 def norm_name(name: str) -> str:
-    """「Ｃ．ルメール」→「ルメール」、「▲小林美」→「小林美」、空白除去。"""
-    n = re.sub(r"[\s　]+", "", name or "")
-    n = n.replace("．", ".")
-    n = n.lstrip("▲△☆★◇◎○")
-    m = re.match(r"^[A-Za-zＡ-Ｚａ-ｚ]+\.(.+)$", n)
-    return m.group(1) if m else n
+    """後方互換: 核のみ返す。"""
+    return split_name(name)[1]
+
+
+def _is_subseq(short: str, long: str) -> bool:
+    """「鮫島駿」⊂「鮫島克駿」のような 姓+名末字 の略称に対応（順序を保った部分列）。"""
+    if len(short) < 2 or not long.startswith(short[0]):
+        return False
+    it = iter(long)
+    return all(ch in it for ch in short)
 
 
 def parse_stats_table(html: str, name_header: str = "騎手名") -> tuple[dict, dict]:
@@ -182,10 +203,9 @@ def parse_stats_table(html: str, name_header: str = "騎手名") -> tuple[dict, 
         if not raw_name or _norm_header(raw_name) == name_header:
             continue
         starts = _to_int(cells[cols["starts"]])
-        pr = _rate(cells[cols["place_rate"]])
-        if starts is None or pr is None:
-            continue
-        rec = {"name_full": raw_name, "starts": starts, "place_rate": pr}
+        if starts is None:
+            continue                       # 出走数が読めない行＝データ行でない
+        rec = {"name_full": raw_name, "starts": starts}
         for k in ("wins", "seconds", "thirds"):
             if k in cols:
                 rec[k] = _to_int(cells[cols[k]])
@@ -195,10 +215,15 @@ def parse_stats_table(html: str, name_header: str = "騎手名") -> tuple[dict, 
         for k in ("win_return_pct", "place_return_pct"):
             if k in cols:
                 rec[k] = _to_float(cells[cols[k]])
-        # 実仕様: 勝率0・回収率0の騎手はセルが空欄になる（欠損ではなく0）。
-        # 率は着度数から厳密に導けるので、空欄はそこから補う。
-        w, s2, s3, st = rec.get("wins"), rec.get("seconds"), rec.get("thirds"), rec["starts"]
+        rec["place_rate"] = _rate(cells[cols["place_rate"]]) if "place_rate" in cols else None
+        # 実仕様: 率や回収率が 0 の騎手は、そのセルが**空欄**になる（欠損ではなく 0）。
+        # 例) 鮫島克駿 11戦 0-0-0 → 勝率/連対率/複勝率/回収率がすべて空欄。
+        # 空欄行を捨てると「11戦して3着内0回」という有意な情報が消え、騎手が存在しない扱いに
+        # なってしまうため、着度数から厳密に算出して補う。
+        w, s2, s3, st = rec.get("wins"), rec.get("seconds"), rec.get("thirds"), starts
         if None not in (w, s2, s3) and st:
+            if rec["place_rate"] is None:
+                rec["place_rate"] = round((w + s2 + s3) / st, 3)
             if rec.get("win_rate") is None:
                 rec["win_rate"] = round(w / st, 3)
             if rec.get("quinella_rate") is None:
@@ -207,8 +232,12 @@ def parse_stats_table(html: str, name_header: str = "騎手名") -> tuple[dict, 
                 rec["win_return_pct"] = 0.0
             if rec.get("place_return_pct") is None and (w + s2 + s3) == 0:
                 rec["place_return_pct"] = 0.0
-        out[norm_name(raw_name)] = rec
-    meta["rows"] = len(out)
+        if rec["place_rate"] is None:
+            continue                       # 着度数も率も読めない＝データ行でない
+        ini, core = split_name(raw_name)
+        rec["initial"] = ini
+        out.setdefault(core, []).append(rec)
+    meta["rows"] = sum(len(v) for v in out.values())
     return out, meta
 
 
@@ -236,17 +265,29 @@ def fetch_jockey_table(session, surface: str, distance_m: int, race_date: str,
 
 # ---------------------------------------------------------------- 照合・判定
 def lookup(table: dict, jockey: str):
-    """出馬表の省略名（川田）→ umarengod のフルネーム（川田将雅）を姓の前方一致で解決。"""
-    key = norm_name(jockey)
-    if not key or not table:
+    """出馬表の省略名 → umarengod のフルネームを解決。戻り (rec, match_info) か None。
+    段階: 完全一致 → 前方一致 → 部分列(姓+名末字の略称) の順。
+    イニシャル付きの騎手は同じイニシャルのみ採用し、違えば「該当なし」にする（別人誤採用の防止）。"""
+    ci, cc = split_name(jockey)
+    if not cc or not table:
         return None
-    if key in table:
-        return table[key]
-    cands = [v for k, v in table.items() if k.startswith(key) or key.startswith(k)]
-    if len(cands) == 1:
-        return cands[0]
-    if cands:   # 複数該当（横山兄弟など）は出走数最多を採用
-        return max(cands, key=lambda v: v["starts"])
+    tiers = [("exact", [r for k, v in table.items() if k == cc for r in v]),
+             ("prefix", [r for k, v in table.items()
+                         if k != cc and (k.startswith(cc) or cc.startswith(k)) for r in v]),
+             ("subsequence", [r for k, v in table.items()
+                              if k != cc and not (k.startswith(cc) or cc.startswith(k))
+                              and _is_subseq(cc, k) for r in v])]
+    for tier, cands in tiers:
+        if not cands:
+            continue
+        if ci is not None:
+            same = [r for r in cands if r.get("initial") == ci]
+            if not same:
+                continue          # イニシャル違い＝別人。次の段階へ（無ければ該当なし）
+            cands = same
+        best = max(cands, key=lambda r: r["starts"])
+        return best, {"tier": tier, "candidates": len(cands),
+                      "ambiguous": len(cands) > 1}
     return None
 
 
@@ -266,16 +307,18 @@ def resolve_jockey(jockey_card: str, racecourse: str, surface: str, distance_m: 
     if place_st.get("status") == "unsupported":
         return {**base, "status": "unsupported", "reason": place_st.get("reason")}
 
-    pc = lookup(place_tbl, jockey_card) if place_st.get("status") == "ok" else None
-    ac = lookup(all_tbl, jockey_card) if all_st.get("status") == "ok" else None
+    p_hit = lookup(place_tbl, jockey_card) if place_st.get("status") == "ok" else None
+    a_hit = lookup(all_tbl, jockey_card) if all_st.get("status") == "ok" else None
+    pc, p_info = p_hit if p_hit else (None, None)
+    ac, a_info = a_hit if a_hit else (None, None)
     base["primary_condition"]["starts"] = (pc["starts"] if pc
                                            else (0 if place_st.get("status") == "ok" else None))
 
-    chosen, used = None, None
+    chosen, used, info = None, None, None
     if pc and pc["starts"] >= MIN_STARTS:
-        chosen, used = pc, racecourse
+        chosen, used, info = pc, racecourse, p_info
     elif ac:
-        chosen, used = ac, "ALL"
+        chosen, used, info = ac, "ALL", a_info
         base["fallback_used"] = True
         if place_st.get("status") != "ok":
             base["fallback_reason"] = f"primary_fetch_{place_st.get('reason')}"
@@ -284,7 +327,7 @@ def resolve_jockey(jockey_card: str, racecourse: str, surface: str, distance_m: 
         else:
             base["fallback_reason"] = "primary_not_found"
     elif pc:   # 全場が取れず、場×距離の少数サンプルしか無い
-        chosen, used = pc, racecourse
+        chosen, used, info = pc, racecourse, p_info
 
     if chosen is None:
         errs = [s for s in (place_st, all_st) if s.get("status") != "ok"]
@@ -304,6 +347,7 @@ def resolve_jockey(jockey_card: str, racecourse: str, surface: str, distance_m: 
            "raw_place_rate": round(chosen["place_rate"], 4),
            "adjusted_place_rate": round(shrink(chosen["place_rate"], chosen["starts"]), 4),
            "win_return_pct": chosen.get("win_return_pct"),
-           "place_return_pct": chosen.get("place_return_pct")}
+           "place_return_pct": chosen.get("place_return_pct"),
+           "name_match": info}
     rec["status"] = "insufficient_sample" if chosen["starts"] < MIN_STARTS else "ok"
     return rec
