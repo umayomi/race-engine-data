@@ -435,3 +435,31 @@ def _to_float(s):
         return float(re.sub(r"[^\d.]", "", s)) if s else None
     except (ValueError, TypeError):
         return None
+
+
+def parse_pedigree(html: str, horse_id: str) -> dict:
+    """db.netkeiba.com/horse/ped/{id}/ から 父・母・母父 を抽出。
+    構造: table.blood_table は32行。rowspan=16 のセルが 父(1つ目) と 母(2つ目)、
+    母の行の次のセル(rowspan=8) が母父。馬名はセル内の最初の <a> のテキスト。"""
+    soup = BeautifulSoup(html, "lxml")
+    t = soup.select_one("table.blood_table")
+    out = {"horse_id": horse_id, "sire": None, "dam": None, "damsire": None}
+    if not t:
+        log.warning("血統表が見つからない: %s", horse_id)
+        return out
+
+    def _name(td):
+        a = td.find("a") if td else None
+        s = _text(a) if a else None
+        return re.sub(r"\s+", " ", s).strip() if s else None
+
+    big = [td for td in t.find_all("td") if (td.get("rowspan") or "") == "16"]
+    if big:
+        out["sire"] = _name(big[0])
+    if len(big) > 1:
+        out["dam"] = _name(big[1])
+        tr = big[1].find_parent("tr")
+        tds = tr.find_all("td") if tr else []
+        if len(tds) > 1:
+            out["damsire"] = _name(tds[1])
+    return out
