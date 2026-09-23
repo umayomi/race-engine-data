@@ -1,0 +1,49 @@
+name: diagnose-umarengod
+
+on:
+  workflow_dispatch:
+    inputs:
+      horse_id:
+        description: "netkeiba horse_id（血統ページ調査用）"
+        required: false
+        default: "2021103932"
+      race_id:
+        description: "netkeiba race_id（出馬表の血統欄調査用）"
+        required: false
+        default: "202601010811"
+      max_pages:
+        description: "トップから棚卸しする最大ページ数"
+        required: false
+        default: "30"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-write
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: diagnose
+        env:
+          HORSE_ID: ${{ github.event.inputs.horse_id }}
+          RACE_ID: ${{ github.event.inputs.race_id }}
+          MAX_PAGES: ${{ github.event.inputs.max_pages }}
+        run: python tools/diagnose.py
+      - name: commit diagnostics
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add diagnostics
+          if git diff --staged --quiet; then echo "変更なし"; exit 0; fi
+          git commit -m "diagnose: umarengod survey $(TZ=Asia/Tokyo date +%Y%m%d-%H%M)"
+          git pull --rebase
+          git push
