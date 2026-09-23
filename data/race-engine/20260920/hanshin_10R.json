@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T07:27:19+09:00",
+  "generated_at": "2026-09-24T08:38:13+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040610",
@@ -22,12 +22,12 @@
   "fetch_status": {
     "jockey_primary": {
       "status": "ok",
-      "rows": 82,
+      "rows": 112,
       "column_mode": "header"
     },
     "jockey_all": {
       "status": "ok",
-      "rows": 156,
+      "rows": 194,
       "column_mode": "header"
     }
   },
@@ -64,6 +64,11 @@
         "adjusted_place_rate": 0.1399,
         "win_return_pct": 51.0,
         "place_return_pct": 75.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -105,6 +110,11 @@
         "adjusted_place_rate": 0.4931,
         "win_return_pct": 40.0,
         "place_return_pct": 74.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -122,18 +132,36 @@
       "weight_carried": 58.0,
       "jockey": {
         "name_card": "角田和",
-        "name": null,
+        "name": "角田大和",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": 0
+          "starts": 48
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 48,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 4,
+        "win_rate": 0.063,
+        "quinella_rate": 0.083,
+        "raw_place_rate": 0.167,
+        "adjusted_place_rate": 0.1789,
+        "win_return_pct": 108.0,
+        "place_return_pct": 63.0,
+        "name_match": {
+          "tier": "subsequence",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -174,6 +202,11 @@
         "adjusted_place_rate": 0.2557,
         "win_return_pct": 63.0,
         "place_return_pct": 163.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -215,6 +248,11 @@
         "adjusted_place_rate": 0.1916,
         "win_return_pct": 78.0,
         "place_return_pct": 56.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -256,6 +294,11 @@
         "adjusted_place_rate": 0.1772,
         "win_return_pct": 89.0,
         "place_return_pct": 51.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -297,6 +340,11 @@
         "adjusted_place_rate": 0.1316,
         "win_return_pct": 0.0,
         "place_return_pct": 34.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -338,6 +386,11 @@
         "adjusted_place_rate": 0.2344,
         "win_return_pct": 40.0,
         "place_return_pct": 97.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -355,18 +408,36 @@
       "weight_carried": 58.0,
       "jockey": {
         "name_card": "Ｍデムーロ",
-        "name": null,
+        "name": "Ｍ．デムーロ",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": 0
+          "starts": 37
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 37,
+        "wins": 5,
+        "seconds": 5,
+        "thirds": 4,
+        "win_rate": 0.135,
+        "quinella_rate": 0.27,
+        "raw_place_rate": 0.378,
+        "adjusted_place_rate": 0.3552,
+        "win_return_pct": 162.0,
+        "place_return_pct": 192.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -407,6 +478,11 @@
         "adjusted_place_rate": 0.1772,
         "win_return_pct": 212.0,
         "place_return_pct": 77.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -448,6 +524,11 @@
         "adjusted_place_rate": 0.2874,
         "win_return_pct": 29.0,
         "place_return_pct": 63.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -489,6 +570,11 @@
         "adjusted_place_rate": 0.1926,
         "win_return_pct": 58.0,
         "place_return_pct": 122.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -530,6 +616,11 @@
         "adjusted_place_rate": 0.128,
         "win_return_pct": 0.0,
         "place_return_pct": 70.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -571,6 +662,11 @@
         "adjusted_place_rate": 0.2025,
         "win_return_pct": 35.0,
         "place_return_pct": 63.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -612,6 +708,11 @@
         "adjusted_place_rate": 0.1165,
         "win_return_pct": 39.0,
         "place_return_pct": 34.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -625,8 +726,7 @@
   "quality": {
     "jockey_data_complete": true,
     "jockey_status_counts": {
-      "not_found": 2,
-      "ok": 13
+      "ok": 15
     },
     "sire_data_complete": false,
     "damsire_data_complete": false,

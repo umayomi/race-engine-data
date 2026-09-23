@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T07:27:00+09:00",
+  "generated_at": "2026-09-24T08:37:52+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040603",
@@ -22,12 +22,12 @@
   "fetch_status": {
     "jockey_primary": {
       "status": "ok",
-      "rows": 48,
+      "rows": 93,
       "column_mode": "header"
     },
     "jockey_all": {
       "status": "ok",
-      "rows": 147,
+      "rows": 187,
       "column_mode": "header"
     }
   },
@@ -64,6 +64,11 @@
         "adjusted_place_rate": 0.15,
         "win_return_pct": 8.0,
         "place_return_pct": 33.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -81,18 +86,36 @@
       "weight_carried": 55.0,
       "jockey": {
         "name_card": "鮫島駿",
-        "name": null,
+        "name": "鮫島克駿",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1800,
-          "starts": 0
+          "starts": 27
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 27,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 6,
+        "win_rate": 0.111,
+        "quinella_rate": 0.148,
+        "raw_place_rate": 0.37,
+        "adjusted_place_rate": 0.3426,
+        "win_return_pct": 39.0,
+        "place_return_pct": 84.0,
+        "name_match": {
+          "tier": "subsequence",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -133,6 +156,11 @@
         "adjusted_place_rate": 0.3223,
         "win_return_pct": 54.0,
         "place_return_pct": 68.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -150,18 +178,36 @@
       "weight_carried": 55.0,
       "jockey": {
         "name_card": "Ｍデムーロ",
-        "name": null,
+        "name": "Ｍ．デムーロ",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1800,
-          "starts": 0
+          "starts": 15
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 15,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.2,
+        "quinella_rate": 0.267,
+        "raw_place_rate": 0.333,
+        "adjusted_place_rate": 0.3041,
+        "win_return_pct": 234.0,
+        "place_return_pct": 117.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -202,6 +248,11 @@
         "adjusted_place_rate": 0.25,
         "win_return_pct": 12.0,
         "place_return_pct": 149.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -243,6 +294,11 @@
         "adjusted_place_rate": 0.2309,
         "win_return_pct": 67.0,
         "place_return_pct": 47.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -284,6 +340,11 @@
         "adjusted_place_rate": 0.4004,
         "win_return_pct": 95.0,
         "place_return_pct": 75.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -297,8 +358,7 @@
   "quality": {
     "jockey_data_complete": true,
     "jockey_status_counts": {
-      "not_found": 2,
-      "ok": 5
+      "ok": 7
     },
     "sire_data_complete": false,
     "damsire_data_complete": false,

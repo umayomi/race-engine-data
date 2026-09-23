@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T07:26:12+09:00",
+  "generated_at": "2026-09-24T08:37:06+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040605",
@@ -22,12 +22,12 @@
   "fetch_status": {
     "jockey_primary": {
       "status": "ok",
-      "rows": 76,
+      "rows": 125,
       "column_mode": "header"
     },
     "jockey_all": {
       "status": "ok",
-      "rows": 134,
+      "rows": 186,
       "column_mode": "header"
     }
   },
@@ -64,6 +64,11 @@
         "adjusted_place_rate": 0.2422,
         "win_return_pct": 52.0,
         "place_return_pct": 93.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -81,18 +86,36 @@
       "weight_carried": 53.0,
       "jockey": {
         "name_card": "△石神道",
-        "name": null,
+        "name": "石神深道",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "芝",
           "distance": 1600,
-          "starts": 0
+          "starts": 28
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "芝",
+          "distance": 1600
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 28,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.071,
+        "adjusted_place_rate": 0.1108,
+        "win_return_pct": 0.0,
+        "place_return_pct": 23.0,
+        "name_match": {
+          "tier": "subsequence",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -114,25 +137,30 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 1600,
-          "starts": 0
+          "starts": 9
         },
         "condition_used": {
-          "racecourse": "ALL",
+          "racecourse": "中山",
           "surface": "芝",
           "distance": 1600
         },
-        "fallback_used": true,
-        "fallback_reason": "primary_not_found",
-        "starts": 31,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 9,
         "wins": 0,
         "seconds": 0,
-        "thirds": 1,
+        "thirds": 0,
         "win_rate": 0.0,
         "quinella_rate": 0.0,
-        "raw_place_rate": 0.032,
-        "adjusted_place_rate": 0.0767,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1176,
         "win_return_pct": 0.0,
-        "place_return_pct": 234.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -174,6 +202,11 @@
         "adjusted_place_rate": 0.1081,
         "win_return_pct": 0.0,
         "place_return_pct": 42.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -215,6 +248,11 @@
         "adjusted_place_rate": 0.25,
         "win_return_pct": 14.0,
         "place_return_pct": 67.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -256,6 +294,11 @@
         "adjusted_place_rate": 0.2833,
         "win_return_pct": 68.0,
         "place_return_pct": 73.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -297,6 +340,11 @@
         "adjusted_place_rate": 0.4255,
         "win_return_pct": 84.0,
         "place_return_pct": 93.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -338,6 +386,11 @@
         "adjusted_place_rate": 0.1428,
         "win_return_pct": 0.0,
         "place_return_pct": 47.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -379,6 +432,11 @@
         "adjusted_place_rate": 0.2399,
         "win_return_pct": 77.0,
         "place_return_pct": 74.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -420,6 +478,11 @@
         "adjusted_place_rate": 0.1122,
         "win_return_pct": 0.0,
         "place_return_pct": 27.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -461,6 +524,11 @@
         "adjusted_place_rate": 0.3146,
         "win_return_pct": 52.0,
         "place_return_pct": 87.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -502,6 +570,11 @@
         "adjusted_place_rate": 0.4017,
         "win_return_pct": 63.0,
         "place_return_pct": 83.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -543,6 +616,11 @@
         "adjusted_place_rate": 0.1112,
         "win_return_pct": 72.0,
         "place_return_pct": 46.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 2,
+          "ambiguous": true
+        },
         "status": "ok"
       },
       "sire": {
@@ -584,6 +662,11 @@
         "adjusted_place_rate": 0.516,
         "win_return_pct": 75.0,
         "place_return_pct": 73.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -625,6 +708,11 @@
         "adjusted_place_rate": 0.3197,
         "win_return_pct": 74.0,
         "place_return_pct": 95.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -642,18 +730,36 @@
       "weight_carried": 52.0,
       "jockey": {
         "name_card": "▲遠藤",
-        "name": null,
+        "name": "遠藤汰月",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "芝",
           "distance": 1600,
-          "starts": 0
+          "starts": 19
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "芝",
+          "distance": 1600
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 19,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.0741,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -666,8 +772,7 @@
   "quality": {
     "jockey_data_complete": true,
     "jockey_status_counts": {
-      "not_found": 2,
-      "ok": 14
+      "ok": 16
     },
     "sire_data_complete": false,
     "damsire_data_complete": false,

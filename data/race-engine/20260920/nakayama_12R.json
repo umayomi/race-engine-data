@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T07:26:42+09:00",
+  "generated_at": "2026-09-24T08:37:37+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040612",
@@ -22,12 +22,12 @@
   "fetch_status": {
     "jockey_primary": {
       "status": "ok",
-      "rows": 67,
+      "rows": 125,
       "column_mode": "header"
     },
     "jockey_all": {
       "status": "ok",
-      "rows": 139,
+      "rows": 200,
       "column_mode": "header"
     }
   },
@@ -64,6 +64,11 @@
         "adjusted_place_rate": 0.1274,
         "win_return_pct": 55.0,
         "place_return_pct": 64.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -105,6 +110,11 @@
         "adjusted_place_rate": 0.1307,
         "win_return_pct": 0.0,
         "place_return_pct": 93.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -146,6 +156,11 @@
         "adjusted_place_rate": 0.3075,
         "win_return_pct": 121.0,
         "place_return_pct": 175.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -187,6 +202,11 @@
         "adjusted_place_rate": 0.2144,
         "win_return_pct": 0.0,
         "place_return_pct": 55.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -228,6 +248,11 @@
         "adjusted_place_rate": 0.1725,
         "win_return_pct": 0.0,
         "place_return_pct": 31.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -245,18 +270,36 @@
       "weight_carried": 54.0,
       "jockey": {
         "name_card": "△石神道",
-        "name": null,
+        "name": "石神深道",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "芝",
           "distance": 1200,
-          "starts": 0
+          "starts": 16
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "芝",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 16,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.063,
+        "quinella_rate": 0.063,
+        "raw_place_rate": 0.125,
+        "adjusted_place_rate": 0.1667,
+        "win_return_pct": 241.0,
+        "place_return_pct": 66.0,
+        "name_match": {
+          "tier": "subsequence",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -297,6 +340,11 @@
         "adjusted_place_rate": 0.1667,
         "win_return_pct": 0.0,
         "place_return_pct": 120.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -319,25 +367,30 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 1200,
-          "starts": 0
+          "starts": 6
         },
         "condition_used": {
-          "racecourse": "ALL",
+          "racecourse": "中山",
           "surface": "芝",
           "distance": 1200
         },
-        "fallback_used": true,
-        "fallback_reason": "primary_not_found",
-        "starts": 163,
-        "wins": 4,
-        "seconds": 5,
-        "thirds": 8,
-        "win_rate": 0.025,
-        "quinella_rate": 0.055,
-        "raw_place_rate": 0.104,
-        "adjusted_place_rate": 0.1108,
-        "win_return_pct": 41.0,
-        "place_return_pct": 77.0,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 6,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1429,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -379,6 +432,11 @@
         "adjusted_place_rate": 0.0964,
         "win_return_pct": 0.0,
         "place_return_pct": 15.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -401,25 +459,30 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 1200,
-          "starts": 0
+          "starts": 6
         },
         "condition_used": {
-          "racecourse": "ALL",
+          "racecourse": "中山",
           "surface": "芝",
           "distance": 1200
         },
-        "fallback_used": true,
-        "fallback_reason": "primary_not_found",
-        "starts": 48,
-        "wins": 3,
-        "seconds": 1,
-        "thirds": 1,
-        "win_rate": 0.063,
-        "quinella_rate": 0.083,
-        "raw_place_rate": 0.104,
-        "adjusted_place_rate": 0.1249,
-        "win_return_pct": 95.0,
-        "place_return_pct": 34.0,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 6,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1429,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -461,6 +524,11 @@
         "adjusted_place_rate": 0.2106,
         "win_return_pct": 259.0,
         "place_return_pct": 92.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -502,6 +570,11 @@
         "adjusted_place_rate": 0.2818,
         "win_return_pct": 117.0,
         "place_return_pct": 86.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -543,6 +616,11 @@
         "adjusted_place_rate": 0.1576,
         "win_return_pct": 91.0,
         "place_return_pct": 53.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -584,6 +662,11 @@
         "adjusted_place_rate": 0.1996,
         "win_return_pct": 38.0,
         "place_return_pct": 78.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -625,6 +708,11 @@
         "adjusted_place_rate": 0.1431,
         "win_return_pct": 0.0,
         "place_return_pct": 41.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -666,6 +754,11 @@
         "adjusted_place_rate": 0.1933,
         "win_return_pct": 26.0,
         "place_return_pct": 50.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -679,8 +772,7 @@
   "quality": {
     "jockey_data_complete": true,
     "jockey_status_counts": {
-      "not_found": 1,
-      "ok": 15
+      "ok": 16
     },
     "sire_data_complete": false,
     "damsire_data_complete": false,

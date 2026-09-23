@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T07:27:23+09:00",
+  "generated_at": "2026-09-24T08:38:16+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040611",
@@ -22,12 +22,12 @@
   "fetch_status": {
     "jockey_primary": {
       "status": "ok",
-      "rows": 49,
+      "rows": 88,
       "column_mode": "header"
     },
     "jockey_all": {
       "status": "ok",
-      "rows": 139,
+      "rows": 200,
       "column_mode": "header"
     }
   },
@@ -64,6 +64,11 @@
         "adjusted_place_rate": 0.2398,
         "win_return_pct": 162.0,
         "place_return_pct": 213.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -105,6 +110,11 @@
         "adjusted_place_rate": 0.2308,
         "win_return_pct": 0.0,
         "place_return_pct": 26.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -146,6 +156,11 @@
         "adjusted_place_rate": 0.2761,
         "win_return_pct": 242.0,
         "place_return_pct": 113.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -187,6 +202,11 @@
         "adjusted_place_rate": 0.316,
         "win_return_pct": 176.0,
         "place_return_pct": 65.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -228,6 +248,11 @@
         "adjusted_place_rate": 0.3589,
         "win_return_pct": 131.0,
         "place_return_pct": 85.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -250,7 +275,7 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1200,
-          "starts": 0
+          "starts": 1
         },
         "condition_used": {
           "racecourse": "ALL",
@@ -258,7 +283,7 @@
           "distance": 1200
         },
         "fallback_used": true,
-        "fallback_reason": "primary_not_found",
+        "fallback_reason": "primary_starts_lt_5",
         "starts": 70,
         "wins": 0,
         "seconds": 3,
@@ -269,6 +294,11 @@
         "adjusted_place_rate": 0.1028,
         "win_return_pct": 0.0,
         "place_return_pct": 186.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -310,6 +340,11 @@
         "adjusted_place_rate": 0.222,
         "win_return_pct": 48.0,
         "place_return_pct": 85.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -327,18 +362,36 @@
       "weight_carried": 58.0,
       "jockey": {
         "name_card": "Ｍデムーロ",
-        "name": null,
+        "name": "Ｍ．デムーロ",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1200,
-          "starts": 0
+          "starts": 10
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 10,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.1,
+        "adjusted_place_rate": 0.1667,
+        "win_return_pct": 0.0,
+        "place_return_pct": 32.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -379,6 +432,11 @@
         "adjusted_place_rate": 0.292,
         "win_return_pct": 66.0,
         "place_return_pct": 50.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -396,18 +454,36 @@
       "weight_carried": 58.0,
       "jockey": {
         "name_card": "鮫島駿",
-        "name": null,
+        "name": "鮫島克駿",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1200,
-          "starts": 0
+          "starts": 18
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 18,
+        "wins": 2,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.111,
+        "quinella_rate": 0.167,
+        "raw_place_rate": 0.222,
+        "adjusted_place_rate": 0.2306,
+        "win_return_pct": 1404.0,
+        "place_return_pct": 262.0,
+        "name_match": {
+          "tier": "subsequence",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -448,6 +524,11 @@
         "adjusted_place_rate": 0.2144,
         "win_return_pct": 0.0,
         "place_return_pct": 27.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -489,6 +570,11 @@
         "adjusted_place_rate": 0.1307,
         "win_return_pct": 0.0,
         "place_return_pct": 58.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -530,6 +616,11 @@
         "adjusted_place_rate": 0.1735,
         "win_return_pct": 50.0,
         "place_return_pct": 80.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -552,7 +643,7 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1200,
-          "starts": 0
+          "starts": 3
         },
         "condition_used": {
           "racecourse": "ALL",
@@ -560,7 +651,7 @@
           "distance": 1200
         },
         "fallback_used": true,
-        "fallback_reason": "primary_not_found",
+        "fallback_reason": "primary_starts_lt_5",
         "starts": 54,
         "wins": 3,
         "seconds": 7,
@@ -571,6 +662,11 @@
         "adjusted_place_rate": 0.2256,
         "win_return_pct": 179.0,
         "place_return_pct": 89.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -612,6 +708,11 @@
         "adjusted_place_rate": 0.2633,
         "win_return_pct": 408.0,
         "place_return_pct": 83.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -653,6 +754,11 @@
         "adjusted_place_rate": 0.1284,
         "win_return_pct": 131.0,
         "place_return_pct": 68.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
         "status": "ok"
       },
       "sire": {
@@ -666,8 +772,7 @@
   "quality": {
     "jockey_data_complete": true,
     "jockey_status_counts": {
-      "not_found": 2,
-      "ok": 14
+      "ok": 16
     },
     "sire_data_complete": false,
     "damsire_data_complete": false,
