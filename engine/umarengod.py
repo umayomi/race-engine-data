@@ -351,3 +351,154 @@ def resolve_jockey(jockey_card: str, racecourse: str, surface: str, distance_m: 
            "name_match": info}
     rec["status"] = "insufficient_sample" if chosen["starts"] < MIN_STARTS else "ok"
     return rec
+
+
+# ================================================================ 血統（種牡馬・母父）
+URL_PEDIGREE = "https://umarengod.com/etcfatherm.php"
+PED_MIN_STARTS = 5          # 場×距離をそのまま使う最低出走数（未満は距離のみへ fallback）
+
+
+def pedigree_payload(fld: str, name: str, race_date: str) -> dict:
+    """etcfatherm.php への POST。実フォームの javapost() より:
+       fld=father|mfather / pvaluex=馬名（pvalue ではない） / proc=1（1でないと一覧のまま）。
+    期間は騎手と同じ D-1 まで。"""
+    s, e = period_3y(race_date)
+    return {"fld": fld, "pvaluex": name, "proc": "1", "stype": "",
+            "yy1": str(s.year), "mm1": str(s.month), "dd1": str(s.day),
+            "yy2": str(e.year), "mm2": str(e.month), "dd2": str(e.day),
+            "crs": "ALL", "range": "", "range2": ""}
+
+
+def _norm_course(s: str) -> tuple[str | None, int | None]:
+    """「ダ1700」→("ダート",1700)、「芝1200」→("芝",1200)、「障3000」→("障害",3000)。"""
+    t = _norm_header(s)
+    m = re.search(r"(\d{3,4})", t)
+    dist = int(m.group(1)) if m else None
+    surf = "障害" if "障" in t else ("ダート" if "ダ" in t else ("芝" if "芝" in t else None))
+    return surf, dist
+
+
+def parse_pedigree_table(html: str) -> tuple[list[dict], dict]:
+    """産駒成績ページ → [{racecourse, surface, distance, wins, seconds, thirds, starts,
+       win_rate, quinella_rate, place_rate}] と meta。
+    このページは「競馬場×コース・距離」の全組み合わせを1ページで返す（1頭1リクエストで足りる）。"""
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "lxml")
+    best = None
+    for t in soup.find_all("table"):
+        head = t.find("tr")
+        if not head:
+            continue
+        cells = [_norm_header(c.get_text()) for c in head.find_all(["th", "td"])]
+        if "競馬場" in cells and any("3着内率" in c or "複勝率" in c for c in cells) and \
+           any("出走" in c for c in cells):
+            if t.find("table") is None and (best is None or len(t.find_all("tr")) > len(best.find_all("tr"))):
+                best = t
+    meta = {"table_found": best is not None, "rows": 0}
+    if best is None:
+        return [], meta
+
+    head = [_norm_header(c.get_text()) for c in best.find("tr").find_all(["th", "td"])]
+    idx = {}
+    for i, c in enumerate(head):
+        for word, key in (("競馬場", "course"), ("ｺｰｽ", "cd"), ("コース", "cd"),
+                          ("1着", "wins"), ("2着", "seconds"), ("3着", "thirds"),
+                          ("出走", "starts"), ("連対率", "quinella_rate"),
+                          ("3着内率", "place_rate"), ("複勝率", "place_rate"),
+                          ("勝率", "win_rate")):
+            if word in c and key not in idx:
+                idx[key] = i
+                break
+    need = max(idx.values()) if idx else 0
+    out = []
+    for tr in best.find_all("tr")[1:]:
+        cells = [c.get_text(strip=True) for c in tr.find_all("td")]
+        if len(cells) <= need or "course" not in idx or "cd" not in idx:
+            continue
+        rc = cells[idx["course"]]
+        surf, dist = _norm_course(cells[idx["cd"]])
+        st = _to_int(cells[idx["starts"]])
+        if not rc or surf is None or dist is None or st is None:
+            continue
+        rec = {"racecourse": rc, "surface": surf, "distance": dist, "starts": st,
+               "wins": _to_int(cells[idx["wins"]]) if "wins" in idx else None,
+               "seconds": _to_int(cells[idx["seconds"]]) if "seconds" in idx else None,
+               "thirds": _to_int(cells[idx["thirds"]]) if "thirds" in idx else None,
+               "win_rate": _rate(cells[idx["win_rate"]]) if "win_rate" in idx else None,
+               "quinella_rate": _rate(cells[idx["quinella_rate"]]) if "quinella_rate" in idx else None,
+               "place_rate": _rate(cells[idx["place_rate"]]) if "place_rate" in idx else None}
+        w, s2, s3 = rec["wins"], rec["seconds"], rec["thirds"]
+        if None not in (w, s2, s3) and st:          # 空欄=0（騎手表と同じ仕様）
+            if rec["place_rate"] is None:
+                rec["place_rate"] = round((w + s2 + s3) / st, 3)
+            if rec["win_rate"] is None:
+                rec["win_rate"] = round(w / st, 3)
+            if rec["quinella_rate"] is None:
+                rec["quinella_rate"] = round((w + s2) / st, 3)
+        if rec["place_rate"] is None:
+            continue
+        out.append(rec)
+    meta["rows"] = len(out)
+    return out, meta
+
+
+def fetch_pedigree(session, fld: str, name: str, race_date: str) -> tuple[list[dict], dict]:
+    """種牡馬(father)/母父(mfather) の産駒成績を1回のPOSTで全条件ぶん取得。"""
+    if not name:
+        return [], {"status": "not_found", "reason": "name_missing"}
+    try:
+        r = session.post(URL_PEDIGREE, data=pedigree_payload(fld, name, race_date),
+                         headers={"User-Agent": UA}, timeout=40)
+    except Exception as e:  # noqa: BLE001
+        return [], {"status": "error", "reason": f"network:{type(e).__name__}"}
+    finally:
+        time.sleep(INTERVAL_SEC)
+    if r.status_code != 200:
+        return [], {"status": "error", "reason": f"http_{r.status_code}"}
+    r.encoding = r.apparent_encoding
+    rows, meta = parse_pedigree_table(r.text)
+    if not meta["table_found"]:
+        return [], {"status": "error", "reason": "table_not_found"}
+    if not rows:
+        return [], {"status": "not_found", "reason": "no_rows_for_name"}
+    return rows, {"status": "ok", "rows": meta["rows"]}
+
+
+def resolve_pedigree(name: str, rows: list[dict], st: dict,
+                     racecourse: str, surface: str, distance_m: int) -> dict:
+    """全条件の行から「場×距離」を選ぶ。5走未満なら「距離のみ（全場合算）」へ fallback。"""
+    base = {"name": name, "primary_condition": {"racecourse": racecourse, "surface": surface,
+                                                "distance": distance_m, "starts": None},
+            "condition_used": None, "fallback_used": False, "fallback_reason": None}
+    if st.get("status") != "ok":
+        return {**base, "status": st.get("status", "error"), "reason": st.get("reason")}
+
+    same = [r for r in rows if r["surface"] == surface and r["distance"] == distance_m]
+    exact = [r for r in same if r["racecourse"] == racecourse]
+    ex_starts = sum(r["starts"] for r in exact)
+    base["primary_condition"]["starts"] = ex_starts
+
+    def agg(rs, label):
+        st_ = sum(r["starts"] for r in rs)
+        w = sum(r["wins"] or 0 for r in rs); s2 = sum(r["seconds"] or 0 for r in rs)
+        s3 = sum(r["thirds"] or 0 for r in rs)
+        return {"condition_used": label, "starts": st_, "wins": w, "seconds": s2, "thirds": s3,
+                "win_rate": round(w / st_, 4), "quinella_rate": round((w + s2) / st_, 4),
+                "place_rate": round((w + s2 + s3) / st_, 4)}
+
+    if ex_starts >= PED_MIN_STARTS:
+        a = agg(exact, {"racecourse": racecourse, "surface": surface, "distance": distance_m})
+    elif same:
+        a = agg(same, {"racecourse": "ALL", "surface": surface, "distance": distance_m})
+        base["fallback_used"] = True
+        base["fallback_reason"] = f"primary_starts_lt_{PED_MIN_STARTS}"
+    elif exact:
+        a = agg(exact, {"racecourse": racecourse, "surface": surface, "distance": distance_m})
+    else:
+        return {**base, "status": "not_found", "reason": "no_runs_in_condition"}
+
+    rec = {**base, **a}
+    rec["raw_place_rate"] = rec.pop("place_rate")
+    rec["adjusted_place_rate"] = round(shrink(rec["raw_place_rate"], rec["starts"]), 4)
+    rec["status"] = "insufficient_sample" if rec["starts"] < PED_MIN_STARTS else "ok"
+    return rec
