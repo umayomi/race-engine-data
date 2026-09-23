@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T00:51:22+09:00",
+  "generated_at": "2026-09-24T07:27:08+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040606",
@@ -22,12 +22,12 @@
   "fetch_status": {
     "jockey_primary": {
       "status": "ok",
-      "rows": 9,
+      "rows": 61,
       "column_mode": "header"
     },
     "jockey_all": {
       "status": "ok",
-      "rows": 32,
+      "rows": 145,
       "column_mode": "header"
     }
   },
@@ -40,18 +40,31 @@
       "weight_carried": 56.0,
       "jockey": {
         "name_card": "吉村",
-        "name": null,
+        "name": "吉村誠之助",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": 0
+          "starts": 40
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 40,
+        "wins": 4,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.1,
+        "quinella_rate": 0.15,
+        "raw_place_rate": 0.175,
+        "adjusted_place_rate": 0.1875,
+        "win_return_pct": 45.0,
+        "place_return_pct": 37.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -68,18 +81,31 @@
       "weight_carried": 58.0,
       "jockey": {
         "name_card": "岩田望",
-        "name": null,
+        "name": "岩田望来",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": 0
+          "starts": 42
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 42,
+        "wins": 2,
+        "seconds": 11,
+        "thirds": 6,
+        "win_rate": 0.048,
+        "quinella_rate": 0.31,
+        "raw_place_rate": 0.452,
+        "adjusted_place_rate": 0.4197,
+        "win_return_pct": 17.0,
+        "place_return_pct": 80.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -96,18 +122,31 @@
       "weight_carried": 55.0,
       "jockey": {
         "name_card": "幸",
-        "name": null,
+        "name": "幸英明",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": 0
+          "starts": 45
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 45,
+        "wins": 2,
+        "seconds": 1,
+        "thirds": 3,
+        "win_rate": 0.044,
+        "quinella_rate": 0.067,
+        "raw_place_rate": 0.133,
+        "adjusted_place_rate": 0.1507,
+        "win_return_pct": 72.0,
+        "place_return_pct": 15.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -124,18 +163,31 @@
       "weight_carried": 58.0,
       "jockey": {
         "name_card": "松山",
-        "name": null,
+        "name": "松山弘平",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": 0
+          "starts": 61
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 61,
+        "wins": 8,
+        "seconds": 6,
+        "thirds": 7,
+        "win_rate": 0.131,
+        "quinella_rate": 0.23,
+        "raw_place_rate": 0.344,
+        "adjusted_place_rate": 0.3331,
+        "win_return_pct": 41.0,
+        "place_return_pct": 94.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -180,18 +232,31 @@
       "weight_carried": 53.0,
       "jockey": {
         "name_card": "亀田",
-        "name": null,
+        "name": "亀田温心",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
           "starts": 0
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_not_found",
+        "starts": 87,
+        "wins": 7,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.08,
+        "quinella_rate": 0.103,
+        "raw_place_rate": 0.126,
+        "adjusted_place_rate": 0.1364,
+        "win_return_pct": 61.0,
+        "place_return_pct": 34.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -208,18 +273,31 @@
       "weight_carried": 55.0,
       "jockey": {
         "name_card": "川田",
-        "name": null,
+        "name": "川田将雅",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": 0
+          "starts": 33
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 33,
+        "wins": 7,
+        "seconds": 7,
+        "thirds": 6,
+        "win_rate": 0.212,
+        "quinella_rate": 0.424,
+        "raw_place_rate": 0.606,
+        "adjusted_place_rate": 0.5365,
+        "win_return_pct": 48.0,
+        "place_return_pct": 88.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -236,18 +314,31 @@
       "weight_carried": 55.0,
       "jockey": {
         "name_card": "北村友",
-        "name": null,
+        "name": "北村友一",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": 0
+          "starts": 30
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 30,
+        "wins": 5,
+        "seconds": 3,
+        "thirds": 3,
+        "win_rate": 0.167,
+        "quinella_rate": 0.267,
+        "raw_place_rate": 0.367,
+        "adjusted_place_rate": 0.3424,
+        "win_return_pct": 77.0,
+        "place_return_pct": 97.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -264,18 +355,31 @@
       "weight_carried": 56.0,
       "jockey": {
         "name_card": "◇古川奈",
-        "name": null,
+        "name": "古川奈穂",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
           "starts": 0
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_not_found",
+        "starts": 71,
+        "wins": 2,
+        "seconds": 3,
+        "thirds": 2,
+        "win_rate": 0.028,
+        "quinella_rate": 0.07,
+        "raw_place_rate": 0.099,
+        "adjusted_place_rate": 0.1143,
+        "win_return_pct": 25.0,
+        "place_return_pct": 60.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -320,18 +424,31 @@
       "weight_carried": 53.0,
       "jockey": {
         "name_card": "松若",
-        "name": null,
+        "name": "松若風馬",
         "primary_condition": {
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": 0
+          "starts": 31
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 31,
+        "wins": 3,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.097,
+        "quinella_rate": 0.097,
+        "raw_place_rate": 0.129,
+        "adjusted_place_rate": 0.1538,
+        "win_return_pct": 736.0,
+        "place_return_pct": 116.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -344,7 +461,8 @@
   "quality": {
     "jockey_data_complete": true,
     "jockey_status_counts": {
-      "not_found": 11
+      "not_found": 2,
+      "ok": 9
     },
     "sire_data_complete": false,
     "damsire_data_complete": false,

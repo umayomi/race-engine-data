@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T00:50:43+09:00",
+  "generated_at": "2026-09-24T07:26:27+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040609",
@@ -22,12 +22,12 @@
   "fetch_status": {
     "jockey_primary": {
       "status": "ok",
-      "rows": 3,
+      "rows": 32,
       "column_mode": "header"
     },
     "jockey_all": {
       "status": "ok",
-      "rows": 6,
+      "rows": 64,
       "column_mode": "header"
     }
   },
@@ -68,18 +68,31 @@
       "weight_carried": 54.0,
       "jockey": {
         "name_card": "菊沢",
-        "name": null,
+        "name": "菊沢一樹",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": 0
+          "starts": 9
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 9,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.111,
+        "adjusted_place_rate": 0.1764,
+        "win_return_pct": 0.0,
+        "place_return_pct": 23.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -96,18 +109,31 @@
       "weight_carried": 57.0,
       "jockey": {
         "name_card": "西村淳",
-        "name": null,
+        "name": "西村淳也",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": 0
+          "starts": 2
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 2400
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 3,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.333,
+        "raw_place_rate": 0.333,
+        "adjusted_place_rate": 0.2726,
+        "win_return_pct": 0.0,
+        "place_return_pct": 87.0,
+        "status": "insufficient_sample"
       },
       "sire": {
         "status": "not_implemented"
@@ -152,18 +178,31 @@
       "weight_carried": 53.0,
       "jockey": {
         "name_card": "横山武",
-        "name": null,
+        "name": "横山武史",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": 0
+          "starts": 12
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 12,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.083,
+        "quinella_rate": 0.25,
+        "raw_place_rate": 0.417,
+        "adjusted_place_rate": 0.3502,
+        "win_return_pct": 33.0,
+        "place_return_pct": 108.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -180,18 +219,31 @@
       "weight_carried": 54.0,
       "jockey": {
         "name_card": "杉原",
-        "name": null,
+        "name": "杉原誠人",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": 0
+          "starts": 5
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 5,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.4,
+        "adjusted_place_rate": 0.3077,
+        "win_return_pct": 0.0,
+        "place_return_pct": 234.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -236,18 +288,31 @@
       "weight_carried": 55.0,
       "jockey": {
         "name_card": "ルメール",
-        "name": null,
+        "name": "Ｃ．ルメール",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": 0
+          "starts": 6
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 6,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.167,
+        "quinella_rate": 0.333,
+        "raw_place_rate": 0.333,
+        "adjusted_place_rate": 0.2856,
+        "win_return_pct": 50.0,
+        "place_return_pct": 45.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -264,18 +329,31 @@
       "weight_carried": 57.0,
       "jockey": {
         "name_card": "佐々木",
-        "name": null,
+        "name": "佐々木大輔",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": 0
+          "starts": 12
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 12,
+        "wins": 0,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.167,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "win_return_pct": 0.0,
+        "place_return_pct": 43.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -292,18 +370,31 @@
       "weight_carried": 54.0,
       "jockey": {
         "name_card": "横山和",
-        "name": null,
+        "name": "横山和生",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": 0
+          "starts": 15
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 15,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 0,
+        "win_rate": 0.133,
+        "quinella_rate": 0.267,
+        "raw_place_rate": 0.267,
+        "adjusted_place_rate": 0.2611,
+        "win_return_pct": 185.0,
+        "place_return_pct": 85.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -348,18 +439,31 @@
       "weight_carried": 51.0,
       "jockey": {
         "name_card": "丸田",
-        "name": null,
+        "name": "丸田恭介",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": 0
+          "starts": 6
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_starts_in_condition_or_name_unmatched"
+        "starts": 6,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.167,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.667,
+        "adjusted_place_rate": 0.4287,
+        "win_return_pct": 80.0,
+        "place_return_pct": 213.0,
+        "status": "ok"
       },
       "sire": {
         "status": "not_implemented"
@@ -372,7 +476,9 @@
   "quality": {
     "jockey_data_complete": true,
     "jockey_status_counts": {
-      "not_found": 12
+      "insufficient_sample": 1,
+      "not_found": 4,
+      "ok": 7
     },
     "sire_data_complete": false,
     "damsire_data_complete": false,
