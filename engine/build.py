@@ -34,6 +34,43 @@ def _iso(d: str) -> str:
     return f"{d[0:4]}-{d[4:6]}-{d[6:8]}"
 
 
+class PedigreeCache:
+    """種牡馬/母父ごとに1回だけPOSTする。産駒成績ページは全条件を1ページで返すため、
+    「馬名」だけがキーになり、条件別の追加リクエストは不要。"""
+    def __init__(self, session, race_date: str):
+        self.session, self.race_date = session, race_date
+        self.memo: dict = {}
+        self.requests = 0
+
+    def get(self, fld: str, name: str):
+        _, end = U.period_3y(self.race_date)
+        key = (fld, name, end.isoformat())     # 期間を必ずキーに含める
+        if key not in self.memo:
+            self.requests += 1
+            self.memo[key] = U.fetch_pedigree(self.session, fld, name, self.race_date)
+        return self.memo[key]
+
+
+class PedigreeNames:
+    """netkeiba の血統ページから 父・母父 を取得（馬ごとに1回）。"""
+    def __init__(self):
+        self.memo: dict = {}
+        self.requests = 0
+
+    def get(self, horse_id: str | None) -> dict:
+        if not horse_id:
+            return {"sire": None, "damsire": None, "error": "horse_id_missing"}
+        if horse_id not in self.memo:
+            self.requests += 1
+            try:
+                html = nk.get(f"{nk.BASE_DB}/horse/ped/{horse_id}/")
+                self.memo[horse_id] = nk.parse_pedigree(html, horse_id)
+            except Exception as e:  # noqa: BLE001
+                self.memo[horse_id] = {"sire": None, "damsire": None,
+                                       "error": f"network:{type(e).__name__}"}
+        return self.memo[horse_id]
+
+
 class JockeyTables:
     """(場, 芝ダ, 距離, 集計終了日) 単位のメモ。終了日を必ずキーに含める＝別日の流用が構造的に起きない。"""
     def __init__(self, session, race_date: str):
@@ -52,7 +89,8 @@ class JockeyTables:
         return self.memo[key]
 
 
-def build_race(race: dict, race_date: str, jt: JockeyTables) -> dict:
+def build_race(race: dict, race_date: str, jt: JockeyTables,
+               pn: "PedigreeNames | None" = None, pc: "PedigreeCache | None" = None) -> dict:
     start, end = U.period_3y(race_date)
     d1_ok = (datetime.datetime.strptime(race_date, "%Y%m%d").date() - end).days == 1
     course, surface, dist = race.get("track"), race.get("surface"), race.get("distance_m")
@@ -68,6 +106,19 @@ def build_race(race: dict, race_date: str, jt: JockeyTables) -> dict:
     for h in race.get("horses", []):
         jk = U.resolve_jockey(h.get("jockey") or "", course, surface, dist,
                               place_tbl, place_st, all_tbl, all_st)
+        sire = damsire = {"status": "not_implemented"}
+        if pn is not None and pc is not None:
+            names = pn.get(h.get("horse_id"))
+            out2 = {}
+            for fld, key in (("father", "sire"), ("mfather", "damsire")):
+                nm = names.get(key)
+                if not nm:
+                    out2[key] = {"name": None, "status": "error" if names.get("error") else "not_found",
+                                 "reason": names.get("error") or "pedigree_name_unavailable"}
+                    continue
+                rows, st = pc.get(fld, nm)
+                out2[key] = U.resolve_pedigree(nm, rows, st, course, surface, dist)
+            sire, damsire = out2["sire"], out2["damsire"]
         horses.append({
             "horse_number": h.get("umaban"),
             "horse_name": h.get("name"),
@@ -75,13 +126,20 @@ def build_race(race: dict, race_date: str, jt: JockeyTables) -> dict:
             "sex_age": h.get("sex_age"),
             "weight_carried": h.get("weight_carried"),
             "jockey": jk,
-            "sire": {"status": "not_implemented"},      # Step 2 で実装
-            "damsire": {"status": "not_implemented"},   # Step 2 で実装
+            "sire": sire,
+            "damsire": damsire,
         })
 
-    jk_states = [x["jockey"]["status"] for x in horses]
-    jockey_complete = bool(horses) and all(s in ("ok", "insufficient_sample", "not_found")
-                                           for s in jk_states)
+    def _states(key):
+        return [x[key]["status"] for x in horses]
+
+    def _complete(key):
+        return bool(horses) and all(s in ("ok", "insufficient_sample", "not_found")
+                                    for s in _states(key))
+    jk_states = _states("jockey")
+    jockey_complete = _complete("jockey")
+    sire_complete = _complete("sire") if pc is not None else False
+    damsire_complete = _complete("damsire") if pc is not None else False
     return {
         "schema_version": SCHEMA_VERSION,
         "source": "umarengod",
@@ -105,11 +163,13 @@ def build_race(race: dict, race_date: str, jt: JockeyTables) -> dict:
         "quality": {
             "jockey_data_complete": jockey_complete,
             "jockey_status_counts": {s: jk_states.count(s) for s in sorted(set(jk_states))},
-            "sire_data_complete": False,        # 未実装（Step 2）
-            "damsire_data_complete": False,     # 未実装（Step 2）
-            "pending": ["sire", "damsire"],
+            "sire_data_complete": sire_complete,
+            "damsire_data_complete": damsire_complete,
+            "sire_status_counts": {s: _states("sire").count(s) for s in sorted(set(_states("sire")))},
+            "damsire_status_counts": {s: _states("damsire").count(s) for s in sorted(set(_states("damsire")))},
+            "pending": [] if pc is not None else ["sire", "damsire"],
             "d1_cutoff_verified": d1_ok,
-            "full_r1_ready": False,             # 血統が揃うまで常に False
+            "full_r1_ready": bool(jockey_complete and sire_complete and damsire_complete and d1_ok),
         },
     }
 
@@ -132,12 +192,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", required=True, help="YYYYMMDD")
     ap.add_argument("--race", default=None, help="netkeiba race_id（1レースだけ作る場合）")
+    ap.add_argument("--no-pedigree", action="store_true", help="血統を取得しない（騎手のみ）")
     args = ap.parse_args()
     datetime.datetime.strptime(args.date, "%Y%m%d")
 
     import requests
     session = requests.Session()
     jt = JockeyTables(session, args.date)
+    pn = None if args.no_pedigree else PedigreeNames()
+    pc = None if args.no_pedigree else PedigreeCache(session, args.date)
 
     race_ids = [args.race] if args.race else nk.find_race_ids(args.date)
     if not race_ids:
@@ -154,7 +217,7 @@ def main():
         except Exception as e:  # noqa: BLE001
             print(f"出馬表失敗 {rid}: {e}")
             continue
-        out = build_race(race, args.date, jt)
+        out = build_race(race, args.date, jt, pn, pc)
         fn = race_filename(race)
         (day_dir / fn).write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
         q = out["quality"]
@@ -162,7 +225,8 @@ def main():
                         "race_name": race.get("race_name"), "jockey_data_complete": q["jockey_data_complete"],
                         "full_r1_ready": q["full_r1_ready"]})
         n_ok += 1
-        print(f"  {fn}: 騎手 {q['jockey_status_counts']}")
+        print(f"  {fn}: 騎手 {q['jockey_status_counts']}"
+              + (f" / 父 {q['sire_status_counts']} / 母父 {q['damsire_status_counts']}" if pc else ""))
 
     idx_path = day_dir / "index.json"
     old = json.loads(idx_path.read_text(encoding="utf-8")).get("races", []) if idx_path.exists() else []
@@ -172,7 +236,8 @@ def main():
         merged.values(), key=lambda e: (e["racecourse"] or "", e["race_number"] or 0))},
         ensure_ascii=False, indent=2), encoding="utf-8")
     update_top_index(args.date)
-    print(f"完了: {n_ok}/{len(race_ids)}R / umarengodリクエスト {jt.requests}回")
+    print(f"完了: {n_ok}/{len(race_ids)}R / umarengod騎手 {jt.requests}回"
+          + (f" / umarengod血統 {pc.requests}回 / netkeiba血統 {pn.requests}回" if pc else ""))
 
 
 if __name__ == "__main__":
