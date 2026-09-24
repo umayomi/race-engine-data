@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T07:26:14+09:00",
+  "generated_at": "2026-09-25T08:24:52+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040608",
@@ -552,24 +552,13 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": 25
+          "starts": null
         },
-        "condition_used": {
-          "racecourse": "阪神",
-          "surface": "芝",
-          "distance": 1600
-        },
+        "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "starts": 25,
-        "wins": 0,
-        "seconds": 4,
-        "thirds": 2,
-        "win_rate": 0.0,
-        "quinella_rate": 0.16,
-        "raw_place_rate": 0.24,
-        "adjusted_place_rate": 0.2424,
-        "status": "ok"
+        "status": "error",
+        "reason": "http_401"
       }
     },
     {
@@ -1362,24 +1351,13 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": 25
+          "starts": null
         },
-        "condition_used": {
-          "racecourse": "阪神",
-          "surface": "芝",
-          "distance": 1600
-        },
+        "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "starts": 25,
-        "wins": 0,
-        "seconds": 4,
-        "thirds": 2,
-        "win_rate": 0.0,
-        "quinella_rate": 0.16,
-        "raw_place_rate": 0.24,
-        "adjusted_place_rate": 0.2424,
-        "status": "ok"
+        "status": "error",
+        "reason": "http_401"
       }
     }
   ],
@@ -1389,16 +1367,17 @@
       "ok": 15
     },
     "sire_data_complete": true,
-    "damsire_data_complete": true,
+    "damsire_data_complete": false,
     "sire_status_counts": {
       "insufficient_sample": 1,
       "ok": 14
     },
     "damsire_status_counts": {
-      "ok": 15
+      "error": 2,
+      "ok": 13
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": true
+    "full_r1_ready": false
   }
 }

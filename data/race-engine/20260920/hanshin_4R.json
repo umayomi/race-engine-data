@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T07:23:22+09:00",
+  "generated_at": "2026-09-25T08:22:06+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040604",
@@ -1075,8 +1075,8 @@
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "status": "not_found",
+        "reason": "name_not_in_umarengod_list"
       }
     },
     {
@@ -1356,14 +1356,13 @@
       "ok": 15
     },
     "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "damsire_data_complete": true,
     "sire_status_counts": {
       "error": 1,
       "ok": 14
     },
     "damsire_status_counts": {
-      "error": 1,
-      "not_found": 1,
+      "not_found": 2,
       "ok": 13
     },
     "pending": [],

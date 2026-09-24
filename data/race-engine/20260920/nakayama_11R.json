@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T07:19:31+09:00",
+  "generated_at": "2026-09-25T08:18:25+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040611",
@@ -437,24 +437,13 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2200,
-          "starts": 24
+          "starts": null
         },
-        "condition_used": {
-          "racecourse": "中山",
-          "surface": "芝",
-          "distance": 2200
-        },
+        "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "starts": 24,
-        "wins": 2,
-        "seconds": 2,
-        "thirds": 2,
-        "win_rate": 0.0833,
-        "quinella_rate": 0.1667,
-        "raw_place_rate": 0.25,
-        "adjusted_place_rate": 0.25,
-        "status": "ok"
+        "status": "error",
+        "reason": "http_401"
       },
       "damsire": {
         "name": "ハーツクライ",
@@ -1197,10 +1186,11 @@
     "jockey_status_counts": {
       "ok": 13
     },
-    "sire_data_complete": true,
+    "sire_data_complete": false,
     "damsire_data_complete": true,
     "sire_status_counts": {
-      "ok": 13
+      "error": 1,
+      "ok": 12
     },
     "damsire_status_counts": {
       "insufficient_sample": 2,
@@ -1209,6 +1199,6 @@
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": true
+    "full_r1_ready": false
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T07:22:05+09:00",
+  "generated_at": "2026-09-25T08:20:53+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040602",
@@ -271,24 +271,13 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1200,
-          "starts": 21
+          "starts": null
         },
-        "condition_used": {
-          "racecourse": "阪神",
-          "surface": "ダート",
-          "distance": 1200
-        },
+        "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "starts": 21,
-        "wins": 0,
-        "seconds": 0,
-        "thirds": 0,
-        "win_rate": 0.0,
-        "quinella_rate": 0.0,
-        "raw_place_rate": 0.0,
-        "adjusted_place_rate": 0.069,
-        "status": "ok"
+        "status": "error",
+        "reason": "http_401"
       }
     },
     {
@@ -546,8 +535,8 @@
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "status": "not_found",
+        "reason": "name_not_in_umarengod_list"
       }
     },
     {
@@ -1138,24 +1127,13 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1200,
-          "starts": 21
+          "starts": null
         },
-        "condition_used": {
-          "racecourse": "阪神",
-          "surface": "ダート",
-          "distance": 1200
-        },
+        "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "starts": 21,
-        "wins": 0,
-        "seconds": 0,
-        "thirds": 0,
-        "win_rate": 0.0,
-        "quinella_rate": 0.0,
-        "raw_place_rate": 0.0,
-        "adjusted_place_rate": 0.069,
-        "status": "ok"
+        "status": "error",
+        "reason": "http_401"
       }
     }
   ],
@@ -1172,9 +1150,9 @@
       "ok": 9
     },
     "damsire_status_counts": {
-      "error": 1,
-      "not_found": 1,
-      "ok": 11
+      "error": 2,
+      "not_found": 2,
+      "ok": 9
     },
     "pending": [],
     "d1_cutoff_verified": true,

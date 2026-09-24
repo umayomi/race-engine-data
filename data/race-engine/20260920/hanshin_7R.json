@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T07:25:29+09:00",
+  "generated_at": "2026-09-25T08:24:06+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040607",
@@ -282,24 +282,13 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": 43
+          "starts": null
         },
-        "condition_used": {
-          "racecourse": "阪神",
-          "surface": "ダート",
-          "distance": 1800
-        },
+        "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "starts": 43,
-        "wins": 5,
-        "seconds": 2,
-        "thirds": 2,
-        "win_rate": 0.1163,
-        "quinella_rate": 0.1628,
-        "raw_place_rate": 0.2093,
-        "adjusted_place_rate": 0.2157,
-        "status": "ok"
+        "status": "error",
+        "reason": "http_401"
       }
     },
     {
@@ -1079,8 +1068,8 @@
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "status": "not_found",
+        "reason": "name_not_in_umarengod_list"
       }
     }
   ],
@@ -1097,7 +1086,8 @@
     },
     "damsire_status_counts": {
       "error": 1,
-      "ok": 11
+      "not_found": 1,
+      "ok": 10
     },
     "pending": [],
     "d1_cutoff_verified": true,

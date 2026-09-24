@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T07:20:22+09:00",
+  "generated_at": "2026-09-25T08:19:13+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040612",
@@ -102,24 +102,13 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 1200,
-          "starts": 14
+          "starts": null
         },
-        "condition_used": {
-          "racecourse": "中山",
-          "surface": "芝",
-          "distance": 1200
-        },
+        "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "starts": 14,
-        "wins": 1,
-        "seconds": 1,
-        "thirds": 2,
-        "win_rate": 0.0714,
-        "quinella_rate": 0.1429,
-        "raw_place_rate": 0.2857,
-        "adjusted_place_rate": 0.2727,
-        "status": "ok"
+        "status": "error",
+        "reason": "http_401"
       }
     },
     {
@@ -462,13 +451,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 1200,
-          "starts": null
+          "starts": 4
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 27,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.037,
+        "raw_place_rate": 0.037,
+        "adjusted_place_rate": 0.0857,
+        "status": "ok"
       }
     },
     {

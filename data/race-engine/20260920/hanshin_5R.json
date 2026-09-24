@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T07:24:07+09:00",
+  "generated_at": "2026-09-25T08:22:49+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040605",
@@ -977,24 +977,13 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": 22
+          "starts": null
         },
-        "condition_used": {
-          "racecourse": "阪神",
-          "surface": "芝",
-          "distance": 1600
-        },
+        "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "starts": 22,
-        "wins": 1,
-        "seconds": 2,
-        "thirds": 1,
-        "win_rate": 0.0455,
-        "quinella_rate": 0.1364,
-        "raw_place_rate": 0.1818,
-        "adjusted_place_rate": 0.2,
-        "status": "ok"
+        "status": "error",
+        "reason": "http_401"
       },
       "damsire": {
         "name": "スペシャルウィーク",
@@ -1298,10 +1287,11 @@
     "jockey_status_counts": {
       "ok": 14
     },
-    "sire_data_complete": true,
+    "sire_data_complete": false,
     "damsire_data_complete": true,
     "sire_status_counts": {
-      "ok": 14
+      "error": 1,
+      "ok": 13
     },
     "damsire_status_counts": {
       "insufficient_sample": 1,
@@ -1309,6 +1299,6 @@
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": true
+    "full_r1_ready": false
   }
 }
