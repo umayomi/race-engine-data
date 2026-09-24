@@ -195,21 +195,58 @@ def main():
     REPORT["crawl"] = {"max_pages": max_pages, "crawled": crawled,
                        "discovered_same_domain": len(seen)}
 
+    # F1b. 血統POSTが table_not_found になる名前の生レスポンスを保存（原因確定用）
+    #      リストには存在する名前なのに失敗する → 実際に何が返るのかを見る。
+    import umarengod as _U
+    probe_date = os.environ.get("PROBE_DATE") or (datetime.date.today() - datetime.timedelta(days=4)).strftime("%Y%m%d")
+    for fld, nm in (("father", "ドレフォン"), ("father", "モーリス"),
+                    ("mfather", "クロフネ"), ("mfather", "フジキセキ"),
+                    ("father", "Giant's Causeway"), ("father", "Giant's Causeway\u00a0(米)")):
+        html, info = fetch(_U.URL_PEDIGREE, "POST", _U.pedigree_payload(fld, nm, probe_date))
+        rec = save(f"ped_post_{fld}_{_slug(nm)}", html, info)
+        if html:
+            rows, meta = _U.parse_pedigree_table(html)
+            rec["pedigree_parse"] = {"meta": meta, "sample": rows[:2]}
+            print(f"    → {fld} {nm!r}: rows={meta['rows']} table_found={meta['table_found']}")
+
     # F2. 出馬表系ページ（父・母父の同コース成績が1ページに揃う画面の調査）
     #     全レース対応か重賞限定か、URLに race_id/日付をどう渡すかを確認する。
     entry = save("srch6_entry", *fetch(f"{BASE}/srch6.php"))
-    ea = entry.get("analysis", {})
-    cand = []
-    for href in ea.get("links", []):
-        u = urllib.parse.urljoin(f"{BASE}/", href)
-        if urllib.parse.urlparse(u).netloc == "umarengod.com" and u not in cand:
-            cand.append(u)
-    # 出馬表らしきリンクを最大8件たどる
-    picked = [u for u in cand if re.search(r"(shutuba|syutuba|race|umav|touroku|srch6)", u, re.I)][:8]
-    for u in picked:
-        pu = urllib.parse.urlparse(u)
-        save(f"entry_{pu.path}_{pu.query}", *fetch(u))
-    REPORT["entry_pages"] = {"from_srch6": cand[:40], "followed": picked}
+    # srch6 の JS コメントに GET 相当のURLが明記されている:
+    #   p=1 … 日付×競馬場のレース一覧 / p=2 … 個別レースの登録馬一覧(父・母父の同コース成績つき)
+    kd = os.environ.get("ENTRY_DATE") or ""      # 例 2026-09-20
+    if not kd:
+        m = re.search(r'srch6_post_tab\(\s*\d+\s*,\s*\d+\s*,\s*"([\d-]+)"\s*,\s*"([^"]+)"\s*,\s*(\d+)',
+                      entry.get("analysis", {}).get("text_head", "") or "")
+        kd = ""
+    js = ""
+    try:
+        js = (RAW / "srch6_entry.html").read_text(encoding="utf-8")
+    except Exception:  # noqa: BLE001
+        pass
+    tabs = re.findall(r'srch6_post_tab\((\d+),\s*(\d+),\s*"([\d-]+)",\s*"([^"]+)",\s*(\d+)\)', js)
+    if kd:
+        tabs = [t for t in tabs if t[2] == kd] or tabs
+    seen_tab = set()
+    for p, ki, d, cs, bty in tabs[:4]:
+        key = (d, cs)
+        if key in seen_tab:
+            continue
+        seen_tab.add(key)
+        u = f"{BASE}/srch6.php?p=1&ki={ki}&kd={d}&cs={urllib.parse.quote(cs)}&bty={bty}&seni=1"
+        rec = save(f"srch6_list_{d}_{cs}", *fetch(u, raw_url=True))
+        # レース一覧から個別レース(p=2)へ
+        sels = re.findall(r'srch6_post_sel\((\d+),(\d+),(\d+),(\d+),(\d+),(\d+),(\d+)\)',
+                          (RAW / f"{_slug('srch6_list_' + d + '_' + cs)}.html").read_text(encoding="utf-8")
+                          if rec.get("saved") else "")
+        for p2, ki2, i0, i1, i2, r2, bty2 in sels[:3]:
+            u2 = (f"{BASE}/srch6.php?p={p2}&ki={ki2}&i0={i0}&i1={i1}&i2={i2}&r={r2}"
+                  f"&bty={bty2}&seni=1")
+            rr = save(f"srch6_race_{d}_{cs}_{i0}_{i1}_{i2}", *fetch(u2, raw_url=True))
+            aa = rr.get("analysis", {})
+            if aa.get("mentions_sire"):
+                print("    ★ 登録馬一覧(父・母父つき)候補:", u2)
+    REPORT["entry_pages"] = {"tabs_found": len(tabs), "tabs_used": list(seen_tab)}
     for c in REPORT["checks"]:
         a = c.get("analysis", {})
         if a and ("登録馬一覧" in (a.get("text_head") or "") or "産駒の同コース" in (a.get("text_head") or "")):
