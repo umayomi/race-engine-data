@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<HEAD>
+<META http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>зЂґй¶ђгГїзЙєеИ•зЩїйМ≤й¶ђгАБеЗЇй¶ђи°®гБЛгВЙж§ЬзіҐ</TITLE>
+<META name="keywords" content="зЂґиµ∞жИРзЄЊж§ЬзіҐ,зЂґиµ∞жИРзЄЊйЫЖи®И,з®ЃзЙ°й¶ђ,й®ОжЙЛ,и™њжХЩеЄЂ,й¶ђдЄї">
+<META name="description" content="зЙєеИ•зЩїйМ≤й¶ђгАБеЗЇй¶ђи°®гБЛгВЙзЂґиµ∞й¶ђгАБз®ЃзЙ°й¶ђгАБй®ОжЙЛгАБи™њжХЩеЄЂгАБй¶ђдЄїгБЃжИРзЄЊгВТж§ЬзіҐпЉПйЫЖи®ИгБЧгБЊгБЩ">
+<link rel="shortcut icon" href="favicon.ico">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<script type="text/javascript" src="srch6ctrl.js"></script>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="init.css">
+<script type="text/javascript" src="postcommon.js"></script>
+<style type="text/css"> 
+<!-- 
+body {margin:8px;font-family:/*"гГТгГ©гВЃгГОиІТгВі Pro W3", "Hiragino Kaku Gothic Pro",*/"гГ°гВ§гГ™гВ™","Meiryo","пЉ≠пЉ≥ пЉ∞гВігВЈгГГгВѓ","sans-serif"}
+button {font-size:10px;padding-top:2px}
+table{font-size:12px;table-layout:fixed;color:black;}
+.ll th{background:url(tback_orange20.gif);color:black;font-weight:normal;
+   text-align:center;padding:3px 4px 3px 4px;border:1px solid lime/*#BABABA*/}
+.ll td{background:url(tback_gray20.gif);text-align:left;padding:3px 4px 3px 4px;border:1px solid lime/*#BABABA*/}
+
+.horse_list th{color:/*black*/white;background:green/*mediumvioletred*/;font-weight:normal;
+   text-align:center;padding:3px 4px 3px 4px;border:1px solid white}
+.horse_list td{background:white/*url(tback_gray20.gif)*/;text-align:left;padding:3px 4px 3px 4px;border:1px solid green/*#BABABA*/;white-space:nowrap;overflow:hidden}
+
+.form1 th{background:url(tback_orange30.gif);}
+
+.f8  {font-size:8px}
+.f10 {font-size:10px}
+td.ppx {border-left:0px;border-right:0px;font-size:10px;}
+td.rankx {border-left:0px;font-size:10px;text-align:right;padding-left:0px;};
+.no_border {border-left:0px;border-right:0px}
+
+.disp_item td{text-align:left;padding:1px 4px;border:none}
+
+.dummy_row td{border:0px;padding:0px}
+.dummy_row th{border:0px solid red;padding:0px;background:transparent}
+.offbtn{width:68px;font-size:12px;}
+.dspctl input,button{font-size:12px;color:black/*blue*/}
+.tblhead th{background:url(tback_green30.gif);font-weight:normal;height:24px}
+.tblhead td{background:white;font-weight:normal;}
+.kakolist td{background:#adff5b}
+.b0 {background:#ffeaff}
+.b1 {background:pink}
+.b2 {background:#c1e0ff}
+.b3 {background:#ffff33}
+.horserowth {height:55.5px}
+.line0 td{background:white;height:20px}
+.line1 td{background:#f4ffff;height:20px}
+.racelist0 td{background:white;height:16px;border:1px solid #00cc33}
+.racelist1 td{background:#f4ffff;height:16px;border:1px solid #00cc33}
+.racelist th{background:#ccffcc;border:1px solid #00cc33}
+.racelist {font-family:"гГ°гВ§гГ™гВ™","Meiryo","пЉ≠пЉ≥ пЉ∞гВігВЈгГГгВѓ"}
+.flink a:link { color: white;}
+.flink a:visited { color: white;}
+.flink a:active { color: cyan;}
+.flink a:hover { color: cyan;}
+td.best1 {background:#ffd1e8}
+td.best2 {background:#d1e8ff}
+td.best3 {background:#ffffd1}
+.ctlitem {margin:2px 0px;}
+.debug {color:navy:border-color:navy;border:0px solid navy;}
+th.@chousei {padding:10px 0px 11px 0px}
+.@chouseix {padding:3px 0px 0px 0px}
+.chouseix {margin-top:2px}
+input.@chouseiz {margin:8px 0px}
+-->
+</style> 
+<script type="text/javascript">
+<!--
+execflg   = 0;
+subbtn_Id = "";
+btn       = 0;
+function dispChange(id) {
+	//зВєжїЕгГЖгВ≠гВєгГИ
+	text = "гГЗгГЉгВњгБЃйЫЖи®ИдЄ≠гБІгБЩвА¶ гБЧгБ∞гВЙгБПгБКеЊЕгБ°гБПгБ†гБХгБДгАВ<br>жХ∞еИЖгБЛгБЛгВЛе†іеРИгВВгБВгВКгБЊгБЩ m(_ _)m<br>жЧҐгБЂйЫЖи®ИжЄИгБњгБЃй†ЕзЫЃгБѓгБЭгВМгБїгБ©гБЛгБЛгВКгБЊгБЫгВУгАВ";
+	document.getElementById("alertmsg").innerHTML = "<br><br><br><span style='color:yellow;font-size:18px;font-weight:bold;'>гААгАА"+text+"</span><br><br><br>";
+
+	//и°®з§ЇгБЂгБЧгБЯгБДгВВгБЃ*/
+	document.getElementById("cmX").style.display='none';
+	//document.getElementById("horselist").style.display='none';
+
+	//зВєжїЕеС®жЬЯ
+    setTimeout("document.getElementById('alertmsg').style.opacity^=1",200); /*пЉСзЩЇзЫЃгБ†гБСгБѓжЧ©гБПзВєжїЕ    */
+	setInterval("document.getElementById('alertmsg').style.opacity^=1",1100);/*дї•йЩНгБѓ500msжѓОгБЂеИЗгВКжЫњгБИ */
+
+	ScrollWindow("alertmsg");
+
+	document.formx.changeid.value = id;
+	document.formx.submit();
+}
+
+/* гБУгБУгБЛгВЙ */
+function sclick(e){
+	if(e.parentNode.parentNode.parentNode.parentNode.id == "horse_list_id"){
+		subbtn_Id = "horse_list_id";
+	}else if(e.parentNode.parentNode.parentNode.parentNode.id == "disp_item_id1"){
+		subbtn_Id = "disp_item_id1";
+	}else{
+		subbtn_Id = "disp_item_id2";
+	}
+
+	btn = e;
+}
+
+
+function footest(){
+	var text;
+	var val,i;
+
+	if(execflg != 0){
+		return false;
+	}
+
+	if(btn.name != "disp_reset"){
+		if(!srch6ctrl(btn)){
+			return false;
+		}
+	}
+
+	//зВєжїЕгГЖгВ≠гВєгГИ
+	text = "гГЗгГЉгВњгБЃйЫЖи®ИдЄ≠гБІгБЩвА¶ гБЧгБ∞гВЙгБПгБКеЊЕгБ°гБПгБ†гБХгБДгАВ<br>жХ∞еИЖгБЛгБЛгВЛе†іеРИгВВгБВгВКгБЊгБЩ m(_ _)m<br>жЧҐгБЂйЫЖи®ИжЄИгБњгБЃй†ЕзЫЃгБѓгБЭгВМгБїгБ©гБЛгБЛгВКгБЊгБЫгВУгАВ";
+	document.getElementById("alertmsg").innerHTML = "<br><br><br><span style='color:yellow;font-size:18px;font-weight:bold;'>гААгАА"+text+"</span><br><br><br>";
+
+	//и°®з§ЇгБЂгБЧгБЯгБДгВВгБЃ*/
+	document.getElementById("cmX").style.display='none';
+	//document.getElementById("horselist").style.display='none';
+
+	//зВєжїЕеС®жЬЯ
+    setTimeout("document.getElementById('alertmsg').style.opacity^=1",200); /*пЉСзЩЇзЫЃгБ†гБСгБѓжЧ©гБПзВєжїЕ    */
+	setInterval("document.getElementById('alertmsg').style.opacity^=1",1100);/*дї•йЩНгБѓ500msжѓОгБЂеИЗгВКжЫњгБИ */
+	execflg = 1;
+
+	ScrollWindow("alertmsg");
+	
+	return true;
+}
+
+
+function ScrollWindow(elem) {
+    var element = document.getElementById(elem);
+    var rect = element.getBoundingClientRect();
+    var elemtop = rect.top + window.pageYOffset;
+    document.documentElement.scrollTop = elemtop;
+}
+
+function raceClick(){
+	text = "гГЗгГЉгВњгБЃйЫЖи®ИдЄ≠гБІгБЩвА¶ гБЧгБ∞гВЙгБПгБКеЊЕгБ°гБПгБ†гБХгБДгАВ<br>гААгААжХ∞еИЖгБЛгБЛгВЛе†іеРИгВВгБВгВКгБЊгБЩ m(_ _)m";
+	document.getElementById("cm1").innerHTML = "<br><br><br><span style='font-family:\"гГ°гВ§гГ™гВ™\";color:white;font-size:20px;font-weight:bold;'>гААгАА"+text+"</span><br><br><br>";
+    setTimeout("document.getElementById('cm1').style.opacity^=1",200); /*пЉСзЩЇзЫЃгБ†гБСгБѓжЧ©гБПзВєжїЕ    */
+	setInterval("document.getElementById('cm1').style.opacity^=1",800);/*дї•йЩНгБѓ500msжѓОгБЂеИЗгВКжЫњгБИ */
+	ScrollWindow("cm1");
+}
+function raceClick2(){
+	text = "гГЗгГЉгВњгБЃйЫЖи®ИдЄ≠гБІгБЩвА¶ гБЧгБ∞гВЙгБПгБКеЊЕгБ°гБПгБ†гБХгБДгАВ<br>гААгААжХ∞еИЖгБЛгБЛгВЛе†іеРИгВВгБВгВКгБЊгБЩ m(_ _)m";
+	document.getElementById("cmX").innerHTML = "<br><br><br><span style='font-family:\"гГ°гВ§гГ™гВ™\";color:white;font-size:20px;font-weight:bold;'>гААгАА"+text+"</span><br><br><br>";
+    setTimeout("document.getElementById('cmX').style.opacity^=1",200); /*пЉСзЩЇзЫЃгБ†гБСгБѓжЧ©гБПзВєжїЕ    */
+	setInterval("document.getElementById('cmX').style.opacity^=1",800);/*дї•йЩНгБѓ500msжѓОгБЂеИЗгВКжЫњгБИ */
+	ScrollWindow("cmX");
+}
+
+function srch6_post_tab(p, ki, kd, cs, bty){
+	//TAB1 https://umarengod.com/srch6.php?p=0&ki=0&kd=2021-11-20&cs=%E6%9D%B1%E4%BA%AC&bty=2016
+	//TAB2 https://umarengod.com/srch6.php?p=1&ki=0&kd=2021-11-20&cs=%E7%A6%8F%E5%B3%B6&bty=2016
+	document.form_link.p.value = p;
+	document.form_link.ki.value = ki;
+	document.form_link.kd.value = kd;
+	document.form_link.cs.value = cs;
+	document.form_link.bty.value = bty;
+	document.form_link.seni.value = 1;
+	document.form_link.submit();
+}
+function srch6_post_tab_formx(p, ki, kd, cs, bty){
+	//TAB1 https://umarengod.com/srch6.php?p=0&ki=0&kd=2021-11-20&cs=%E6%9D%B1%E4%BA%AC&bty=2016
+	//TAB2 https://umarengod.com/srch6.php?p=1&ki=0&kd=2021-11-20&cs=%E7%A6%8F%E5%B3%B6&bty=2016
+	document.formx.p.value = p;
+	document.formx.ki.value = ki;
+	document.formx.kd.value = kd;
+	document.formx.cs.value = cs;
+	document.formx.bty.value = bty;
+	document.formx.seni.value = 2;
+	document.formx.submit();
+}
+function srch6_post_sel(p,ki,i0,i1,i2,r,bty){
+	//йБЄжКЮ https://umarengod.com/srch6.php?p=2&ki=0&i0=0&i1=2&i2=10&r=0
+	document.form_link.p.value = p;
+	document.form_link.ki.value = ki;
+	document.form_link.i0.value = i0;
+	document.form_link.i1.value = i1;
+	document.form_link.i2.value = i2;
+	document.form_link.r.value  = r;
+	document.form_link.bty.value = bty;
+	document.form_link.seni.value = 1;
+	
+	document.form_link.submit();
+}
+function srch6_post_kako(p,bty){
+	//йБОеОї https://umarengod.com/srch6.php?p=9
+	document.form_link.p.value = p;
+	document.form_link.bty.value = bty;
+	document.form_link.seni.value = 1;
+	document.form_link.submit();
+}
+function srch6_post_kako_sel(p,kako,ki,r,year,bty){
+	//йБОеОї https://umarengod.com/srch6.php?p=2&kako=1&ki=1&r=62377&year=2021
+	document.form_link.p.value = p;
+	document.form_link.kako.value = kako;
+	document.form_link.ki.value = ki;
+	document.form_link.r.value = r;
+	document.form_link.year.value = year;
+	document.form_link.bty.value = bty;
+	document.form_link.seni.value = 1;
+	document.form_link.submit();
+}
+
+/* гБУгБУгБЊгБІ */
+// -->
+</script>
+</head>
+<body>
+
+<form name='form_link' action='/srch6.php' method='post'><input name='p' type='hidden' value=''>
+<input name='ki' type='hidden' value=''>
+<input name='kd' type='hidden' value=''>
+<input name='cs' type='hidden' value=''>
+<input name='bty' type='hidden' value=''>
+<input name='i0' type='hidden' value=''>
+<input name='i1' type='hidden' value=''>
+<input name='i2' type='hidden' value=''>
+<input name='r' type='hidden' value=''>
+<input name='kako' type='hidden' value=''>
+<input name='year' type='hidden' value=''>
+<input name='seni' type='hidden' value='1'>
+</form>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99050473-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<center><form name='form_race_result' action='race_result.php' method='post'  target='race_result'><input type='hidden' name='rec' value=''></form><form name='form_srch3' action='srch3.php' method='post' target='srch3'><input type='hidden' name='hn' value=''><input type='hidden' name='birthyear' value=''><input type='hidden' name='seni' value='1'></form><form name='form_srch4' action='srch4.php' method='post' target='srch4'><input type='hidden' name='ks' value=''><input type='hidden' name='ky' value=''><input type='hidden' name='hn' value=''><input type='hidden' name='seni' value='1'></form><!-- SMART WIN -->
+<DIV style='text-align:center;width:780px'>
+<DIV style='margin-bottom:4px;width:384px;color:black;padding:2px;float:left'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<!-- umarengod1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="2823644470"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<DIV style='margin-bottom:4px;width:384px;color:black;padding:2px;float:left'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<!-- umarengod2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="5237629798"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+<br style='clear:both'>	
+<BR>
+<!-- WORLD -->
+
+<div style="clear:both;padding:16px 0px 2px 0px;font-size:16px;font-weight:bold;color:white">
+<!--
+жШОгБСгБЊгБЧгБ¶гБКгВБгБІгБ®гБЖгБФгБЦгБДгБЊгБЩгАВ
+<br>
+гБЯгБ†дїКгАБгВЈгВєгГЖгГ†гГ°гГ≥гГЖгГКгГ≥гВєгВТи°МгБ£гБ¶гБКгВКгБЊгБЩгАВ<br>
+еЛХдљЬгБМдЄНеЃЙеЃЪгБЂгБ™гВЛгБУгБ®гВВгБВгВКгБЊгБЩгБЃгБІгАБгБФдЇЖжЙњгБПгБ†гБХгБДгАВгААm(_&nbsp;_)m
+-->
+</div>
+
+<br><span class='blink' style='font-size:14px'><a href='javascript:history.go(-1)'>BACK</a><a style='margin-left:22px' href='index.php'>HOME</a><a style='margin-left:22px' href='srch1.php'>жЬАињСгБЃпЊЪпљ∞пљљзµРжЮЬ</a><a style='margin-left:22px' href='srch3.php'>й¶ђеРНгБІж§ЬзіҐ</a><a style='margin-left:22px' href='srch4.php'>й®ОжЙЛпЉПи™њжХЩеЄЂеРНгБІж§ЬзіҐ</a><a style='margin-left:22px' href='srch2.php'>жЭ°дїґгБІж§ЬзіҐ</a><a style='margin-left:22px' href='srch6.php'>еЗЇй¶ђи°®гБЛгВЙж§ЬзіҐ</a><a style='margin-left:22px' href='etcfatherm.php'>з®ЃзЙ°й¶ђгГїжѓНзИґжИРзЄЊ</a></span>гААгАА<span class='blink' style='font-size:14px;margin-top:12px'><a href='javascript:srch6_post_kako(9,2021)'>йБОеОїгГЗгГЉгВњ</a></span><br><br><div class='main' style='width:1200px;border:0px solid blue'><table style='width:1200px;margin-top:15px'><tbody><tr style='text-align:center'><td style='width:10px;border:0px;border-bottom:1px solid lime'></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,0,"2026-09-27","йШ™з•Ю",2021)'>9жЬИ27жЧ•(жЧ•)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,0,"2026-09-26","йШ™з•Ю",2021)'>9жЬИ26жЧ•(еЬЯ)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-22","йШ™з•Ю",2021)'>9жЬИ22жЧ•(зБЂ)</a></td><td class='sel' style='font-size:12px;padding:4px 6px;width:77px;border:1px solid lime;border-bottom:1px solid navy;background:url(tabback_gray24.gif)'><a href='javascript:srch6_post_tab(0,1,"2026-09-21","йШ™з•Ю",2021)'>9жЬИ21жЧ•(жЬИ)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-20","йШ™з•Ю",2021)'>9жЬИ20жЧ•(жЧ•)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-19","йШ™з•Ю",2021)'>9жЬИ19жЧ•(еЬЯ)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-13","йШ™з•Ю",2021)'>9жЬИ13жЧ•(жЧ•)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-12","йШ™з•Ю",2021)'>9жЬИ12жЧ•(еЬЯ)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-06","йШ™з•Ю",2021)'>9жЬИ6жЧ•(жЧ•)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-05","йШ™з•Ю",2021)'>9жЬИ5жЧ•(еЬЯ)</a></td><td style='border-bottom:1px solid lime'></td></tr><tr><td style='border:1px solid lime;border-top:0px;' colspan='12'><table style='width:100%;margin-top:20px;table-layout:fixed'><tbody><tr><td style='width:15px;border:0px;border-bottom:1px solid lime'></td><td class='sel' style='font-size:12px;padding:4px 6px;width:34px;border:1px solid lime;border-bottom:1px solid navy;background:url(tabback_gray24.gif)'><a href='javascript:srch6_post_tab(1,1,"2026-09-21","йШ™з•Ю",2021)'>йШ™&nbsp;з•Ю</a></td><td class='blink' style='text-align:right;border-bottom:1px solid lime'></td></tr><tr><td style='border:0px;text-align:left' colspan='3'><div class='ll' style='margin:20px'><div id='cm1' style="margin-bottom:10px;width:736px;text-align:left;border:0px solid white">
+</div>
+<span class='racelist' style='color:white;font-weight:bold;line-height:1.8em'>гАРгГђгГЉгВєдЄАи¶ІгАС</span><div style='margin:4px 0px;color:yellow'></div><form name='form1' action='/srch6.php' method='post'><input type='hidden' name='p' value='1'><input type='hidden' name='ki' value='1'><input type='hidden' name='kd' value='2026-09-21'><input type='hidden' name='cs' value='йШ™з•Ю'><table class='racelist'><tr><th rowspan='3' width='26px'>пЊЪпљ∞пљљ<br>No</th><th rowspan='3' width='50px'>зЩЇиµ∞жЩВеИї</th><th rowspan='3' width='26px'>пЉІ</th><th rowspan='3' width='/*140px*/'>гГђгГЉгВєеРН</th><th rowspan='3' width='/*60px*/'>гВ≥гГЉгВє</th><th rowspan='3' width='35px'>иЈЭйЫҐ</th><th rowspan='3' width='/*220px*/'>жЭ°дїґ</th><th colspan='8' width=''><select name='betayy'><option value='2026' >2026<option value='2025' >2025<option value='2024' >2024<option value='2023' >2023<option value='2022' >2022<option value='2021' selected>2021<option value='2020' >2020<option value='2019' >2019<option value='2018' >2018<option value='2017' >2017<option value='2016' >2016<option value='2015' >2015<option value='2014' >2014<option value='2013' >2013<option value='2012' >2012<option value='2011' >2011<option value='2010' >2010<option value='2009' >2009<option value='2008' >2008<option value='2007' >2007<option value='2006' >2006<option value='2005' >2005<option value='2004' >2004</select>еєідї•йЩНгБЃеЕ®й†≠гГЩгВњи≤ЈгБДеЫЮеПОзОЗ <input type='submit' name='beta' value='еЖНи°®з§Ї' onclick='sclick(this)'><br>пЉИ&nbsp;2026еєі05жЬИ02жЧ•(еЬЯ)жЩВзВє&nbsp;пЉЙгАА</th><th rowspan='3' style='border-right:1px solid navy'>еЗЇзЫЃ<br>еВЊеРС</th><th rowspan='2' colspan='4' style='border-bottom:1px solid green'>зµРгААжЮЬ</th></tr><tr><th colspan='4'>гВ≥гГЉгВєгГїиЈЭйЫҐгБІгБЃйЫЖи®И</th><th colspan='4'>гВ≥гГЉгВєгГїиЈЭйЫҐпЉЛгВѓгГ©гВєгБІгБЃйЫЖи®И</th></tr><tr><th style='font-size:12px'>еНШеЛЭ<br>гГЩгВњи≤Ј</th><th style='font-size:12px'>и§ЗеЛЭ<br>гГЩгВњи≤Ј</th><th>дЇЇж∞ЧеИ•<br>жИРзЄЊ</th><th>пЊЪпљ∞пљљ<br>зµРжЮЬ</th><th style='font-size:12px'>еНШеЛЭ<br>гГЩгВњи≤Ј</th><th style='font-size:12px'>и§ЗеЛЭ<br>гГЩгВњи≤Ј</th><th>дЇЇж∞ЧеИ•<br>жИРзЄЊ</th><th>пЊЪпљ∞пљљ<br>зµРжЮЬ</th><th style='border-top:none;border-left:none;border-right:1px solid green'>1дЇЇ<br>пљµпљѓпљљпЊЮ</th><th style='border-top:none;border-left:none;'>1зЭА<br>дЇЇж∞Ч</th><th style='border-top:none'>2зЭА<br>дЇЇж∞Ч</th><th style='border-top:none'>3зЭА<br>дЇЇж∞Ч</th></tr><tr class='racelist0'><td style='text-align:center'>1R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,0,79114,2021)' onclick='raceClick()'>-</a></td><td style='text-align:center'>гГА</td><td style='text-align:center'>1800</td><td style='font-size:11px'>2ж≠≥жЬ™еЛЭеИ©[жМЗеЃЪ]</td><td style='color:'>68.8<span class='f8'>%</span></td><td style='color:'>74.1<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1800&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1800&rc='>дЄАи¶І</a></td><td style='color:blue'>89.9<span class='f8'>%</span></td><td style='color:blue'>80.3<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1800&rc=2ж≠≥жЬ™еЛЭеИ©'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1800&rc=2ж≠≥жЬ™еЛЭеИ©'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=гГА&dist=1800&dist2=1800&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>2.0</td><td style='border-left:none;' class='best4'>4<span class='f8'>дЇЇ</span></td><td class='best5'>5<span class='f8'>дЇЇ</span></td><td class='best1'>1<span class='f8'>дЇЇ</span></td></tr><tr class='racelist1'><td style='text-align:center'>2R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,1,79115,2021)' onclick='raceClick()'>-</a></td><td style='text-align:center'>иКЭ</td><td style='text-align:center'>1600</td><td style='font-size:11px'>2ж≠≥жЬ™еЛЭеИ©зЙЭпЉїжМЗеЃЪпЉљ</td><td style='color:'>71.8<span class='f8'>%</span></td><td style='color:'>73.7<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1600&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1600&rc='>дЄАи¶І</a></td><td style='color:red'>123.0<span class='f8'>%</span></td><td style='color:blue'>88.9<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1600&rc=2ж≠≥жЬ™еЛЭеИ©'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1600&rc=2ж≠≥жЬ™еЛЭеИ©'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=иКЭ&dist=1600&dist2=1600&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>2.8</td><td style='border-left:none;' class='best2'>2<span class='f8'>дЇЇ</span></td><td class='best3'>3<span class='f8'>дЇЇ</span></td><td class='best4'>4<span class='f8'>дЇЇ</span></td></tr><tr class='racelist0'><td style='text-align:center'>3R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,2,79116,2021)' onclick='raceClick()'>-</a></td><td style='text-align:center'>иКЭ</td><td style='text-align:center'>1200</td><td style='font-size:11px'>2ж≠≥жЬ™еЛЭеИ©пЉИжЈЈеРИпЉЙпЉїжМЗеЃЪпЉљ</td><td style='color:red'>97.3<span class='f8'>%</span></td><td style='color:blue'>75.2<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1200&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1200&rc='>дЄАи¶І</a></td><td style='color:'>54.0<span class='f8'>%</span></td><td style='color:'>72.7<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1200&rc=2ж≠≥жЬ™еЛЭеИ©'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1200&rc=2ж≠≥жЬ™еЛЭеИ©'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=иКЭ&dist=1200&dist2=1200&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>1.7</td><td style='border-left:none;' class='best2'>2<span class='f8'>дЇЇ</span></td><td class='best1'>1<span class='f8'>дЇЇ</span></td><td class='best12'>12<span class='f8'>дЇЇ</span></td></tr><tr class='racelist1'><td style='text-align:center'>4R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,3,79117,2021)' onclick='raceClick()'>гГ°гВ§гВѓгГЗгГУгГ•гГЉйШ™з•Ю</a></td><td style='text-align:center'>гГА</td><td style='text-align:center'>1400</td><td style='font-size:11px'>2ж≠≥жЦ∞й¶ђзЙЭпЉїжМЗеЃЪпЉљ</td><td style='color:'>60.0<span class='f8'>%</span></td><td style='color:'>66.3<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc='>дЄАи¶І</a></td><td style='color:'>69.3<span class='f8'>%</span></td><td style='color:blue'>80.9<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc=2ж≠≥жЦ∞й¶ђ'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc=2ж≠≥жЦ∞й¶ђ'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=гГА&dist=1400&dist2=1400&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>3.8</td><td style='border-left:none;' class='best2'>2<span class='f8'>дЇЇ</span></td><td class='best10'>10<span class='f8'>дЇЇ</span></td><td class='best5'>5<span class='f8'>дЇЇ</span></td></tr><tr class='racelist0'><td style='text-align:center'>5R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,4,79118,2021)' onclick='raceClick()'>гГ°гВ§гВѓгГЗгГУгГ•гГЉйШ™з•Ю</a></td><td style='text-align:center'>иКЭ</td><td style='text-align:center'>1800</td><td style='font-size:11px'>2ж≠≥жЦ∞й¶ђпЉИжЈЈеРИпЉЙпЉїжМЗеЃЪпЉљ</td><td style='color:'>69.9<span class='f8'>%</span></td><td style='color:'>72.6<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1800&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1800&rc='>дЄАи¶І</a></td><td style='color:blue'>84.0<span class='f8'>%</span></td><td style='color:'>74.9<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1800&rc=2ж≠≥жЦ∞й¶ђ'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1800&rc=2ж≠≥жЦ∞й¶ђ'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=иКЭ&dist=1800&dist2=1800&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>2.5</td><td style='border-left:none;' class='best2'>2<span class='f8'>дЇЇ</span></td><td class='best1'>1<span class='f8'>дЇЇ</span></td><td class='best3'>3<span class='f8'>дЇЇ</span></td></tr><tr class='racelist1'><td style='text-align:center'>6R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,5,79119,2021)' onclick='raceClick()'>-</a></td><td style='text-align:center'>гГА</td><td style='text-align:center'>2000</td><td style='font-size:11px'>3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)пЉИжЈЈеРИпЉЙпЉїжМЗеЃЪпЉљ</td><td style='color:'>72.6<span class='f8'>%</span></td><td style='color:blue'>81.5<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=2000&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=2000&rc='>дЄАи¶І</a></td><td style='color:'>61.7<span class='f8'>%</span></td><td style='color:red'>102.9<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=2000&rc=3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=2000&rc=3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=гГА&dist=2000&dist2=2000&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>2.8</td><td style='border-left:none;' class='best1'>1<span class='f8'>дЇЇ</span></td><td class='best8'>8<span class='f8'>дЇЇ</span></td><td class='best3'>3<span class='f8'>дЇЇ</span></td></tr><tr class='racelist0'><td style='text-align:center'>7R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,6,79120,2021)' onclick='raceClick()'>-</a></td><td style='text-align:center'>иКЭ</td><td style='text-align:center'>1400</td><td style='font-size:11px'>3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)[жМЗеЃЪ]</td><td style='color:'>55.3<span class='f8'>%</span></td><td style='color:'>68.0<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1400&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1400&rc='>дЄАи¶І</a></td><td style='color:'>64.9<span class='f8'>%</span></td><td style='color:blue'>78.4<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1400&rc=3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=1400&rc=3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=иКЭ&dist=1400&dist2=1400&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>3.1</td><td style='border-left:none;' class='best2'>2<span class='f8'>дЇЇ</span></td><td class='best8'>8<span class='f8'>дЇЇ</span></td><td class='best7'>7<span class='f8'>дЇЇ</span></td></tr><tr class='racelist1'><td style='text-align:center'>8R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,7,79121,2021)' onclick='raceClick()'>-</a></td><td style='text-align:center'>гГА</td><td style='text-align:center'>1800</td><td style='font-size:11px'>3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)[жМЗеЃЪ]</td><td style='color:'>68.8<span class='f8'>%</span></td><td style='color:'>74.1<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1800&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1800&rc='>дЄАи¶І</a></td><td style='color:'>54.3<span class='f8'>%</span></td><td style='color:blue'>79.7<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1800&rc=3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1800&rc=3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=гГА&dist=1800&dist2=1800&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>2.7</td><td style='border-left:none;' class='best1'>1<span class='f8'>дЇЇ</span></td><td class='best2'>2<span class='f8'>дЇЇ</span></td><td class='best9'>9<span class='f8'>дЇЇ</span></td></tr><tr class='racelist0'><td style='text-align:center'>9R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,8,79122,2021)' onclick='raceClick()'>жЦ∞жґЉзЙєеИ•</a></td><td style='text-align:center'>гГА</td><td style='text-align:center'>1400</td><td style='font-size:11px'>3ж≠≥дЄК2еЛЭгВѓгГ©гВє(1000дЄЗдЄЛ)пЉИжЈЈеРИпЉЙпЉїжМЗеЃЪпЉљ</td><td style='color:'>60.0<span class='f8'>%</span></td><td style='color:'>66.3<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc='>дЄАи¶І</a></td><td style='color:'>64.9<span class='f8'>%</span></td><td style='color:'>62.4<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc=3ж≠≥дЄК2еЛЭгВѓгГ©гВє(1000дЄЗдЄЛ)'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc=3ж≠≥дЄК2еЛЭгВѓгГ©гВє(1000дЄЗдЄЛ)'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=гГА&dist=1400&dist2=1400&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>2.8</td><td style='border-left:none;' class='best5'>5<span class='f8'>дЇЇ</span></td><td class='best2'>2<span class='f8'>дЇЇ</span></td><td class='best1'>1<span class='f8'>дЇЇ</span></td></tr><tr class='racelist1'><td style='text-align:center'>10R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,9,79123,2021)' onclick='raceClick()'>гВ≠гВњгВµгГ≥гГЦгГ©гГГгВѓгВЂгГГгГЧ</a></td><td style='text-align:center'>иКЭ</td><td style='text-align:center'>2200</td><td style='font-size:11px'>3ж≠≥дЄК3еЛЭгВѓгГ©гВє(1600дЄЗдЄЛ)пЉИжЈЈеРИпЉЙпЉїжМЗеЃЪпЉљ</td><td style='color:blue'>77.6<span class='f8'>%</span></td><td style='color:'>69.9<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=2200&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=2200&rc='>дЄАи¶І</a></td><td style='color:'>62.4<span class='f8'>%</span></td><td style='color:'>74.3<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=2200&rc=3ж≠≥дЄК3еЛЭгВѓгГ©гВє(1600дЄЗдЄЛ)'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=2200&rc=3ж≠≥дЄК3еЛЭгВѓгГ©гВє(1600дЄЗдЄЛ)'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=иКЭ&dist=2200&dist2=2200&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>3.9</td><td style='border-left:none;' class='best4'>4<span class='f8'>дЇЇ</span></td><td class='best8'>8<span class='f8'>дЇЇ</span></td><td class='best14'>14<span class='f8'>дЇЇ</span></td></tr><tr class='racelist0'><td style='text-align:center'>11R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'>пЉІвЕ°</td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,10,79124,2021)' onclick='raceClick()'>з•ЮжИЄжЦ∞иБЮжЭѓ</a></td><td style='text-align:center'>иКЭ</td><td style='text-align:center'>2400</td><td style='font-size:11px'>3ж≠≥гВ™гГЉгГЧгГ≥пЉИеЫљйЪЫпЉЙзЙ°гГїзЙЭпЉИжМЗеЃЪпЉЙ</td><td style='color:'>68.5<span class='f8'>%</span></td><td style='color:'>66.7<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=2400&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=2400&rc='>дЄАи¶І</a></td><td style='color:'>33.5<span class='f8'>%</span></td><td style='color:'>50.9<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=2400&rc=3ж≠≥гВ™гГЉгГЧгГ≥'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=иКЭ&i1=2400&rc=3ж≠≥гВ™гГЉгГЧгГ≥'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=иКЭ&dist=2400&dist2=2400&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>1.4</td><td style='border-left:none;' class='best1'>1<span class='f8'>дЇЇ</span></td><td class='best3'>3<span class='f8'>дЇЇ</span></td><td class='best11'>11<span class='f8'>дЇЇ</span></td></tr><tr class='racelist1'><td style='text-align:center'>12R</td><td style='text-align:center'>зµВдЇЖ</td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,1,0,0,11,79125,2021)' onclick='raceClick()'>-</a></td><td style='text-align:center'>гГА</td><td style='text-align:center'>1400</td><td style='font-size:11px'>3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)[жМЗеЃЪ]</td><td style='color:'>60.0<span class='f8'>%</span></td><td style='color:'>66.3<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc='>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc='>дЄАи¶І</a></td><td style='color:'>54.2<span class='f8'>%</span></td><td style='color:'>72.5<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc=3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)'>дЇЇж∞ЧеИ•</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=йШ™з•Ю&crsx=гГА&i1=1400&rc=3ж≠≥дЄК1еЛЭгВѓгГ©гВє(500дЄЗдЄЛ)'>дЄАи¶І</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=й¶ђйА£&place=йШ™з•Ю&crs=гГА&dist=1400&dist2=1400&hnum=10&hnum2=18'>еЗЇзЫЃ</a></td><td style='border-left:none;border-right:1px solid green'>2.4</td><td style='border-left:none;' class='best2'>2<span class='f8'>дЇЇ</span></td><td class='best1'>1<span class='f8'>дЇЇ</span></td><td class='best9'>9<span class='f8'>дЇЇ</span></td></tr></table><div style='text-align:left'><input style='font-size:10px;margin-top:20px' name='mainreset' type='submit' value='и°®з§ЇгГ™гВїгГГгГИ'></div></form></div></td></tr></tbody></table></td></tr></tbody></table></div><br><span class='blink' style='font-size:12px'>
+	<a href='javascript:history.go(-1)'>BACK</a>&nbsp;&nbsp;
+	<a href='./'>HOME</a>&nbsp;&nbsp;
+	<a href='?p=9'>йБОеОїгГЗгГЉгВњ</a>
+	</span><br><table><tr></tr><tr></tr></table><br>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="3435096835"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</body>
+</html>
+
