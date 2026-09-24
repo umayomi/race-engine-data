@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<HEAD>
+<META http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>競馬・特別登録馬、出馬表から検索</TITLE>
+<META name="keywords" content="競走成績検索,競走成績集計,種牡馬,騎手,調教師,馬主">
+<META name="description" content="特別登録馬、出馬表から競走馬、種牡馬、騎手、調教師、馬主の成績を検索／集計します">
+<link rel="shortcut icon" href="favicon.ico">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<script type="text/javascript" src="srch6ctrl.js"></script>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="init.css">
+<script type="text/javascript" src="postcommon.js"></script>
+<style type="text/css"> 
+<!-- 
+body {margin:8px;font-family:/*"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",*/"メイリオ","Meiryo","ＭＳ Ｐゴシック","sans-serif"}
+button {font-size:10px;padding-top:2px}
+table{font-size:12px;table-layout:fixed;color:black;}
+.ll th{background:url(tback_orange20.gif);color:black;font-weight:normal;
+   text-align:center;padding:3px 4px 3px 4px;border:1px solid lime/*#BABABA*/}
+.ll td{background:url(tback_gray20.gif);text-align:left;padding:3px 4px 3px 4px;border:1px solid lime/*#BABABA*/}
+
+.horse_list th{color:/*black*/white;background:green/*mediumvioletred*/;font-weight:normal;
+   text-align:center;padding:3px 4px 3px 4px;border:1px solid white}
+.horse_list td{background:white/*url(tback_gray20.gif)*/;text-align:left;padding:3px 4px 3px 4px;border:1px solid green/*#BABABA*/;white-space:nowrap;overflow:hidden}
+
+.form1 th{background:url(tback_orange30.gif);}
+
+.f8  {font-size:8px}
+.f10 {font-size:10px}
+td.ppx {border-left:0px;border-right:0px;font-size:10px;}
+td.rankx {border-left:0px;font-size:10px;text-align:right;padding-left:0px;};
+.no_border {border-left:0px;border-right:0px}
+
+.disp_item td{text-align:left;padding:1px 4px;border:none}
+
+.dummy_row td{border:0px;padding:0px}
+.dummy_row th{border:0px solid red;padding:0px;background:transparent}
+.offbtn{width:68px;font-size:12px;}
+.dspctl input,button{font-size:12px;color:black/*blue*/}
+.tblhead th{background:url(tback_green30.gif);font-weight:normal;height:24px}
+.tblhead td{background:white;font-weight:normal;}
+.kakolist td{background:#adff5b}
+.b0 {background:#ffeaff}
+.b1 {background:pink}
+.b2 {background:#c1e0ff}
+.b3 {background:#ffff33}
+.horserowth {height:55.5px}
+.line0 td{background:white;height:20px}
+.line1 td{background:#f4ffff;height:20px}
+.racelist0 td{background:white;height:16px;border:1px solid #00cc33}
+.racelist1 td{background:#f4ffff;height:16px;border:1px solid #00cc33}
+.racelist th{background:#ccffcc;border:1px solid #00cc33}
+.racelist {font-family:"メイリオ","Meiryo","ＭＳ Ｐゴシック"}
+.flink a:link { color: white;}
+.flink a:visited { color: white;}
+.flink a:active { color: cyan;}
+.flink a:hover { color: cyan;}
+td.best1 {background:#ffd1e8}
+td.best2 {background:#d1e8ff}
+td.best3 {background:#ffffd1}
+.ctlitem {margin:2px 0px;}
+.debug {color:navy:border-color:navy;border:0px solid navy;}
+th.@chousei {padding:10px 0px 11px 0px}
+.@chouseix {padding:3px 0px 0px 0px}
+.chouseix {margin-top:2px}
+input.@chouseiz {margin:8px 0px}
+-->
+</style> 
+<script type="text/javascript">
+<!--
+execflg   = 0;
+subbtn_Id = "";
+btn       = 0;
+function dispChange(id) {
+	//点滅テキスト
+	text = "データの集計中です… しばらくお待ちください。<br>数分かかる場合もあります m(_ _)m<br>既に集計済みの項目はそれほどかかりません。";
+	document.getElementById("alertmsg").innerHTML = "<br><br><br><span style='color:yellow;font-size:18px;font-weight:bold;'>　　"+text+"</span><br><br><br>";
+
+	//表示にしたいもの*/
+	document.getElementById("cmX").style.display='none';
+	//document.getElementById("horselist").style.display='none';
+
+	//点滅周期
+    setTimeout("document.getElementById('alertmsg').style.opacity^=1",200); /*１発目だけは早く点滅    */
+	setInterval("document.getElementById('alertmsg').style.opacity^=1",1100);/*以降は500ms毎に切り替え */
+
+	ScrollWindow("alertmsg");
+
+	document.formx.changeid.value = id;
+	document.formx.submit();
+}
+
+/* ここから */
+function sclick(e){
+	if(e.parentNode.parentNode.parentNode.parentNode.id == "horse_list_id"){
+		subbtn_Id = "horse_list_id";
+	}else if(e.parentNode.parentNode.parentNode.parentNode.id == "disp_item_id1"){
+		subbtn_Id = "disp_item_id1";
+	}else{
+		subbtn_Id = "disp_item_id2";
+	}
+
+	btn = e;
+}
+
+
+function footest(){
+	var text;
+	var val,i;
+
+	if(execflg != 0){
+		return false;
+	}
+
+	if(btn.name != "disp_reset"){
+		if(!srch6ctrl(btn)){
+			return false;
+		}
+	}
+
+	//点滅テキスト
+	text = "データの集計中です… しばらくお待ちください。<br>数分かかる場合もあります m(_ _)m<br>既に集計済みの項目はそれほどかかりません。";
+	document.getElementById("alertmsg").innerHTML = "<br><br><br><span style='color:yellow;font-size:18px;font-weight:bold;'>　　"+text+"</span><br><br><br>";
+
+	//表示にしたいもの*/
+	document.getElementById("cmX").style.display='none';
+	//document.getElementById("horselist").style.display='none';
+
+	//点滅周期
+    setTimeout("document.getElementById('alertmsg').style.opacity^=1",200); /*１発目だけは早く点滅    */
+	setInterval("document.getElementById('alertmsg').style.opacity^=1",1100);/*以降は500ms毎に切り替え */
+	execflg = 1;
+
+	ScrollWindow("alertmsg");
+	
+	return true;
+}
+
+
+function ScrollWindow(elem) {
+    var element = document.getElementById(elem);
+    var rect = element.getBoundingClientRect();
+    var elemtop = rect.top + window.pageYOffset;
+    document.documentElement.scrollTop = elemtop;
+}
+
+function raceClick(){
+	text = "データの集計中です… しばらくお待ちください。<br>　　数分かかる場合もあります m(_ _)m";
+	document.getElementById("cm1").innerHTML = "<br><br><br><span style='font-family:\"メイリオ\";color:white;font-size:20px;font-weight:bold;'>　　"+text+"</span><br><br><br>";
+    setTimeout("document.getElementById('cm1').style.opacity^=1",200); /*１発目だけは早く点滅    */
+	setInterval("document.getElementById('cm1').style.opacity^=1",800);/*以降は500ms毎に切り替え */
+	ScrollWindow("cm1");
+}
+function raceClick2(){
+	text = "データの集計中です… しばらくお待ちください。<br>　　数分かかる場合もあります m(_ _)m";
+	document.getElementById("cmX").innerHTML = "<br><br><br><span style='font-family:\"メイリオ\";color:white;font-size:20px;font-weight:bold;'>　　"+text+"</span><br><br><br>";
+    setTimeout("document.getElementById('cmX').style.opacity^=1",200); /*１発目だけは早く点滅    */
+	setInterval("document.getElementById('cmX').style.opacity^=1",800);/*以降は500ms毎に切り替え */
+	ScrollWindow("cmX");
+}
+
+function srch6_post_tab(p, ki, kd, cs, bty){
+	//TAB1 https://umarengod.com/srch6.php?p=0&ki=0&kd=2021-11-20&cs=%E6%9D%B1%E4%BA%AC&bty=2016
+	//TAB2 https://umarengod.com/srch6.php?p=1&ki=0&kd=2021-11-20&cs=%E7%A6%8F%E5%B3%B6&bty=2016
+	document.form_link.p.value = p;
+	document.form_link.ki.value = ki;
+	document.form_link.kd.value = kd;
+	document.form_link.cs.value = cs;
+	document.form_link.bty.value = bty;
+	document.form_link.seni.value = 1;
+	document.form_link.submit();
+}
+function srch6_post_tab_formx(p, ki, kd, cs, bty){
+	//TAB1 https://umarengod.com/srch6.php?p=0&ki=0&kd=2021-11-20&cs=%E6%9D%B1%E4%BA%AC&bty=2016
+	//TAB2 https://umarengod.com/srch6.php?p=1&ki=0&kd=2021-11-20&cs=%E7%A6%8F%E5%B3%B6&bty=2016
+	document.formx.p.value = p;
+	document.formx.ki.value = ki;
+	document.formx.kd.value = kd;
+	document.formx.cs.value = cs;
+	document.formx.bty.value = bty;
+	document.formx.seni.value = 2;
+	document.formx.submit();
+}
+function srch6_post_sel(p,ki,i0,i1,i2,r,bty){
+	//選択 https://umarengod.com/srch6.php?p=2&ki=0&i0=0&i1=2&i2=10&r=0
+	document.form_link.p.value = p;
+	document.form_link.ki.value = ki;
+	document.form_link.i0.value = i0;
+	document.form_link.i1.value = i1;
+	document.form_link.i2.value = i2;
+	document.form_link.r.value  = r;
+	document.form_link.bty.value = bty;
+	document.form_link.seni.value = 1;
+	
+	document.form_link.submit();
+}
+function srch6_post_kako(p,bty){
+	//過去 https://umarengod.com/srch6.php?p=9
+	document.form_link.p.value = p;
+	document.form_link.bty.value = bty;
+	document.form_link.seni.value = 1;
+	document.form_link.submit();
+}
+function srch6_post_kako_sel(p,kako,ki,r,year,bty){
+	//過去 https://umarengod.com/srch6.php?p=2&kako=1&ki=1&r=62377&year=2021
+	document.form_link.p.value = p;
+	document.form_link.kako.value = kako;
+	document.form_link.ki.value = ki;
+	document.form_link.r.value = r;
+	document.form_link.year.value = year;
+	document.form_link.bty.value = bty;
+	document.form_link.seni.value = 1;
+	document.form_link.submit();
+}
+
+/* ここまで */
+// -->
+</script>
+</head>
+<body>
+
+<form name='form_link' action='/srch6.php' method='post'><input name='p' type='hidden' value=''>
+<input name='ki' type='hidden' value=''>
+<input name='kd' type='hidden' value=''>
+<input name='cs' type='hidden' value=''>
+<input name='bty' type='hidden' value=''>
+<input name='i0' type='hidden' value=''>
+<input name='i1' type='hidden' value=''>
+<input name='i2' type='hidden' value=''>
+<input name='r' type='hidden' value=''>
+<input name='kako' type='hidden' value=''>
+<input name='year' type='hidden' value=''>
+<input name='seni' type='hidden' value='1'>
+</form>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99050473-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<center><form name='form_race_result' action='race_result.php' method='post'  target='race_result'><input type='hidden' name='rec' value=''></form><form name='form_srch3' action='srch3.php' method='post' target='srch3'><input type='hidden' name='hn' value=''><input type='hidden' name='birthyear' value=''><input type='hidden' name='seni' value='1'></form><form name='form_srch4' action='srch4.php' method='post' target='srch4'><input type='hidden' name='ks' value=''><input type='hidden' name='ky' value=''><input type='hidden' name='hn' value=''><input type='hidden' name='seni' value='1'></form><!-- SMART WIN -->
+<DIV style='text-align:center;width:780px'>
+<DIV style='margin-bottom:4px;width:384px;color:black;padding:2px;float:left'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<!-- umarengod1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="2823644470"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<DIV style='margin-bottom:4px;width:384px;color:black;padding:2px;float:left'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<!-- umarengod2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="5237629798"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+<br style='clear:both'>	
+<BR>
+<!-- WORLD -->
+
+<div style="clear:both;padding:16px 0px 2px 0px;font-size:16px;font-weight:bold;color:white">
+<!--
+明けましておめでとうございます。
+<br>
+ただ今、システムメンテナンスを行っております。<br>
+動作が不安定になることもありますので、ご了承ください。　m(_&nbsp;_)m
+-->
+</div>
+
+<br><span class='blink' style='font-size:14px'><a href='javascript:history.go(-1)'>BACK</a><a style='margin-left:22px' href='index.php'>HOME</a><a style='margin-left:22px' href='srch1.php'>最近のﾚｰｽ結果</a><a style='margin-left:22px' href='srch3.php'>馬名で検索</a><a style='margin-left:22px' href='srch4.php'>騎手／調教師名で検索</a><a style='margin-left:22px' href='srch2.php'>条件で検索</a><a style='margin-left:22px' href='srch6.php'>出馬表から検索</a><a style='margin-left:22px' href='etcfatherm.php'>種牡馬・母父成績</a></span>　　<span class='blink' style='font-size:14px;margin-top:12px'><a href='javascript:srch6_post_kako(9,2021)'>過去データ</a></span><br><br><div class='main' style='width:1200px;border:0px solid blue'><table style='width:1200px;margin-top:15px'><tbody><tr style='text-align:center'><td style='width:10px;border:0px;border-bottom:1px solid lime'></td><td class='sel' style='font-size:12px;padding:4px 6px;width:77px;border:1px solid lime;border-bottom:1px solid navy;background:url(tabback_gray24.gif)'><a href='javascript:srch6_post_tab(0,0,"2026-09-27","中山",2021)'>9月27日(日)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,0,"2026-09-26","中山",2021)'>9月26日(土)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-22","中山",2021)'>9月22日(火)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-21","中山",2021)'>9月21日(月)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-20","中山",2021)'>9月20日(日)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-19","中山",2021)'>9月19日(土)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-13","中山",2021)'>9月13日(日)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-12","中山",2021)'>9月12日(土)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-06","中山",2021)'>9月6日(日)</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:77px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(0,1,"2026-09-05","中山",2021)'>9月5日(土)</a></td><td style='border-bottom:1px solid lime'></td></tr><tr><td style='border:1px solid lime;border-top:0px;' colspan='12'><table style='width:100%;margin-top:20px;table-layout:fixed'><tbody><tr><td style='width:15px;border:0px;border-bottom:1px solid lime'></td><td class='sel' style='font-size:12px;padding:4px 6px;width:34px;border:1px solid lime;border-bottom:1px solid navy;background:url(tabback_gray24.gif)'><a href='javascript:srch6_post_tab(1,0,"2026-09-27","中山",2021)'>中&nbsp;山</a></td><td class='unsel' style='font-size:12px;padding:4px 6px;width:34px;border-bottom:1px solid lime'><a href='javascript:srch6_post_tab(1,0,"2026-09-27","阪神",2021)'>阪&nbsp;神</a></td><td class='blink' style='text-align:right;border-bottom:1px solid lime'></td></tr><tr><td style='border:0px;text-align:left' colspan='4'><div class='ll' style='margin:20px'><div id='cm1' style="margin-bottom:10px;width:736px;text-align:left;border:0px solid white">
+</div>
+<span class='racelist' style='color:white;font-weight:bold;line-height:1.8em'>【特別レース一覧】</span><div style='margin:4px 0px;color:yellow'></div><form name='form1' action='/srch6.php' method='post'><input type='hidden' name='p' value='1'><input type='hidden' name='ki' value='0'><input type='hidden' name='kd' value='2026-09-27'><input type='hidden' name='cs' value='中山'><table class='racelist'><tr><th rowspan='3' width='26px'>ﾚｰｽ<br>No</th><th rowspan='3' width='50px'>発走時刻</th><th rowspan='3' width='26px'>Ｇ</th><th rowspan='3' width='/*140px*/'>レース名</th><th rowspan='3' width='/*60px*/'>コース</th><th rowspan='3' width='35px'>距離</th><th rowspan='3' width='/*220px*/'>条件</th><th colspan='8' width=''><select name='betayy'><option value='2026' >2026<option value='2025' >2025<option value='2024' >2024<option value='2023' >2023<option value='2022' >2022<option value='2021' selected>2021<option value='2020' >2020<option value='2019' >2019<option value='2018' >2018<option value='2017' >2017<option value='2016' >2016<option value='2015' >2015<option value='2014' >2014<option value='2013' >2013<option value='2012' >2012<option value='2011' >2011<option value='2010' >2010<option value='2009' >2009<option value='2008' >2008<option value='2007' >2007<option value='2006' >2006<option value='2005' >2005<option value='2004' >2004</select>年以降の全頭ベタ買い回収率 <input type='submit' name='beta' value='再表示' onclick='sclick(this)'><br>（&nbsp;2026年05月02日(土)時点&nbsp;）　</th><th rowspan='3' style='border-right:1px solid navy'>出目<br>傾向</th><th rowspan='2' colspan='4' style='border-bottom:1px solid green'>結　果</th></tr><tr><th colspan='4'>コース・距離での集計</th><th colspan='4'>コース・距離＋クラスでの集計</th></tr><tr><th style='font-size:12px'>単勝<br>ベタ買</th><th style='font-size:12px'>複勝<br>ベタ買</th><th>人気別<br>成績</th><th>ﾚｰｽ<br>結果</th><th style='font-size:12px'>単勝<br>ベタ買</th><th style='font-size:12px'>複勝<br>ベタ買</th><th>人気別<br>成績</th><th>ﾚｰｽ<br>結果</th><th style='border-top:none;border-left:none;border-right:1px solid green'>1人<br>ｵｯｽﾞ</th><th style='border-top:none;border-left:none;'>1着<br>人気</th><th style='border-top:none'>2着<br>人気</th><th style='border-top:none'>3着<br>人気</th></tr><tr class='racelist0'><td style='text-align:center'>9R</td><td style='text-align:center'></td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,0,1,0,0,0,2021)' onclick='raceClick()'>サフラン賞</a></td><td style='text-align:center'>芝</td><td style='text-align:center'>1600</td><td style='font-size:11px'>2歳1勝クラス（混合）牝（特指） 馬齢</td><td style='color:'>64.2<span class='f8'>%</span></td><td style='color:'>71.3<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1600&rc='>人気別</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1600&rc='>一覧</a></td><td style='color:'>68.2<span class='f8'>%</span></td><td style='color:blue'>88.6<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1600&rc=2歳1勝クラス(500万下)'>人気別</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1600&rc=2歳1勝クラス(500万下)'>一覧</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=馬連&place=中山&crs=芝&dist=1600&dist2=1600&hnum=10&hnum2=18'>出目</a></td><td style='border-left:none;border-right:1px solid green'></td><td style='border-left:none;' class='best99'></td><td class='best99'></td><td class='best99'></td></tr><tr class='racelist1'><td style='text-align:center'>10R</td><td style='text-align:center'></td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,0,1,0,1,0,2021)' onclick='raceClick()'>茨城新聞杯</a></td><td style='text-align:center'>芝</td><td style='text-align:center'>2000</td><td style='font-size:11px'>3歳以上2勝クラス（混合）［指定］ 定量</td><td style='color:'>62.0<span class='f8'>%</span></td><td style='color:'>67.2<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=2000&rc='>人気別</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=2000&rc='>一覧</a></td><td style='color:'>34.8<span class='f8'>%</span></td><td style='color:'>69.5<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=2000&rc=3歳上2勝クラス(1000万下)'>人気別</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=2000&rc=3歳上2勝クラス(1000万下)'>一覧</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=馬連&place=中山&crs=芝&dist=2000&dist2=2000&hnum=10&hnum2=18'>出目</a></td><td style='border-left:none;border-right:1px solid green'></td><td style='border-left:none;' class='best99'></td><td class='best99'></td><td class='best99'></td></tr><tr class='racelist0'><td style='text-align:center'>11R</td><td style='text-align:center'></td><td style='text-align:center'>ＧＩ</td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,0,1,0,2,0,2021)' onclick='raceClick()'>スプリンターズＳ</a></td><td style='text-align:center'>芝</td><td style='text-align:center'>1200</td><td style='font-size:11px'>3歳以上オープン（国際）（指定） 定量</td><td style='color:'>66.8<span class='f8'>%</span></td><td style='color:blue'>75.3<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1200&rc='>人気別</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1200&rc='>一覧</a></td><td style='color:red'>92.3<span class='f8'>%</span></td><td style='color:'>69.1<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1200&rc=3歳上オープン'>人気別</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1200&rc=3歳上オープン'>一覧</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=馬連&place=中山&crs=芝&dist=1200&dist2=1200&hnum=10&hnum2=18'>出目</a></td><td style='border-left:none;border-right:1px solid green'></td><td style='border-left:none;' class='best99'></td><td class='best99'></td><td class='best99'></td></tr><tr class='racelist1'><td style='text-align:center'>12R</td><td style='text-align:center'></td><td style='text-align:center'></td><td style='text-align:center'><a href='javascript:srch6_post_sel(2,0,1,0,3,0,2021)' onclick='raceClick()'>外房ステークス</a></td><td style='text-align:center'>ダート</td><td style='text-align:center'>1200</td><td style='font-size:11px'>3歳以上3勝クラス（混合）［指定］ ハンデ</td><td style='color:'>69.9<span class='f8'>%</span></td><td style='color:'>67.6<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=中山&crsx=ダ&i1=1200&rc='>人気別</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=中山&crsx=ダ&i1=1200&rc='>一覧</a></td><td style='color:'>63.8<span class='f8'>%</span></td><td style='color:'>58.4<span class='f8'>%</span></td><td><a target='etc19'  href='etc19.php?p=nin&yy1=2021&yy2=2026&place=中山&crsx=ダ&i1=1200&rc=3歳上3勝クラス(1600万下)'>人気別</a></td><td><a target='etc19' href='etc19.php?p=race&yy1=2021&yy2=2026&place=中山&crsx=ダ&i1=1200&rc=3歳上3勝クラス(1600万下)'>一覧</a></td><td style='border-right:1px solid navy'><a target='etc11' href='etc11.php?yy1=2021&mm1=01&dd1=01&yy2=2026&mm2=12&dd2=31&kind=馬連&place=中山&crs=ダ&dist=1200&dist2=1200&hnum=10&hnum2=18'>出目</a></td><td style='border-left:none;border-right:1px solid green'></td><td style='border-left:none;' class='best99'></td><td class='best99'></td><td class='best99'></td></tr></table><div style='text-align:left'><input style='font-size:10px;margin-top:20px' name='mainreset' type='submit' value='表示リセット'></div></form></div></td></tr></tbody></table></td></tr></tbody></table></div><br><span class='blink' style='font-size:12px'>
+	<a href='javascript:history.go(-1)'>BACK</a>&nbsp;&nbsp;
+	<a href='./'>HOME</a>&nbsp;&nbsp;
+	<a href='?p=9'>過去データ</a>
+	</span><br><table><tr></tr><tr></tr></table><br>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2898719464355197"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-2898719464355197"
+     data-ad-slot="3435096835"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</body>
+</html>
+

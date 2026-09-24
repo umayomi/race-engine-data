@@ -1,4 +1,4 @@
-# umarengod 診断 2026-09-24T00:46:50+09:00
+# umarengod 診断 2026-09-24T11:12:49+09:00
 
 robots.txt status: 200
 
@@ -46,6 +46,15 @@ robots.txt status: 200
 | page_/etc9.php_p=1 | 200 | 調教師・馬主コンビ連対率ランキング | 1 | 2 | False | True |
 | page_/etc9_2.php_ | 200 | 騎手・生産者コンビ連対率ランキング | 1 | 2 | False | True |
 | page_/etc9_2.php_p=1 | 200 | 調教師・生産者コンビ連対率ランキング | 1 | 2 | False | True |
+| srch6_entry | 200 | 競馬・特別登録馬、出馬表から検索 | 5 | 4 | False | True |
+| entry_/etc19.php_p=race&yy1=2021&yy2=2026&place=中山&crsx=ダ&i1=1200&rc= | 200 | 競馬・全頭ベタ買い単勝・複勝回収率ランキング | 1 | 5 | False | True |
+| entry_/etc19.php_p=race&yy1=2021&yy2=2026&place=中山&crsx=ダ&i1=1200&rc=3歳上3勝クラス(1600万下) | 200 | 競馬・全頭ベタ買い単勝・複勝回収率ランキング | 1 | 5 | False | True |
+| entry_/etc19.php_p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1200&rc= | 200 | 競馬・全頭ベタ買い単勝・複勝回収率ランキング | 1 | 5 | False | True |
+| entry_/etc19.php_p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1200&rc=3歳上オープン | 200 | 競馬・全頭ベタ買い単勝・複勝回収率ランキング | 1 | 5 | False | True |
+| entry_/etc19.php_p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1600&rc= | 200 | 競馬・全頭ベタ買い単勝・複勝回収率ランキング | 1 | 5 | False | True |
+| entry_/etc19.php_p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=1600&rc=2歳1勝クラス(500万下) | 200 | 競馬・全頭ベタ買い単勝・複勝回収率ランキング | 1 | 5 | False | True |
+| entry_/etc19.php_p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=2000&rc= | 200 | 競馬・全頭ベタ買い単勝・複勝回収率ランキング | 1 | 5 | False | True |
+| entry_/etc19.php_p=race&yy1=2021&yy2=2026&place=中山&crsx=芝&i1=2000&rc=3歳上2勝クラス(1000万下) | 200 | 競馬・全頭ベタ買い単勝・複勝回収率ランキング | 1 | 5 | False | True |
 | netkeiba_ped_2021103932 | 200 | ジェニファー (Jennifer) | 競走馬データ - n | 2 | 5 | False | True |
 | netkeiba_horse_2021103932 | 200 | ジェニファー (Jennifer) | 競走馬データ - n | 0 | 1 | False | False |
 | netkeiba_shutuba_past_202601010811 | 200 | 札幌記念(G2) 5走表示 | 2026年8月16日 札幌1 | 1 | 14 | False | True |
