@@ -48,6 +48,35 @@ def clean_horse_name(name: str) -> str:
     return re.sub(r"\s+", " ", n).strip()
 
 
+_ROMAN = {"Ⅰ": "1", "Ⅱ": "2", "Ⅲ": "3", "Ⅳ": "4", "Ⅴ": "5",
+          "II": "2", "III": "3", "IV": "4"}
+
+
+def norm_horse_key(name: str) -> str:
+    """馬名の照合キー。両サイトの表記差を吸収する。実測した差異:
+      umarengod: 全角英字 + 全角アポストロフィ(’) + 全角スペース(\u3000)  例 Ｇｉａｎｔ’ｓ　Ｃａｕｓｅｗａｙ
+      netkeiba : 半角英字 + 半角アポストロフィ(') + 半角スペース          例 Giant's Causeway (米)
+      さらに アルデバランII ↔ アルデバラン2 のようなローマ数字表記の揺れもある。"""
+    n = clean_horse_name(name)
+    n = unicodedata.normalize("NFKC", n)          # 全角英数→半角、全角スペース→半角
+    n = n.replace("\u2019", "'").replace("\u02bc", "'").replace("`", "'")
+    for k, v in _ROMAN.items():                   # 末尾のローマ数字を算用数字へ
+        n = re.sub(k + r"\b", v, n)
+    n = re.sub(r"[\s'.\-]", "", n)                 # 記号・空白を無視
+    return n.upper()
+
+
+def match_horse_name(name: str, candidates) -> str | None:
+    """umarengod 側の登録名一覧から、正規化キーが一致するものを返す。"""
+    key = norm_horse_key(name)
+    if not key:
+        return None
+    for c in candidates:
+        if norm_horse_key(c) == key:
+            return c
+    return None
+
+
 URL_JOCKEY = "https://umarengod.com/etcsrch4.php"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
@@ -395,7 +424,8 @@ def pedigree_payload(fld: str, name: str, race_date: str) -> dict:
        fld=father|mfather / pvaluex=馬名（pvalue ではない） / proc=1（1でないと一覧のまま）。
     期間は騎手と同じ D-1 まで。"""
     s, e = period_3y(race_date)
-    return {"fld": fld, "pvaluex": clean_horse_name(name), "proc": "1", "stype": "",
+    # name は呼び出し側で確定済みのものをそのまま送る（登録名の全角スペース等を壊さないため）
+    return {"fld": fld, "pvaluex": name, "proc": "1", "stype": "",
             "yy1": str(s.year), "mm1": str(s.month), "dd1": str(s.day),
             "yy2": str(e.year), "mm2": str(e.month), "dd2": str(e.day),
             "crs": "ALL", "range": "", "range2": ""}
@@ -474,10 +504,39 @@ def parse_pedigree_table(html: str) -> tuple[list[dict], dict]:
     return out, meta
 
 
-def fetch_pedigree(session, fld: str, name: str, race_date: str) -> tuple[list[dict], dict]:
-    """種牡馬(father)/母父(mfather) の産駒成績を1回のPOSTで全条件ぶん取得。"""
+def fetch_name_list(session, fld: str) -> tuple[list[str], dict]:
+    """umarengod に登録されている種牡馬/母父の名前一覧を取得（1回だけ）。
+    外国産馬は全角英字で登録されているため、POST 前にこの一覧へ正規化照合する。"""
+    try:
+        r = session.post(URL_PEDIGREE, data={"fld": fld, "proc": "0", "pvaluex": "",
+                                             "stype": "", "listgo": "一覧"},
+                         headers={"User-Agent": UA}, timeout=40)
+    except Exception as e:  # noqa: BLE001
+        return [], {"status": "error", "reason": f"network:{type(e).__name__}"}
+    finally:
+        time.sleep(INTERVAL_SEC)
+    if r.status_code != 200:
+        return [], {"status": "error", "reason": f"http_{r.status_code}"}
+    names = sorted(set(re.findall(r"javapost\('" + re.escape(fld) + r"','([^']*)'\)", decode(r))))
+    if not names:
+        return [], {"status": "error", "reason": "name_list_not_found"}
+    return names, {"status": "ok", "count": len(names)}
+
+
+def fetch_pedigree(session, fld: str, name: str, race_date: str,
+                   name_list: list[str] | None = None) -> tuple[list[dict], dict]:
+    """種牡馬(father)/母父(mfather) の産駒成績を1回のPOSTで全条件ぶん取得。
+    name_list を渡すと、umarengod 側の正式表記へ正規化照合してから問い合わせる。"""
     if not name:
         return [], {"status": "not_found", "reason": "name_missing"}
+    matched = None
+    if name_list:
+        matched = match_horse_name(name, name_list)
+        if matched is None:
+            return [], {"status": "not_found", "reason": "name_not_in_umarengod_list"}
+        name = matched            # 登録名をそのまま（全角スペース・全角英字を保持）
+    else:
+        name = clean_horse_name(name)   # 一覧が無いときだけ国名接尾辞を落として素で試す
     try:
         r = session.post(URL_PEDIGREE, data=pedigree_payload(fld, name, race_date),
                          headers={"User-Agent": UA}, timeout=40)
@@ -492,7 +551,8 @@ def fetch_pedigree(session, fld: str, name: str, race_date: str) -> tuple[list[d
         return [], {"status": "error", "reason": "table_not_found"}
     if not rows:
         return [], {"status": "not_found", "reason": "no_rows_for_name"}
-    return rows, {"status": "ok", "rows": meta["rows"]}
+    return rows, {"status": "ok", "rows": meta["rows"],
+                  "matched_name": matched if matched else None}
 
 
 def resolve_pedigree(name: str, rows: list[dict], st: dict,
