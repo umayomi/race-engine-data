@@ -15,6 +15,39 @@ import re
 import time
 import unicodedata
 
+def decode(resp) -> str:
+    """レスポンスを正しい文字コードで復号する。
+    requests の apparent_encoding（自動推定）は日本語ページで誤判定することがあり、
+    実測で ptcp154 / mac_latin2 などを返して本文が文字化けし、表を見つけられなくなった
+    （モーリス・クロフネ等で table_not_found が多発した原因）。
+    umarengod は全ページ <meta charset="utf-8"> を宣言しているので、
+    HTTPヘッダ → meta宣言 → utf-8 の順で決める。"""
+    enc = None
+    ctype = (resp.headers.get("Content-Type") or "") if hasattr(resp, "headers") else ""
+    m = re.search(r"charset=([\w-]+)", ctype, re.I)
+    if m and m.group(1).lower() not in ("iso-8859-1",):
+        enc = m.group(1)
+    if not enc:
+        head = resp.content[:4096].decode("ascii", "ignore") if hasattr(resp, "content") else ""
+        m = re.search(r'charset=["\']?([\w-]+)', head, re.I)
+        if m:
+            enc = m.group(1)
+    resp.encoding = enc or "utf-8"
+    try:
+        return resp.text
+    except Exception:  # noqa: BLE001
+        resp.encoding = "utf-8"
+        return resp.text
+
+
+def clean_horse_name(name: str) -> str:
+    """netkeiba の馬名から国名接尾辞などを除去（umarengod は接尾辞なしで登録）。
+    「Giant's Causeway\u00a0(米)」→「Giant's Causeway」"""
+    n = (name or "").replace("\u00a0", " ")
+    n = re.sub(r"[（(](米|英|仏|愛|伊|独|加|豪|新|亜|南|伯|チリ|UAE|香|韓|中|日)[）)]", "", n)
+    return re.sub(r"\s+", " ", n).strip()
+
+
 URL_JOCKEY = "https://umarengod.com/etcsrch4.php"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
@@ -256,8 +289,7 @@ def fetch_jockey_table(session, surface: str, distance_m: int, race_date: str,
         time.sleep(INTERVAL_SEC)
     if r.status_code != 200:
         return {}, {"status": "error", "reason": f"http_{r.status_code}"}
-    r.encoding = r.apparent_encoding
-    table, meta = parse_stats_table(r.text, "騎手名")
+    table, meta = parse_stats_table(decode(r), "騎手名")
     if not meta["table_found"]:
         return {}, {"status": "error", "reason": "table_not_found"}
     return table, {"status": "ok", "rows": meta["rows"], "column_mode": meta["column_mode"]}
@@ -363,7 +395,7 @@ def pedigree_payload(fld: str, name: str, race_date: str) -> dict:
        fld=father|mfather / pvaluex=馬名（pvalue ではない） / proc=1（1でないと一覧のまま）。
     期間は騎手と同じ D-1 まで。"""
     s, e = period_3y(race_date)
-    return {"fld": fld, "pvaluex": name, "proc": "1", "stype": "",
+    return {"fld": fld, "pvaluex": clean_horse_name(name), "proc": "1", "stype": "",
             "yy1": str(s.year), "mm1": str(s.month), "dd1": str(s.day),
             "yy2": str(e.year), "mm2": str(e.month), "dd2": str(e.day),
             "crs": "ALL", "range": "", "range2": ""}
@@ -455,8 +487,7 @@ def fetch_pedigree(session, fld: str, name: str, race_date: str) -> tuple[list[d
         time.sleep(INTERVAL_SEC)
     if r.status_code != 200:
         return [], {"status": "error", "reason": f"http_{r.status_code}"}
-    r.encoding = r.apparent_encoding
-    rows, meta = parse_pedigree_table(r.text)
+    rows, meta = parse_pedigree_table(decode(r))
     if not meta["table_found"]:
         return [], {"status": "error", "reason": "table_not_found"}
     if not rows:
