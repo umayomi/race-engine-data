@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T08:38:21+09:00",
+  "generated_at": "2026-09-24T09:15:20+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040612",
@@ -72,10 +72,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ヴァンセンヌ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 3
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 20,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.05,
+        "quinella_rate": 0.05,
+        "raw_place_rate": 0.1,
+        "adjusted_place_rate": 0.1429,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "スタチューオブリバティ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 6
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 6,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.1667,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.6667,
+        "adjusted_place_rate": 0.4286,
+        "status": "ok"
       }
     },
     {
@@ -118,10 +162,32 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "リアルスティール",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "error",
+        "reason": "table_not_found"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ヴィクトワールピサ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "error",
+        "reason": "table_not_found"
       }
     },
     {
@@ -164,10 +230,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ドレフォン",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 118
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 118,
+        "wins": 16,
+        "seconds": 9,
+        "thirds": 7,
+        "win_rate": 0.1356,
+        "quinella_rate": 0.2119,
+        "raw_place_rate": 0.2712,
+        "adjusted_place_rate": 0.2699,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ディープインパクト",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 105
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 105,
+        "wins": 3,
+        "seconds": 5,
+        "thirds": 8,
+        "win_rate": 0.0286,
+        "quinella_rate": 0.0762,
+        "raw_place_rate": 0.1524,
+        "adjusted_place_rate": 0.1593,
+        "status": "ok"
       }
     },
     {
@@ -210,10 +320,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ミスターメロディ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 9
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 9,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.1111,
+        "adjusted_place_rate": 0.1765,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ディープインパクト",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 105
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 105,
+        "wins": 3,
+        "seconds": 5,
+        "thirds": 8,
+        "win_rate": 0.0286,
+        "quinella_rate": 0.0762,
+        "raw_place_rate": 0.1524,
+        "adjusted_place_rate": 0.1593,
+        "status": "ok"
       }
     },
     {
@@ -256,10 +410,43 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ミスチヴィアスアレックス",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 23
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 23,
+        "wins": 1,
+        "seconds": 7,
+        "thirds": 1,
+        "win_rate": 0.0435,
+        "quinella_rate": 0.3478,
+        "raw_place_rate": 0.3913,
+        "adjusted_place_rate": 0.3548,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "クロフネ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "error",
+        "reason": "table_not_found"
       }
     },
     {
@@ -302,10 +489,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ブリックスアンドモルタル",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 16
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 16,
+        "wins": 0,
+        "seconds": 3,
+        "thirds": 3,
+        "win_rate": 0.0,
+        "quinella_rate": 0.1875,
+        "raw_place_rate": 0.375,
+        "adjusted_place_rate": 0.3333,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ダイワメジャー",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 86
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 86,
+        "wins": 7,
+        "seconds": 10,
+        "thirds": 6,
+        "win_rate": 0.0814,
+        "quinella_rate": 0.1977,
+        "raw_place_rate": 0.2674,
+        "adjusted_place_rate": 0.2659,
+        "status": "ok"
       }
     },
     {
@@ -348,10 +579,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "バンドワゴン",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 1
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1667,
+        "status": "insufficient_sample"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ハーツクライ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 67
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 67,
+        "wins": 4,
+        "seconds": 6,
+        "thirds": 5,
+        "win_rate": 0.0597,
+        "quinella_rate": 0.1493,
+        "raw_place_rate": 0.2239,
+        "adjusted_place_rate": 0.2267,
+        "status": "ok"
       }
     },
     {
@@ -394,10 +669,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "アルバート",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 2
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 6,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.1667,
+        "quinella_rate": 0.1667,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.2857,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "フジキセキ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 44
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 44,
+        "wins": 2,
+        "seconds": 3,
+        "thirds": 5,
+        "win_rate": 0.0455,
+        "quinella_rate": 0.1136,
+        "raw_place_rate": 0.2273,
+        "adjusted_place_rate": 0.2308,
+        "status": "ok"
       }
     },
     {
@@ -440,10 +759,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "トランセンド",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 8
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 8,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "キンシャサノキセキ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 15
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 15,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0667,
+        "quinella_rate": 0.0667,
+        "raw_place_rate": 0.0667,
+        "adjusted_place_rate": 0.1305,
+        "status": "ok"
       }
     },
     {
@@ -486,10 +849,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "モズアスコット",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 54
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 54,
+        "wins": 3,
+        "seconds": 10,
+        "thirds": 4,
+        "win_rate": 0.0556,
+        "quinella_rate": 0.2407,
+        "raw_place_rate": 0.3148,
+        "adjusted_place_rate": 0.3064,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ディープインパクト",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 105
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 105,
+        "wins": 3,
+        "seconds": 5,
+        "thirds": 8,
+        "win_rate": 0.0286,
+        "quinella_rate": 0.0762,
+        "raw_place_rate": 0.1524,
+        "adjusted_place_rate": 0.1593,
+        "status": "ok"
       }
     },
     {
@@ -532,10 +939,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ホッコータルマエ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 25
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 25,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.08,
+        "quinella_rate": 0.16,
+        "raw_place_rate": 0.24,
+        "adjusted_place_rate": 0.2424,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "エンパイアメーカー",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 64
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 64,
+        "wins": 6,
+        "seconds": 2,
+        "thirds": 6,
+        "win_rate": 0.0938,
+        "quinella_rate": 0.125,
+        "raw_place_rate": 0.2188,
+        "adjusted_place_rate": 0.2223,
+        "status": "ok"
       }
     },
     {
@@ -578,10 +1029,43 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "アルアイン",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 10
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 10,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1111,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "First Samurai (米)",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "error",
+        "reason": "table_not_found"
       }
     },
     {
@@ -624,10 +1108,43 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "サンダースノー",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 30
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 30,
+        "wins": 3,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.1,
+        "quinella_rate": 0.1,
+        "raw_place_rate": 0.1667,
+        "adjusted_place_rate": 0.1842,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "トゥザワールド",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 0
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition"
       }
     },
     {
@@ -670,10 +1187,43 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "シルバーステート",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 31
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 31,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 7,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.2258,
+        "adjusted_place_rate": 0.2308,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "Frankel (英)",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "error",
+        "reason": "table_not_found"
       }
     },
     {
@@ -716,10 +1266,43 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ラブリーデイ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "error",
+        "reason": "table_not_found"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ディープインパクト",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400,
+          "starts": 105
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1400
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 105,
+        "wins": 3,
+        "seconds": 5,
+        "thirds": 8,
+        "win_rate": 0.0286,
+        "quinella_rate": 0.0762,
+        "raw_place_rate": 0.1524,
+        "adjusted_place_rate": 0.1593,
+        "status": "ok"
       }
     }
   ],
@@ -730,10 +1313,17 @@
     },
     "sire_data_complete": false,
     "damsire_data_complete": false,
-    "pending": [
-      "sire",
-      "damsire"
-    ],
+    "sire_status_counts": {
+      "error": 2,
+      "insufficient_sample": 1,
+      "ok": 12
+    },
+    "damsire_status_counts": {
+      "error": 4,
+      "not_found": 1,
+      "ok": 10
+    },
+    "pending": [],
     "d1_cutoff_verified": true,
     "full_r1_ready": false
   }

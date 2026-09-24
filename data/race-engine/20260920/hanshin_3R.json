@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T08:37:52+09:00",
+  "generated_at": "2026-09-24T09:08:48+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040603",
@@ -72,10 +72,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ホットロッドチャーリー",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 0
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 4,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.25,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "insufficient_sample"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ヴァーミリアン",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 1
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 6,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.1667,
+        "quinella_rate": 0.1667,
+        "raw_place_rate": 0.1667,
+        "adjusted_place_rate": 0.2143,
+        "status": "ok"
       }
     },
     {
@@ -118,10 +162,43 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ハービンジャー",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 16
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 16,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0625,
+        "adjusted_place_rate": 0.125,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "Include (米)",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "error",
+        "reason": "table_not_found"
       }
     },
     {
@@ -164,10 +241,43 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "インディチャンプ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 7
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 7,
+        "wins": 0,
+        "seconds": 2,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.2857,
+        "raw_place_rate": 0.2857,
+        "adjusted_place_rate": 0.2667,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "Redoute's Choice (豪)",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "error",
+        "reason": "table_not_found"
       }
     },
     {
@@ -210,10 +320,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ロゴタイプ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 2
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 67,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 6,
+        "win_rate": 0.0299,
+        "quinella_rate": 0.0597,
+        "raw_place_rate": 0.1493,
+        "adjusted_place_rate": 0.16,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ダイワメジャー",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 16
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 16,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0625,
+        "raw_place_rate": 0.1875,
+        "adjusted_place_rate": 0.2083,
+        "status": "ok"
       }
     },
     {
@@ -256,10 +410,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ルーラーシップ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 25
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 25,
+        "wins": 3,
+        "seconds": 3,
+        "thirds": 2,
+        "win_rate": 0.12,
+        "quinella_rate": 0.24,
+        "raw_place_rate": 0.32,
+        "adjusted_place_rate": 0.303,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ディープインパクト",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 113
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 113,
+        "wins": 7,
+        "seconds": 13,
+        "thirds": 8,
+        "win_rate": 0.0619,
+        "quinella_rate": 0.177,
+        "raw_place_rate": 0.2478,
+        "adjusted_place_rate": 0.2479,
+        "status": "ok"
       }
     },
     {
@@ -302,10 +500,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "ジャンダルム",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 0
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "insufficient_sample"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "エンパイアメーカー",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 9
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 9,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.1111,
+        "quinella_rate": 0.1111,
+        "raw_place_rate": 0.2222,
+        "adjusted_place_rate": 0.2353,
+        "status": "ok"
       }
     },
     {
@@ -348,10 +590,54 @@
         "status": "ok"
       },
       "sire": {
-        "status": "not_implemented"
+        "name": "エフフォーリア",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 2
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 32,
+        "wins": 7,
+        "seconds": 7,
+        "thirds": 6,
+        "win_rate": 0.2188,
+        "quinella_rate": 0.4375,
+        "raw_place_rate": 0.625,
+        "adjusted_place_rate": 0.55,
+        "status": "ok"
       },
       "damsire": {
-        "status": "not_implemented"
+        "name": "ダイワメジャー",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800,
+          "starts": 16
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 16,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0625,
+        "raw_place_rate": 0.1875,
+        "adjusted_place_rate": 0.2083,
+        "status": "ok"
       }
     }
   ],
@@ -360,12 +646,17 @@
     "jockey_status_counts": {
       "ok": 7
     },
-    "sire_data_complete": false,
+    "sire_data_complete": true,
     "damsire_data_complete": false,
-    "pending": [
-      "sire",
-      "damsire"
-    ],
+    "sire_status_counts": {
+      "insufficient_sample": 2,
+      "ok": 5
+    },
+    "damsire_status_counts": {
+      "error": 2,
+      "ok": 5
+    },
+    "pending": [],
     "d1_cutoff_verified": true,
     "full_r1_ready": false
   }
