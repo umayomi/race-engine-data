@@ -15,6 +15,7 @@
 """
 from __future__ import annotations
 import datetime
+import hashlib
 import json
 import os
 import re
@@ -43,7 +44,12 @@ REPORT: dict = {"generated_at": None, "checks": []}
 
 
 def _slug(s: str) -> str:
-    return re.sub(r"[^A-Za-z0-9_.-]+", "_", s)[:90]
+    """ファイル名用。日本語を落とすと『ped_post_father__』のように衝突して上書きされるため、
+    非ASCIIは短いハッシュで区別する（実際にドレフォンとモーリスが同名になり上書きされた）。"""
+    base = re.sub(r"[^A-Za-z0-9_.-]+", "_", s)[:70]
+    if re.search(r"[^\x00-\x7F]", s):
+        base += "_" + hashlib.md5(s.encode("utf-8")).hexdigest()[:6]
+    return base[:90]
 
 
 def allowed(url: str) -> bool:
@@ -77,9 +83,12 @@ def fetch(url: str, method: str = "GET", data=None, raw_url: bool = False, check
     finally:
         time.sleep(INTERVAL)
     info["status"] = r.status_code
-    r.encoding = r.apparent_encoding
+    sys.path.insert(0, str(ROOT / "engine"))
+    import umarengod as _U                      # 本番と同じ復号ロジックを使う
+    text = _U.decode(r)
     info["encoding"] = r.encoding
-    return r.text, info
+    info["apparent_encoding_guess"] = getattr(r, "apparent_encoding", None)
+    return text, info
 
 
 def analyze(html: str) -> dict:
