@@ -40,14 +40,24 @@ class PedigreeCache:
     def __init__(self, session, race_date: str):
         self.session, self.race_date = session, race_date
         self.memo: dict = {}
+        self.name_lists: dict = {}
         self.requests = 0
+
+    def _names(self, fld: str):
+        if fld not in self.name_lists:
+            self.requests += 1
+            lst, st = U.fetch_name_list(self.session, fld)
+            self.name_lists[fld] = lst
+            print(f"  umarengod {fld} 登録名リスト: {st}")
+        return self.name_lists[fld]
 
     def get(self, fld: str, name: str):
         _, end = U.period_3y(self.race_date)
         key = (fld, name, end.isoformat())     # 期間を必ずキーに含める
         if key not in self.memo:
             self.requests += 1
-            self.memo[key] = U.fetch_pedigree(self.session, fld, name, self.race_date)
+            self.memo[key] = U.fetch_pedigree(self.session, fld, name, self.race_date,
+                                              name_list=self._names(fld))
         return self.memo[key]
 
 
