@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:12:56+09:00",
+  "generated_at": "2026-09-25T07:26:46+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040609",
@@ -167,13 +167,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": null
+          "starts": 21
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 21,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 5,
+        "win_rate": 0.0476,
+        "quinella_rate": 0.0952,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.3103,
+        "status": "ok"
       },
       "damsire": {
         "name": "Dylan Thomas (愛)",
@@ -181,13 +192,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": null
+          "starts": 6
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 6,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 3,
+        "win_rate": 0.1667,
+        "quinella_rate": 0.1667,
+        "raw_place_rate": 0.6667,
+        "adjusted_place_rate": 0.4286,
+        "status": "ok"
       }
     },
     {
@@ -325,13 +347,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": null
+          "starts": 0
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 7,
+        "wins": 2,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.2857,
+        "quinella_rate": 0.2857,
+        "raw_place_rate": 0.2857,
+        "adjusted_place_rate": 0.2667,
+        "status": "ok"
       },
       "damsire": {
         "name": "ハーツクライ",
@@ -699,13 +732,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 2000,
-          "starts": null
+          "starts": 2
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 19,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0526,
+        "raw_place_rate": 0.0526,
+        "adjusted_place_rate": 0.1111,
+        "status": "ok"
       }
     },
     {
@@ -894,18 +938,16 @@
     "jockey_status_counts": {
       "ok": 10
     },
-    "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
     "sire_status_counts": {
-      "error": 2,
-      "ok": 8
+      "ok": 10
     },
     "damsire_status_counts": {
-      "error": 2,
-      "ok": 8
+      "ok": 10
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }

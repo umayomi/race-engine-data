@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:11:39+09:00",
+  "generated_at": "2026-09-25T07:25:29+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040607",
@@ -102,13 +102,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 5
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 5,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.2,
+        "quinella_rate": 0.4,
+        "raw_place_rate": 0.6,
+        "adjusted_place_rate": 0.3846,
+        "status": "ok"
       }
     },
     {
@@ -181,13 +192,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 130
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 130,
+        "wins": 14,
+        "seconds": 19,
+        "thirds": 13,
+        "win_rate": 0.1077,
+        "quinella_rate": 0.2538,
+        "raw_place_rate": 0.3538,
+        "adjusted_place_rate": 0.3478,
+        "status": "ok"
       }
     },
     {
@@ -530,13 +552,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 10,
+        "wins": 4,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.4,
+        "quinella_rate": 0.6,
+        "raw_place_rate": 0.8,
+        "adjusted_place_rate": 0.5556,
+        "status": "ok"
       }
     },
     {
@@ -699,13 +732,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 11
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 11,
+        "wins": 3,
+        "seconds": 3,
+        "thirds": 0,
+        "win_rate": 0.2727,
+        "quinella_rate": 0.5455,
+        "raw_place_rate": 0.5455,
+        "adjusted_place_rate": 0.4211,
+        "status": "ok"
       }
     },
     {
@@ -940,13 +984,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 7
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 7,
+        "wins": 2,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.2857,
+        "quinella_rate": 0.4286,
+        "raw_place_rate": 0.4286,
+        "adjusted_place_rate": 0.3333,
+        "status": "ok"
       }
     },
     {
@@ -994,13 +1049,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 7
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 7,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.1429,
+        "raw_place_rate": 0.2857,
+        "adjusted_place_rate": 0.2667,
+        "status": "ok"
       },
       "damsire": {
         "name": "Kitten's Joy (米)",
@@ -1024,15 +1090,14 @@
       "not_found": 1,
       "ok": 11
     },
-    "sire_data_complete": false,
+    "sire_data_complete": true,
     "damsire_data_complete": false,
     "sire_status_counts": {
-      "error": 1,
-      "ok": 11
+      "ok": 12
     },
     "damsire_status_counts": {
-      "error": 6,
-      "ok": 6
+      "error": 1,
+      "ok": 11
     },
     "pending": [],
     "d1_cutoff_verified": true,

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T08:55:44+09:00",
+  "generated_at": "2026-09-25T07:09:09+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040601",
@@ -102,13 +102,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 5
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 5,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.2,
+        "raw_place_rate": 0.2,
+        "adjusted_place_rate": 0.2308,
+        "status": "ok"
       }
     },
     {
@@ -156,13 +167,13 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 0
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "status": "not_found",
+        "reason": "no_runs_in_condition"
       },
       "damsire": {
         "name": "Macho Uno (米)",
@@ -170,13 +181,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 0
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 2,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -339,13 +361,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 153
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 153,
+        "wins": 6,
+        "seconds": 12,
+        "thirds": 4,
+        "win_rate": 0.0392,
+        "quinella_rate": 0.1176,
+        "raw_place_rate": 0.1438,
+        "adjusted_place_rate": 0.1491,
+        "status": "ok"
       }
     },
     {
@@ -688,13 +721,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 4
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 30,
+        "wins": 5,
+        "seconds": 4,
+        "thirds": 4,
+        "win_rate": 0.1667,
+        "quinella_rate": 0.3,
+        "raw_place_rate": 0.4333,
+        "adjusted_place_rate": 0.3947,
+        "status": "ok"
       }
     },
     {
@@ -947,13 +991,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 35
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 35,
+        "wins": 3,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.0857,
+        "quinella_rate": 0.1429,
+        "raw_place_rate": 0.1714,
+        "adjusted_place_rate": 0.186,
+        "status": "ok"
       }
     },
     {
@@ -1026,13 +1081,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 3
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 10,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.1,
+        "raw_place_rate": 0.1,
+        "adjusted_place_rate": 0.1667,
+        "status": "ok"
       }
     },
     {
@@ -1311,19 +1377,19 @@
     "jockey_status_counts": {
       "ok": 15
     },
-    "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
     "sire_status_counts": {
-      "error": 1,
       "insufficient_sample": 3,
+      "not_found": 1,
       "ok": 11
     },
     "damsire_status_counts": {
-      "error": 6,
-      "ok": 9
+      "insufficient_sample": 1,
+      "ok": 14
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:09:36+09:00",
+  "generated_at": "2026-09-25T07:23:22+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040604",
@@ -631,13 +631,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 48
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 48,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 5,
+        "win_rate": 0.0625,
+        "quinella_rate": 0.0833,
+        "raw_place_rate": 0.1875,
+        "adjusted_place_rate": 0.1964,
+        "status": "ok"
       }
     },
     {
@@ -800,13 +811,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 2
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 22,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.0455,
+        "quinella_rate": 0.1364,
+        "raw_place_rate": 0.2273,
+        "adjusted_place_rate": 0.2334,
+        "status": "ok"
       }
     },
     {
@@ -1023,13 +1045,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 2
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 8,
+        "wins": 3,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.375,
+        "quinella_rate": 0.375,
+        "raw_place_rate": 0.375,
+        "adjusted_place_rate": 0.3125,
+        "status": "ok"
       },
       "damsire": {
         "name": "アニマルキングダム",
@@ -1116,13 +1149,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 4
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 11,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.0909,
+        "quinella_rate": 0.2727,
+        "raw_place_rate": 0.3636,
+        "adjusted_place_rate": 0.3158,
+        "status": "ok"
       }
     },
     {
@@ -1314,13 +1358,13 @@
     "sire_data_complete": false,
     "damsire_data_complete": false,
     "sire_status_counts": {
-      "error": 2,
-      "ok": 13
+      "error": 1,
+      "ok": 14
     },
     "damsire_status_counts": {
-      "error": 4,
+      "error": 1,
       "not_found": 1,
-      "ok": 10
+      "ok": 13
     },
     "pending": [],
     "d1_cutoff_verified": true,

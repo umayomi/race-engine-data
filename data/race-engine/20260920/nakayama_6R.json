@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:01:11+09:00",
+  "generated_at": "2026-09-25T07:14:44+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040606",
@@ -257,13 +257,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 42
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 42,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.0476,
+        "quinella_rate": 0.0952,
+        "raw_place_rate": 0.1429,
+        "adjusted_place_rate": 0.16,
+        "status": "ok"
       },
       "damsire": {
         "name": "ハーツクライ",
@@ -361,13 +372,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 105
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 105,
+        "wins": 4,
+        "seconds": 5,
+        "thirds": 7,
+        "win_rate": 0.0381,
+        "quinella_rate": 0.0857,
+        "raw_place_rate": 0.1524,
+        "adjusted_place_rate": 0.1593,
+        "status": "ok"
       }
     },
     {
@@ -1070,13 +1092,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 15
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 15,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0667,
+        "quinella_rate": 0.0667,
+        "raw_place_rate": 0.1333,
+        "adjusted_place_rate": 0.1739,
+        "status": "ok"
       }
     },
     {
@@ -1265,18 +1298,16 @@
     "jockey_status_counts": {
       "ok": 14
     },
-    "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
     "sire_status_counts": {
-      "error": 1,
-      "ok": 13
+      "ok": 14
     },
     "damsire_status_counts": {
-      "error": 2,
-      "ok": 12
+      "ok": 14
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }

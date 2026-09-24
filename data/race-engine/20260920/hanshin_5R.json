@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:10:20+09:00",
+  "generated_at": "2026-09-25T07:24:07+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040605",
@@ -462,13 +462,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": null
+          "starts": 2
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 18,
+        "wins": 5,
+        "seconds": 6,
+        "thirds": 1,
+        "win_rate": 0.2778,
+        "quinella_rate": 0.6111,
+        "raw_place_rate": 0.6667,
+        "adjusted_place_rate": 0.5385,
+        "status": "ok"
       }
     },
     {
@@ -721,13 +732,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": null
+          "starts": 3
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 14,
+        "wins": 4,
+        "seconds": 3,
+        "thirds": 2,
+        "win_rate": 0.2857,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.6429,
+        "adjusted_place_rate": 0.5,
+        "status": "ok"
       }
     },
     {
@@ -775,13 +797,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": null
+          "starts": 29
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 29,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.0345,
+        "quinella_rate": 0.1034,
+        "raw_place_rate": 0.1724,
+        "adjusted_place_rate": 0.1892,
+        "status": "ok"
       },
       "damsire": {
         "name": "ディープブリランテ",
@@ -1059,13 +1092,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": null
+          "starts": 13
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 13,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 0,
+        "win_rate": 0.1538,
+        "quinella_rate": 0.3077,
+        "raw_place_rate": 0.3077,
+        "adjusted_place_rate": 0.2857,
+        "status": "ok"
       }
     },
     {
@@ -1254,19 +1298,17 @@
     "jockey_status_counts": {
       "ok": 14
     },
-    "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
     "sire_status_counts": {
-      "error": 1,
-      "ok": 13
+      "ok": 14
     },
     "damsire_status_counts": {
-      "error": 3,
       "insufficient_sample": 1,
-      "ok": 10
+      "ok": 13
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }

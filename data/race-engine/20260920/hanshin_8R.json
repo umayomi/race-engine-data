@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:12:24+09:00",
+  "generated_at": "2026-09-25T07:26:14+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040608",
@@ -102,13 +102,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": null
+          "starts": 3
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 14,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 0,
+        "win_rate": 0.0714,
+        "quinella_rate": 0.2143,
+        "raw_place_rate": 0.2143,
+        "adjusted_place_rate": 0.2273,
+        "status": "ok"
       }
     },
     {
@@ -361,13 +372,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": null
+          "starts": 16
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 16,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.125,
+        "quinella_rate": 0.25,
+        "raw_place_rate": 0.3125,
+        "adjusted_place_rate": 0.2917,
+        "status": "ok"
       }
     },
     {
@@ -620,13 +642,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": null
+          "starts": 6
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 6,
+        "wins": 2,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.3333,
+        "quinella_rate": 0.3333,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.2857,
+        "status": "ok"
       }
     },
     {
@@ -1059,13 +1092,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": null
+          "starts": 3
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 12,
+        "wins": 2,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.1667,
+        "quinella_rate": 0.25,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.3,
+        "status": "ok"
       }
     },
     {
@@ -1228,13 +1272,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1600,
-          "starts": null
+          "starts": 11
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 11,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0909,
+        "quinella_rate": 0.0909,
+        "raw_place_rate": 0.0909,
+        "adjusted_place_rate": 0.1579,
+        "status": "ok"
       }
     },
     {
@@ -1334,17 +1389,16 @@
       "ok": 15
     },
     "sire_data_complete": true,
-    "damsire_data_complete": false,
+    "damsire_data_complete": true,
     "sire_status_counts": {
       "insufficient_sample": 1,
       "ok": 14
     },
     "damsire_status_counts": {
-      "error": 5,
-      "ok": 10
+      "ok": 15
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:05:54+09:00",
+  "generated_at": "2026-09-25T07:19:31+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040611",
@@ -282,13 +282,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2200,
-          "starts": null
+          "starts": 4
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 13,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.1538,
+        "quinella_rate": 0.3077,
+        "raw_place_rate": 0.3846,
+        "adjusted_place_rate": 0.3333,
+        "status": "ok"
       }
     },
     {
@@ -541,13 +552,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2200,
-          "starts": null
+          "starts": 3
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 4,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.25,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.3333,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -595,13 +617,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2200,
-          "starts": null
+          "starts": 8
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "芝",
+          "distance": 2200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 8,
+        "wins": 4,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.5,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.625,
+        "adjusted_place_rate": 0.4375,
+        "status": "ok"
       },
       "damsire": {
         "name": "ハービンジャー",
@@ -789,13 +822,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2200,
-          "starts": null
+          "starts": 3
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 4,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.25,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.3333,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -1153,19 +1197,18 @@
     "jockey_status_counts": {
       "ok": 13
     },
-    "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
     "sire_status_counts": {
-      "error": 1,
-      "ok": 12
+      "ok": 13
     },
     "damsire_status_counts": {
-      "error": 3,
+      "insufficient_sample": 2,
       "not_found": 1,
-      "ok": 9
+      "ok": 10
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }

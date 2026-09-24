@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:14:37+09:00",
+  "generated_at": "2026-09-25T07:28:24+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040611",
@@ -372,13 +372,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1200,
-          "starts": null
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 13,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.2308,
+        "quinella_rate": 0.3077,
+        "raw_place_rate": 0.3077,
+        "adjusted_place_rate": 0.2857,
+        "status": "ok"
       }
     },
     {
@@ -854,13 +865,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1200,
-          "starts": null
+          "starts": 31
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 31,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.0323,
+        "quinella_rate": 0.0645,
+        "raw_place_rate": 0.0968,
+        "adjusted_place_rate": 0.1282,
+        "status": "ok"
       },
       "damsire": {
         "name": "フレンチデピュティ",
@@ -958,13 +980,24 @@
           "racecourse": "阪神",
           "surface": "芝",
           "distance": 1200,
-          "starts": null
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 15,
+        "wins": 2,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.1333,
+        "quinella_rate": 0.1333,
+        "raw_place_rate": 0.2667,
+        "adjusted_place_rate": 0.2609,
+        "status": "ok"
       }
     },
     {
@@ -1426,12 +1459,12 @@
     "sire_data_complete": false,
     "damsire_data_complete": false,
     "sire_status_counts": {
-      "error": 2,
-      "ok": 14
+      "error": 1,
+      "ok": 15
     },
     "damsire_status_counts": {
-      "error": 3,
-      "ok": 13
+      "error": 1,
+      "ok": 15
     },
     "pending": [],
     "d1_cutoff_verified": true,

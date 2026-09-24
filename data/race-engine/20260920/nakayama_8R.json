@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:03:23+09:00",
+  "generated_at": "2026-09-25T07:16:56+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040608",
@@ -462,13 +462,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 47
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 47,
+        "wins": 2,
+        "seconds": 5,
+        "thirds": 1,
+        "win_rate": 0.0426,
+        "quinella_rate": 0.1489,
+        "raw_place_rate": 0.1702,
+        "adjusted_place_rate": 0.1818,
+        "status": "ok"
       }
     },
     {
@@ -721,13 +732,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 8
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 8,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 3,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.375,
+        "adjusted_place_rate": 0.3125,
+        "status": "ok"
       }
     },
     {
@@ -775,13 +797,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 46
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 46,
+        "wins": 4,
+        "seconds": 5,
+        "thirds": 3,
+        "win_rate": 0.087,
+        "quinella_rate": 0.1957,
+        "raw_place_rate": 0.2609,
+        "adjusted_place_rate": 0.2593,
+        "status": "ok"
       },
       "damsire": {
         "name": "Henrythenavigator (米)",
@@ -789,13 +822,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 3,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.3333,
+        "quinella_rate": 0.6667,
+        "raw_place_rate": 0.6667,
+        "adjusted_place_rate": 0.3636,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -1423,19 +1467,18 @@
     "jockey_status_counts": {
       "ok": 16
     },
-    "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
     "sire_status_counts": {
-      "error": 1,
-      "ok": 15
+      "ok": 16
     },
     "damsire_status_counts": {
-      "error": 3,
+      "insufficient_sample": 1,
       "not_found": 1,
-      "ok": 12
+      "ok": 14
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }

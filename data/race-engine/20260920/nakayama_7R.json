@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-24T09:02:19+09:00",
+  "generated_at": "2026-09-25T07:15:51+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040607",
@@ -372,13 +372,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2000,
-          "starts": null
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 5,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.2,
+        "raw_place_rate": 0.2,
+        "adjusted_place_rate": 0.2308,
+        "status": "ok"
       }
     },
     {
@@ -426,13 +437,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2000,
-          "starts": null
+          "starts": 49
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 49,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 4,
+        "win_rate": 0.0408,
+        "quinella_rate": 0.0816,
+        "raw_place_rate": 0.1633,
+        "adjusted_place_rate": 0.1755,
+        "status": "ok"
       },
       "damsire": {
         "name": "ステイゴールド",
@@ -530,13 +552,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2000,
-          "starts": null
+          "starts": 25
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 25,
+        "wins": 3,
+        "seconds": 4,
+        "thirds": 2,
+        "win_rate": 0.12,
+        "quinella_rate": 0.28,
+        "raw_place_rate": 0.36,
+        "adjusted_place_rate": 0.3333,
+        "status": "ok"
       }
     },
     {
@@ -674,13 +707,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2000,
-          "starts": null
+          "starts": 49
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 49,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 4,
+        "win_rate": 0.0408,
+        "quinella_rate": 0.0816,
+        "raw_place_rate": 0.1633,
+        "adjusted_place_rate": 0.1755,
+        "status": "ok"
       },
       "damsire": {
         "name": "ディープインパクト",
@@ -1577,13 +1621,24 @@
           "racecourse": "中山",
           "surface": "芝",
           "distance": 2000,
-          "starts": null
+          "starts": 11
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "芝",
+          "distance": 2000
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "starts": 11,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0909,
+        "quinella_rate": 0.0909,
+        "raw_place_rate": 0.0909,
+        "adjusted_place_rate": 0.1579,
+        "status": "ok"
       }
     }
   ],
@@ -1592,19 +1647,17 @@
     "jockey_status_counts": {
       "ok": 18
     },
-    "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
     "sire_status_counts": {
-      "error": 2,
-      "ok": 16
+      "ok": 18
     },
     "damsire_status_counts": {
-      "error": 3,
       "not_found": 1,
-      "ok": 14
+      "ok": 17
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }
