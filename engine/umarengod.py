@@ -84,7 +84,33 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 TOP3_BASE = 0.25      # shrinkage の事前複勝率
 K = 8                 # shrinkage の強さ
 MIN_STARTS = 5        # 場×距離をそのまま信用する最低出走数（未満は全場へ fallback）
-INTERVAL_SEC = 1.0    # umarengod へのリクエスト間隔（負荷をかけない）
+INTERVAL_SEC = 1.5    # umarengod へのリクエスト間隔（負荷をかけない）
+RETRY = 3             # 401/5xx 時の再試行回数（実測で連続アクセス時に 401 が返ることがある）
+BACKOFF_SEC = 20.0    # 再試行までの待機（回数に応じて伸ばす）
+
+
+def post_with_retry(session, url: str, data: dict) -> tuple[object | None, dict]:
+    """umarengod への POST。401/5xx は一定時間あけて再試行する。
+    実測: 連続アクセスが続くと 401 が返り始める（レート制限とみられる）。
+    失敗は status で必ず返し、黙って空データにはしない。"""
+    last = None
+    for i in range(RETRY):
+        try:
+            r = session.post(url, data=data, headers={"User-Agent": UA}, timeout=40)
+        except Exception as e:  # noqa: BLE001
+            last = {"status": "error", "reason": f"network:{type(e).__name__}"}
+            time.sleep(BACKOFF_SEC * (i + 1))
+            continue
+        finally:
+            time.sleep(INTERVAL_SEC)
+        if r.status_code == 200:
+            return r, {"status": "ok"}
+        last = {"status": "error", "reason": f"http_{r.status_code}"}
+        if r.status_code in (401, 403, 429) or r.status_code >= 500:
+            time.sleep(BACKOFF_SEC * (i + 1))
+            continue
+        break
+    return None, last or {"status": "error", "reason": "unknown"}
 
 # 既知のヘッダー（カチウマの診断で確定した実レスポンス）。ヘッダーが読めない時の最終手段。
 FIXED_INDEX = {"name": 1, "wins": 2, "seconds": 3, "thirds": 4, "starts": 5,
@@ -309,15 +335,10 @@ def fetch_jockey_table(session, surface: str, distance_m: int, race_date: str,
     """1条件ぶん POST。戻り (table, status)。status は必ず返す（失敗を黙って空にしない）。"""
     if surface_param(surface) is None:
         return {}, {"status": "unsupported", "reason": f"surface_not_supported:{surface}"}
-    try:
-        r = session.post(URL_JOCKEY, data=jockey_payload(surface, distance_m, race_date, place),
-                         headers={"User-Agent": UA}, timeout=40)
-    except Exception as e:  # noqa: BLE001
-        return {}, {"status": "error", "reason": f"network:{type(e).__name__}"}
-    finally:
-        time.sleep(INTERVAL_SEC)
-    if r.status_code != 200:
-        return {}, {"status": "error", "reason": f"http_{r.status_code}"}
+    r, st = post_with_retry(session, URL_JOCKEY,
+                            jockey_payload(surface, distance_m, race_date, place))
+    if r is None:
+        return {}, st
     table, meta = parse_stats_table(decode(r), "騎手名")
     if not meta["table_found"]:
         return {}, {"status": "error", "reason": "table_not_found"}
@@ -504,19 +525,20 @@ def parse_pedigree_table(html: str) -> tuple[list[dict], dict]:
     return out, meta
 
 
+# 一覧表示ボタンの value は全角スペース入り。ここを間違えると一覧が返らず、
+# 空リスト→照合できず→外国産馬が取得できない、という失敗になる（実測済み）。
+LISTGO = {"father": "種牡馬名\u3000一覧の表示", "mfather": "母父馬名\u3000一覧の表示"}
+
+
 def fetch_name_list(session, fld: str) -> tuple[list[str], dict]:
-    """umarengod に登録されている種牡馬/母父の名前一覧を取得（1回だけ）。
-    外国産馬は全角英字で登録されているため、POST 前にこの一覧へ正規化照合する。"""
-    try:
-        r = session.post(URL_PEDIGREE, data={"fld": fld, "proc": "0", "pvaluex": "",
-                                             "stype": "", "listgo": "一覧"},
-                         headers={"User-Agent": UA}, timeout=40)
-    except Exception as e:  # noqa: BLE001
-        return [], {"status": "error", "reason": f"network:{type(e).__name__}"}
-    finally:
-        time.sleep(INTERVAL_SEC)
-    if r.status_code != 200:
-        return [], {"status": "error", "reason": f"http_{r.status_code}"}
+    """umarengod に登録されている種牡馬/母父の名前一覧を取得（実行中1回だけ）。
+    外国産馬は全角英字（Ｇｉａｎｔ’ｓ　Ｃａｕｓｅｗａｙ）で登録されているため、
+    POST 前にこの一覧へ正規化照合して正式表記に直す。"""
+    r, st = post_with_retry(session, URL_PEDIGREE,
+                            {"fld": fld, "proc": "0", "pvaluex": "", "stype": "",
+                             "listgo": LISTGO.get(fld, LISTGO["father"])})
+    if r is None:
+        return [], st
     names = sorted(set(re.findall(r"javapost\('" + re.escape(fld) + r"','([^']*)'\)", decode(r))))
     if not names:
         return [], {"status": "error", "reason": "name_list_not_found"}
@@ -537,15 +559,9 @@ def fetch_pedigree(session, fld: str, name: str, race_date: str,
         name = matched            # 登録名をそのまま（全角スペース・全角英字を保持）
     else:
         name = clean_horse_name(name)   # 一覧が無いときだけ国名接尾辞を落として素で試す
-    try:
-        r = session.post(URL_PEDIGREE, data=pedigree_payload(fld, name, race_date),
-                         headers={"User-Agent": UA}, timeout=40)
-    except Exception as e:  # noqa: BLE001
-        return [], {"status": "error", "reason": f"network:{type(e).__name__}"}
-    finally:
-        time.sleep(INTERVAL_SEC)
-    if r.status_code != 200:
-        return [], {"status": "error", "reason": f"http_{r.status_code}"}
+    r, st = post_with_retry(session, URL_PEDIGREE, pedigree_payload(fld, name, race_date))
+    if r is None:
+        return [], st
     rows, meta = parse_pedigree_table(decode(r))
     if not meta["table_found"]:
         return [], {"status": "error", "reason": "table_not_found"}
