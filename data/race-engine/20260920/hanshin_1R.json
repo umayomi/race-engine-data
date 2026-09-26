@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-26T11:08:09+09:00",
+  "generated_at": "2026-09-26T12:33:27+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040601",
@@ -9,7 +9,7 @@
     "racecourse_code": "hanshin",
     "race_number": 1,
     "race_name": "3歳以上障害未勝利",
-    "surface": "芝",
+    "surface": "障害",
     "distance": 2970,
     "post_time": "09:45",
     "race_class": 1
@@ -21,12 +21,12 @@
   },
   "fetch_status": {
     "jockey_primary": {
-      "status": "error",
-      "reason": "table_not_found"
+      "status": "unsupported",
+      "reason": "surface_not_supported:障害"
     },
     "jockey_all": {
-      "status": "error",
-      "reason": "table_not_found"
+      "status": "unsupported",
+      "reason": "surface_not_supported:障害"
     },
     "pedigree_name_list": {
       "father": {
@@ -51,43 +51,65 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "ヤマカツエース",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 3
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 3,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.3333,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.2727,
+        "status": "insufficient_sample"
       },
       "damsire": {
         "name": "タバスコキャット",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 3
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 3,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.3333,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.2727,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -101,43 +123,65 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "ヴィクトワールピサ",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 5
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "障害",
+          "distance": 2970
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "starts": 5,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.2,
+        "raw_place_rate": 0.2,
+        "adjusted_place_rate": 0.2308,
+        "status": "ok"
       },
       "damsire": {
         "name": "アッミラーレ",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 4
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1667,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -151,35 +195,46 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "アドマイヤムーン",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
       },
       "damsire": {
         "name": "Dynaformer (米)",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": 0
         },
@@ -201,43 +256,65 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "ダンカーク",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 2
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 2,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2,
+        "status": "insufficient_sample"
       },
       "damsire": {
         "name": "プリサイスエンド",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -251,21 +328,21 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "サトノダイヤモンド",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": 0
         },
@@ -279,15 +356,26 @@
         "name": "スペシャルウィーク",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 5
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "障害",
+          "distance": 2970
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "starts": 5,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.2,
+        "quinella_rate": 0.4,
+        "raw_place_rate": 0.4,
+        "adjusted_place_rate": 0.3077,
+        "status": "ok"
       }
     },
     {
@@ -301,21 +389,21 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "カラヴァッジオ",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": 0
         },
@@ -329,7 +417,7 @@
         "name": "Malibu Moon (米)",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": 0
         },
@@ -351,43 +439,65 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "ダノンバラード",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 4
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 4,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.25,
+        "quinella_rate": 0.25,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.3333,
+        "status": "insufficient_sample"
       },
       "damsire": {
         "name": "サクラバクシンオー",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -401,43 +511,65 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "シュヴァルグラン",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 1.0,
+        "adjusted_place_rate": 0.3333,
+        "status": "insufficient_sample"
       },
       "damsire": {
         "name": "タニノギムレット",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -451,43 +583,65 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "ノヴェリスト",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 4
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1667,
+        "status": "insufficient_sample"
       },
       "damsire": {
         "name": "スペシャルウィーク",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 5
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "障害",
+          "distance": 2970
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "starts": 5,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.2,
+        "quinella_rate": 0.4,
+        "raw_place_rate": 0.4,
+        "adjusted_place_rate": 0.3077,
+        "status": "ok"
       }
     },
     {
@@ -501,43 +655,65 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "リアルインパクト",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 4
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1667,
+        "status": "insufficient_sample"
       },
       "damsire": {
         "name": "Elusive City (米)",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -551,21 +727,21 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "アルアイン",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": 0
         },
@@ -579,15 +755,26 @@
         "name": "ルーラーシップ",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 1
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "障害",
+          "distance": 2970
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -601,21 +788,21 @@
         "name": null,
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": null
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found;table_not_found"
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
       },
       "sire": {
         "name": "キタサンブラック",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
           "starts": 0
         },
@@ -629,33 +816,48 @@
         "name": "キングカメハメハ",
         "primary_condition": {
           "racecourse": "阪神",
-          "surface": "芝",
+          "surface": "障害",
           "distance": 2970,
-          "starts": 0
+          "starts": 15
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "障害",
+          "distance": 2970
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "not_found",
-        "reason": "no_runs_in_condition"
+        "starts": 15,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0667,
+        "raw_place_rate": 0.2,
+        "adjusted_place_rate": 0.2174,
+        "status": "ok"
       }
     }
   ],
   "quality": {
-    "jockey_data_complete": false,
+    "jockey_data_complete": true,
     "jockey_status_counts": {
-      "error": 12
+      "unsupported": 12
     },
     "sire_data_complete": true,
     "damsire_data_complete": true,
     "sire_status_counts": {
-      "not_found": 12
+      "insufficient_sample": 7,
+      "not_found": 4,
+      "ok": 1
     },
     "damsire_status_counts": {
-      "not_found": 12
+      "insufficient_sample": 7,
+      "not_found": 2,
+      "ok": 3
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }
