@@ -1,0 +1,848 @@
+{
+  "schema_version": "1.0",
+  "source": "umarengod",
+  "generated_at": "2026-09-26T17:43:39+09:00",
+  "race": {
+    "date": "2026-09-27",
+    "race_id_netkeiba": "202609040911",
+    "racecourse": "阪神",
+    "racecourse_code": "hanshin",
+    "race_number": 11,
+    "race_name": "ポートアイランドS",
+    "surface": "芝",
+    "distance": 1600,
+    "post_time": "15:20",
+    "race_class": 8
+  },
+  "aggregation_period": {
+    "start": "2023-09-27",
+    "end": "2026-09-26",
+    "leakage_safe": true
+  },
+  "fetch_status": {
+    "jockey_primary": {
+      "status": "ok",
+      "rows": 109,
+      "column_mode": "header"
+    },
+    "jockey_all": {
+      "status": "ok",
+      "rows": 185,
+      "column_mode": "header"
+    },
+    "pedigree_source": "srch6",
+    "pedigree_name_list": null,
+    "srch6": {
+      "status": "ok",
+      "races": 12,
+      "venues": [
+        "中山"
+      ],
+      "errors": [],
+      "fetched_at": "2026-09-26T17:41:33+09:00",
+      "leakage_safe": true
+    }
+  },
+  "horses": [
+    {
+      "horse_number": 1,
+      "horse_name": "ダノンセンチュリー",
+      "horse_id_netkeiba": "2022104814",
+      "sex_age": "牡4",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "横山和",
+        "name": "横山和生",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 5
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 5,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.2,
+        "raw_place_rate": 0.4,
+        "adjusted_place_rate": 0.3077,
+        "win_return_pct": 0.0,
+        "place_return_pct": 60.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 2,
+      "horse_name": "エイシンディード",
+      "horse_id_netkeiba": "2023105505",
+      "sex_age": "牡3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "川又",
+        "name": "川又賢治",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 4
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 19,
+        "wins": 1,
+        "seconds": 3,
+        "thirds": 0,
+        "win_rate": 0.053,
+        "quinella_rate": 0.211,
+        "raw_place_rate": 0.211,
+        "adjusted_place_rate": 0.2226,
+        "win_return_pct": 353.0,
+        "place_return_pct": 114.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 3,
+      "horse_name": "スカイロケット",
+      "horse_id_netkeiba": "2020103482",
+      "sex_age": "牡6",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "高田",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 0
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_starts_in_condition_or_name_unmatched"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 4,
+      "horse_name": "ヤマニンサンパ",
+      "horse_id_netkeiba": "2018102020",
+      "sex_age": "牡8",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "池添",
+        "name": "池添謙一",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 44
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 44,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.068,
+        "quinella_rate": 0.091,
+        "raw_place_rate": 0.114,
+        "adjusted_place_rate": 0.1349,
+        "win_return_pct": 90.0,
+        "place_return_pct": 39.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 5,
+      "horse_name": "ラケマーダ",
+      "horse_id_netkeiba": "2020101784",
+      "sex_age": "牡6",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "Ｍデムーロ",
+        "name": "Ｍ．デムーロ",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 42
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 42,
+        "wins": 3,
+        "seconds": 7,
+        "thirds": 3,
+        "win_rate": 0.071,
+        "quinella_rate": 0.238,
+        "raw_place_rate": 0.31,
+        "adjusted_place_rate": 0.3004,
+        "win_return_pct": 34.0,
+        "place_return_pct": 109.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 6,
+      "horse_name": "アサヒ",
+      "horse_id_netkeiba": "2019105482",
+      "sex_age": "牡7",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "田口",
+        "name": "田口貫太",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 72
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 72,
+        "wins": 4,
+        "seconds": 6,
+        "thirds": 4,
+        "win_rate": 0.056,
+        "quinella_rate": 0.139,
+        "raw_place_rate": 0.194,
+        "adjusted_place_rate": 0.1996,
+        "win_return_pct": 76.0,
+        "place_return_pct": 66.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 7,
+      "horse_name": "アクートゥス",
+      "horse_id_netkeiba": "2020102625",
+      "sex_age": "セ6",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "西塚",
+        "name": "西塚洸二",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 30
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 30,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.1,
+        "quinella_rate": 0.133,
+        "raw_place_rate": 0.167,
+        "adjusted_place_rate": 0.1845,
+        "win_return_pct": 71.0,
+        "place_return_pct": 54.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 8,
+      "horse_name": "レッドシュヴェルト",
+      "horse_id_netkeiba": "2020103517",
+      "sex_age": "牡6",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "吉村",
+        "name": "吉村誠之助",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 67
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 67,
+        "wins": 5,
+        "seconds": 5,
+        "thirds": 5,
+        "win_rate": 0.075,
+        "quinella_rate": 0.149,
+        "raw_place_rate": 0.224,
+        "adjusted_place_rate": 0.2268,
+        "win_return_pct": 54.0,
+        "place_return_pct": 93.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 9,
+      "horse_name": "ラインベック",
+      "horse_id_netkeiba": "2017105194",
+      "sex_age": "セ9",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "荻野琢",
+        "name": "荻野琢真",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 5
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 5,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1538,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 10,
+      "horse_name": "サブマリーナ",
+      "horse_id_netkeiba": "2021106449",
+      "sex_age": "牡5",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "川田",
+        "name": "川田将雅",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 49
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 49,
+        "wins": 6,
+        "seconds": 10,
+        "thirds": 7,
+        "win_rate": 0.122,
+        "quinella_rate": 0.327,
+        "raw_place_rate": 0.469,
+        "adjusted_place_rate": 0.4383,
+        "win_return_pct": 43.0,
+        "place_return_pct": 68.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 11,
+      "horse_name": "メイショウシンタケ",
+      "horse_id_netkeiba": "2018106318",
+      "sex_age": "牡8",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "横山典",
+        "name": "横山典弘",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 21
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 21,
+        "wins": 3,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.143,
+        "quinella_rate": 0.238,
+        "raw_place_rate": 0.333,
+        "adjusted_place_rate": 0.3101,
+        "win_return_pct": 167.0,
+        "place_return_pct": 266.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 12,
+      "horse_name": "ファインライン",
+      "horse_id_netkeiba": "2021102419",
+      "sex_age": "牡5",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "小崎",
+        "name": "小崎綾也",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 21
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 21,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.069,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 13,
+      "horse_name": "インヴォーグ",
+      "horse_id_netkeiba": "2022104145",
+      "sex_age": "牝4",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "小沢",
+        "name": "小沢大仁",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 17
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 17,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.118,
+        "adjusted_place_rate": 0.1602,
+        "win_return_pct": 0.0,
+        "place_return_pct": 51.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 14,
+      "horse_name": "ショウナンガルフ",
+      "horse_id_netkeiba": "2023105332",
+      "sex_age": "牡3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "田山",
+        "name": "田山旺佑",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 34
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 34,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 3,
+        "win_rate": 0.029,
+        "quinella_rate": 0.029,
+        "raw_place_rate": 0.118,
+        "adjusted_place_rate": 0.1431,
+        "win_return_pct": 6.0,
+        "place_return_pct": 44.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 15,
+      "horse_name": "ビップデイジー",
+      "horse_id_netkeiba": "2022105192",
+      "sex_age": "牝4",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "北村友",
+        "name": "北村友一",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 57
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 57,
+        "wins": 7,
+        "seconds": 7,
+        "thirds": 8,
+        "win_rate": 0.123,
+        "quinella_rate": 0.246,
+        "raw_place_rate": 0.386,
+        "adjusted_place_rate": 0.3693,
+        "win_return_pct": 45.0,
+        "place_return_pct": 116.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 16,
+      "horse_name": "レディントン",
+      "horse_id_netkeiba": "2021105926",
+      "sex_age": "セ5",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "松若",
+        "name": "松若風馬",
+        "primary_condition": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600,
+          "starts": 49
+        },
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "芝",
+          "distance": 1600
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 49,
+        "wins": 3,
+        "seconds": 2,
+        "thirds": 5,
+        "win_rate": 0.061,
+        "quinella_rate": 0.102,
+        "raw_place_rate": 0.204,
+        "adjusted_place_rate": 0.2105,
+        "win_return_pct": 79.0,
+        "place_return_pct": 172.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:阪神11R",
+        "source": "umarengod_srch6"
+      }
+    }
+  ],
+  "quality": {
+    "jockey_data_complete": true,
+    "jockey_status_counts": {
+      "not_found": 1,
+      "ok": 15
+    },
+    "sire_data_complete": false,
+    "damsire_data_complete": false,
+    "sire_status_counts": {
+      "error": 16
+    },
+    "damsire_status_counts": {
+      "error": 16
+    },
+    "pending": [],
+    "d1_cutoff_verified": true,
+    "full_r1_ready": false
+  }
+}
