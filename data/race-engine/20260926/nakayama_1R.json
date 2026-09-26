@@ -1,0 +1,1205 @@
+{
+  "schema_version": "1.0",
+  "source": "umarengod",
+  "generated_at": "2026-09-26T09:49:07+09:00",
+  "race": {
+    "date": "2026-09-26",
+    "race_id_netkeiba": "202606040801",
+    "racecourse": "中山",
+    "racecourse_code": "nakayama",
+    "race_number": 1,
+    "race_name": "2歳未勝利",
+    "surface": "ダート",
+    "distance": 1200,
+    "post_time": "09:45",
+    "race_class": 1
+  },
+  "aggregation_period": {
+    "start": "2023-09-26",
+    "end": "2026-09-25",
+    "leakage_safe": true
+  },
+  "fetch_status": {
+    "jockey_primary": {
+      "status": "ok",
+      "rows": 146,
+      "column_mode": "header"
+    },
+    "jockey_all": {
+      "status": "ok",
+      "rows": 184,
+      "column_mode": "header"
+    }
+  },
+  "horses": [
+    {
+      "horse_number": 1,
+      "horse_name": "アルビオンライズ",
+      "horse_id_netkeiba": "2024105970",
+      "sex_age": "牡2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "ミシェル",
+        "name": "Ｍ．ミシェル",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 8
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 8,
+        "wins": 0,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.25,
+        "raw_place_rate": 0.375,
+        "adjusted_place_rate": 0.3125,
+        "win_return_pct": 0.0,
+        "place_return_pct": 149.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "ミッキーアイル",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 75
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 75,
+        "wins": 8,
+        "seconds": 8,
+        "thirds": 6,
+        "win_rate": 0.1067,
+        "quinella_rate": 0.2133,
+        "raw_place_rate": 0.2933,
+        "adjusted_place_rate": 0.2891,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "Lord of England (独)",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 1
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 1.0,
+        "raw_place_rate": 1.0,
+        "adjusted_place_rate": 0.3333,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 2,
+      "horse_name": "トパーズヘッド",
+      "horse_id_netkeiba": "2024101845",
+      "sex_age": "牡2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "菅原隆",
+        "name": "菅原隆一",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 26
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 26,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.0588,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "クリソベリル",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 8
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 8,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "Giant's Causeway (米)",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "error",
+        "reason": "table_not_found"
+      }
+    },
+    {
+      "horse_number": 3,
+      "horse_name": "アンミツ",
+      "horse_id_netkeiba": "2024100614",
+      "sex_age": "牝2",
+      "weight_carried": 53.0,
+      "jockey": {
+        "name_card": "◇小林美",
+        "name": "小林美駒",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 88
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 88,
+        "wins": 4,
+        "seconds": 9,
+        "thirds": 3,
+        "win_rate": 0.045,
+        "quinella_rate": 0.148,
+        "raw_place_rate": 0.182,
+        "adjusted_place_rate": 0.1877,
+        "win_return_pct": 71.0,
+        "place_return_pct": 74.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "タリスマニック",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 38
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 38,
+        "wins": 2,
+        "seconds": 1,
+        "thirds": 2,
+        "win_rate": 0.0526,
+        "quinella_rate": 0.0789,
+        "raw_place_rate": 0.1316,
+        "adjusted_place_rate": 0.1522,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "サウスヴィグラス",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 125
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 125,
+        "wins": 11,
+        "seconds": 6,
+        "thirds": 5,
+        "win_rate": 0.088,
+        "quinella_rate": 0.136,
+        "raw_place_rate": 0.176,
+        "adjusted_place_rate": 0.1805,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 4,
+      "horse_name": "リコルディオーロ",
+      "horse_id_netkeiba": "2024102636",
+      "sex_age": "牡2",
+      "weight_carried": 52.0,
+      "jockey": {
+        "name_card": "▲佐藤",
+        "name": "佐藤翔馬",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 104
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 104,
+        "wins": 2,
+        "seconds": 4,
+        "thirds": 3,
+        "win_rate": 0.019,
+        "quinella_rate": 0.058,
+        "raw_place_rate": 0.087,
+        "adjusted_place_rate": 0.0986,
+        "win_return_pct": 40.0,
+        "place_return_pct": 76.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "ゴールドドリーム",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 79
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 79,
+        "wins": 2,
+        "seconds": 3,
+        "thirds": 7,
+        "win_rate": 0.0253,
+        "quinella_rate": 0.0633,
+        "raw_place_rate": 0.1519,
+        "adjusted_place_rate": 0.1609,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "タイキシャトル",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 79
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 79,
+        "wins": 7,
+        "seconds": 6,
+        "thirds": 4,
+        "win_rate": 0.0886,
+        "quinella_rate": 0.1646,
+        "raw_place_rate": 0.2152,
+        "adjusted_place_rate": 0.2184,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 5,
+      "horse_name": "コウソクレムリア",
+      "horse_id_netkeiba": "2024101886",
+      "sex_age": "牝2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "黛",
+        "name": "黛弘人",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 53
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 53,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.019,
+        "quinella_rate": 0.038,
+        "raw_place_rate": 0.057,
+        "adjusted_place_rate": 0.0823,
+        "win_return_pct": 16.0,
+        "place_return_pct": 86.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "ジャンダルム",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 1
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "Catcher In The Rye (愛)",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 0
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition"
+      }
+    },
+    {
+      "horse_number": 6,
+      "horse_name": "クリアマインド",
+      "horse_id_netkeiba": "2024103876",
+      "sex_age": "牝2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "原",
+        "name": "原優介",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 194
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 194,
+        "wins": 4,
+        "seconds": 12,
+        "thirds": 11,
+        "win_rate": 0.021,
+        "quinella_rate": 0.082,
+        "raw_place_rate": 0.139,
+        "adjusted_place_rate": 0.1434,
+        "win_return_pct": 154.0,
+        "place_return_pct": 79.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 2,
+          "ambiguous": true
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "ディーマジェスティ",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 46
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 46,
+        "wins": 4,
+        "seconds": 5,
+        "thirds": 3,
+        "win_rate": 0.087,
+        "quinella_rate": 0.1957,
+        "raw_place_rate": 0.2609,
+        "adjusted_place_rate": 0.2593,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ファスリエフ",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 36
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 36,
+        "wins": 3,
+        "seconds": 4,
+        "thirds": 2,
+        "win_rate": 0.0833,
+        "quinella_rate": 0.1944,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 7,
+      "horse_name": "ヴァンデエス",
+      "horse_id_netkeiba": "2024103029",
+      "sex_age": "牝2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "杉原",
+        "name": "杉原誠人",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 96
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 96,
+        "wins": 5,
+        "seconds": 2,
+        "thirds": 4,
+        "win_rate": 0.052,
+        "quinella_rate": 0.073,
+        "raw_place_rate": 0.115,
+        "adjusted_place_rate": 0.1254,
+        "win_return_pct": 56.0,
+        "place_return_pct": 68.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "ミッキーアイル",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 75
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 75,
+        "wins": 8,
+        "seconds": 8,
+        "thirds": 6,
+        "win_rate": 0.1067,
+        "quinella_rate": 0.2133,
+        "raw_place_rate": 0.2933,
+        "adjusted_place_rate": 0.2891,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "Dubawi (愛)",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 10
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 10,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.1,
+        "adjusted_place_rate": 0.1667,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 8,
+      "horse_name": "スヴァラ",
+      "horse_id_netkeiba": "2024100339",
+      "sex_age": "牝2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "原田和",
+        "name": "原田和真",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 40
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 40,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.025,
+        "raw_place_rate": 0.025,
+        "adjusted_place_rate": 0.0625,
+        "win_return_pct": 0.0,
+        "place_return_pct": 6.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "マテラスカイ",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 42
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 42,
+        "wins": 3,
+        "seconds": 3,
+        "thirds": 2,
+        "win_rate": 0.0714,
+        "quinella_rate": 0.1429,
+        "raw_place_rate": 0.1905,
+        "adjusted_place_rate": 0.2,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ディープブリランテ",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 42
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 42,
+        "wins": 2,
+        "seconds": 3,
+        "thirds": 1,
+        "win_rate": 0.0476,
+        "quinella_rate": 0.119,
+        "raw_place_rate": 0.1429,
+        "adjusted_place_rate": 0.16,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 9,
+      "horse_name": "アイビーカイロス",
+      "horse_id_netkeiba": "2024108316",
+      "sex_age": "牝2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "木幡巧",
+        "name": "木幡巧也",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 217
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 217,
+        "wins": 8,
+        "seconds": 13,
+        "thirds": 18,
+        "win_rate": 0.037,
+        "quinella_rate": 0.097,
+        "raw_place_rate": 0.18,
+        "adjusted_place_rate": 0.1825,
+        "win_return_pct": 73.0,
+        "place_return_pct": 66.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "Maximus Mischief (米)",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 0
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "Munnings (米)",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 1
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 3,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.3333,
+        "quinella_rate": 0.3333,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.2727,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 10,
+      "horse_name": "ハイトラクション",
+      "horse_id_netkeiba": "2024104937",
+      "sex_age": "牡2",
+      "weight_carried": 54.0,
+      "jockey": {
+        "name_card": "☆長浜",
+        "name": "長浜鴻緒",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 178
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 178,
+        "wins": 10,
+        "seconds": 13,
+        "thirds": 11,
+        "win_rate": 0.056,
+        "quinella_rate": 0.129,
+        "raw_place_rate": 0.191,
+        "adjusted_place_rate": 0.1935,
+        "win_return_pct": 71.0,
+        "place_return_pct": 70.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "フォーウィールドライブ",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 83
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 83,
+        "wins": 5,
+        "seconds": 7,
+        "thirds": 12,
+        "win_rate": 0.0602,
+        "quinella_rate": 0.1446,
+        "raw_place_rate": 0.2892,
+        "adjusted_place_rate": 0.2858,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ディープインパクト",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 156
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 156,
+        "wins": 11,
+        "seconds": 4,
+        "thirds": 8,
+        "win_rate": 0.0705,
+        "quinella_rate": 0.0962,
+        "raw_place_rate": 0.1474,
+        "adjusted_place_rate": 0.1524,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 11,
+      "horse_name": "ハクタカ",
+      "horse_id_netkeiba": "2024103502",
+      "sex_age": "牡2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "内田博",
+        "name": "内田博幸",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 130
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 130,
+        "wins": 7,
+        "seconds": 11,
+        "thirds": 12,
+        "win_rate": 0.054,
+        "quinella_rate": 0.138,
+        "raw_place_rate": 0.231,
+        "adjusted_place_rate": 0.2321,
+        "win_return_pct": 107.0,
+        "place_return_pct": 127.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "イスラボニータ",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 90
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 90,
+        "wins": 6,
+        "seconds": 5,
+        "thirds": 6,
+        "win_rate": 0.0667,
+        "quinella_rate": 0.1222,
+        "raw_place_rate": 0.1889,
+        "adjusted_place_rate": 0.1939,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "クロフネ",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 192
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 192,
+        "wins": 11,
+        "seconds": 12,
+        "thirds": 11,
+        "win_rate": 0.0573,
+        "quinella_rate": 0.1198,
+        "raw_place_rate": 0.1771,
+        "adjusted_place_rate": 0.18,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 12,
+      "horse_name": "アーバーバイティ",
+      "horse_id_netkeiba": "2024102849",
+      "sex_age": "牡2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "嶋田",
+        "name": "嶋田純次",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 61
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 61,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.016,
+        "raw_place_rate": 0.049,
+        "adjusted_place_rate": 0.0723,
+        "win_return_pct": 0.0,
+        "place_return_pct": 24.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "フォーウィールドライブ",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 83
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 83,
+        "wins": 5,
+        "seconds": 7,
+        "thirds": 12,
+        "win_rate": 0.0602,
+        "quinella_rate": 0.1446,
+        "raw_place_rate": 0.2892,
+        "adjusted_place_rate": 0.2858,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ディスクリートキャット",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 1
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 1.0,
+        "adjusted_place_rate": 0.3333,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 13,
+      "horse_name": "ファイアリーボルト",
+      "horse_id_netkeiba": "2024109080",
+      "sex_age": "牡2",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "菊沢",
+        "name": "菊沢一樹",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 144
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 144,
+        "wins": 4,
+        "seconds": 6,
+        "thirds": 9,
+        "win_rate": 0.028,
+        "quinella_rate": 0.069,
+        "raw_place_rate": 0.132,
+        "adjusted_place_rate": 0.1382,
+        "win_return_pct": 17.0,
+        "place_return_pct": 45.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "ディスクリートキャット",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 111
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 111,
+        "wins": 12,
+        "seconds": 14,
+        "thirds": 7,
+        "win_rate": 0.1081,
+        "quinella_rate": 0.2342,
+        "raw_place_rate": 0.2973,
+        "adjusted_place_rate": 0.2941,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "パイロ",
+        "primary_condition": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200,
+          "starts": 45
+        },
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 45,
+        "wins": 3,
+        "seconds": 3,
+        "thirds": 1,
+        "win_rate": 0.0667,
+        "quinella_rate": 0.1333,
+        "raw_place_rate": 0.1556,
+        "adjusted_place_rate": 0.1698,
+        "status": "ok"
+      }
+    }
+  ],
+  "quality": {
+    "jockey_data_complete": true,
+    "jockey_status_counts": {
+      "ok": 13
+    },
+    "sire_data_complete": true,
+    "damsire_data_complete": false,
+    "sire_status_counts": {
+      "insufficient_sample": 2,
+      "ok": 11
+    },
+    "damsire_status_counts": {
+      "error": 1,
+      "insufficient_sample": 3,
+      "not_found": 1,
+      "ok": 8
+    },
+    "pending": [],
+    "d1_cutoff_verified": true,
+    "full_r1_ready": false
+  }
+}
