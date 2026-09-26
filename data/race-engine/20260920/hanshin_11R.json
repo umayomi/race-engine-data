@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T08:26:57+09:00",
+  "generated_at": "2026-09-26T11:15:35+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040611",
@@ -29,6 +29,16 @@
       "status": "ok",
       "rows": 200,
       "column_mode": "header"
+    },
+    "pedigree_name_list": {
+      "father": {
+        "status": "ok",
+        "count": 2180
+      },
+      "mfather": {
+        "status": "ok",
+        "count": 2790
+      }
     }
   },
   "horses": [
@@ -442,8 +452,8 @@
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "table_not_found"
+        "status": "not_found",
+        "reason": "name_not_in_umarengod_list"
       },
       "damsire": {
         "name": "Medaglia d'Oro (米)",
@@ -1456,10 +1466,10 @@
     "jockey_status_counts": {
       "ok": 16
     },
-    "sire_data_complete": false,
+    "sire_data_complete": true,
     "damsire_data_complete": false,
     "sire_status_counts": {
-      "error": 1,
+      "not_found": 1,
       "ok": 15
     },
     "damsire_status_counts": {

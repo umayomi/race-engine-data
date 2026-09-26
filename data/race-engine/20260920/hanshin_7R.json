@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T08:24:06+09:00",
+  "generated_at": "2026-09-26T11:12:37+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040607",
@@ -29,6 +29,16 @@
       "status": "ok",
       "rows": 194,
       "column_mode": "header"
+    },
+    "pedigree_name_list": {
+      "father": {
+        "status": "ok",
+        "count": 2180
+      },
+      "mfather": {
+        "status": "ok",
+        "count": 2790
+      }
     }
   },
   "horses": [
@@ -282,13 +292,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1800,
-          "starts": null
+          "starts": 43
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401"
+        "starts": 43,
+        "wins": 5,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.1163,
+        "quinella_rate": 0.1628,
+        "raw_place_rate": 0.2093,
+        "adjusted_place_rate": 0.2157,
+        "status": "ok"
       }
     },
     {
@@ -1080,17 +1101,16 @@
       "ok": 11
     },
     "sire_data_complete": true,
-    "damsire_data_complete": false,
+    "damsire_data_complete": true,
     "sire_status_counts": {
       "ok": 12
     },
     "damsire_status_counts": {
-      "error": 1,
       "not_found": 1,
-      "ok": 10
+      "ok": 11
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }

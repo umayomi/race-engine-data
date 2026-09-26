@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T08:16:44+09:00",
+  "generated_at": "2026-09-26T11:04:33+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202606040609",
@@ -21,12 +21,24 @@
   },
   "fetch_status": {
     "jockey_primary": {
-      "status": "error",
-      "reason": "http_401"
+      "status": "ok",
+      "rows": 77,
+      "column_mode": "header"
     },
     "jockey_all": {
-      "status": "error",
-      "reason": "http_401"
+      "status": "ok",
+      "rows": 118,
+      "column_mode": "header"
+    },
+    "pedigree_name_list": {
+      "father": {
+        "status": "ok",
+        "count": 2180
+      },
+      "mfather": {
+        "status": "ok",
+        "count": 2790
+      }
     }
   },
   "horses": [
@@ -38,18 +50,36 @@
       "weight_carried": 50.0,
       "jockey": {
         "name_card": "江田照",
-        "name": null,
+        "name": "江田照男",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 12
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "starts": 12,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "name": "ヴァンゴッホ",
@@ -57,13 +87,13 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 0
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401"
+        "status": "not_found",
+        "reason": "no_runs_in_condition"
       },
       "damsire": {
         "name": "ヴィクトワールピサ",
@@ -99,18 +129,36 @@
       "weight_carried": 54.0,
       "jockey": {
         "name_card": "菊沢",
-        "name": null,
+        "name": "菊沢一樹",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 9
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "starts": 9,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.111,
+        "adjusted_place_rate": 0.1764,
+        "win_return_pct": 0.0,
+        "place_return_pct": 23.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "name": "ハービンジャー",
@@ -118,13 +166,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 6
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401"
+        "starts": 6,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1429,
+        "status": "ok"
       },
       "damsire": {
         "name": "ゼンノロブロイ",
@@ -132,13 +191,24 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 5
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401"
+        "starts": 5,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1538,
+        "status": "ok"
       }
     },
     {
@@ -149,18 +219,36 @@
       "weight_carried": 57.0,
       "jockey": {
         "name_card": "西村淳",
-        "name": null,
+        "name": "西村淳也",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 2
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 2400
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 3,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.333,
+        "raw_place_rate": 0.333,
+        "adjusted_place_rate": 0.2726,
+        "win_return_pct": 0.0,
+        "place_return_pct": 87.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "insufficient_sample"
       },
       "sire": {
         "name": "アドマイヤマーズ",
@@ -215,13 +303,13 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 0
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "status": "not_found",
+        "reason": "no_starts_in_condition_or_name_unmatched"
       },
       "sire": {
         "name": "モーリス",
@@ -282,18 +370,36 @@
       "weight_carried": 53.0,
       "jockey": {
         "name_card": "横山武",
-        "name": null,
+        "name": "横山武史",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 12
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "starts": 12,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.083,
+        "quinella_rate": 0.25,
+        "raw_place_rate": 0.417,
+        "adjusted_place_rate": 0.3502,
+        "win_return_pct": 33.0,
+        "place_return_pct": 108.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "name": "ルヴァンスレーヴ",
@@ -354,18 +460,36 @@
       "weight_carried": 54.0,
       "jockey": {
         "name_card": "杉原",
-        "name": null,
+        "name": "杉原誠人",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 5
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "starts": 5,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.4,
+        "adjusted_place_rate": 0.3077,
+        "win_return_pct": 0.0,
+        "place_return_pct": 234.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "name": "アルアイン",
@@ -415,18 +539,36 @@
       "weight_carried": 52.0,
       "jockey": {
         "name_card": "石神道",
-        "name": null,
+        "name": "石神深道",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 3
         },
-        "condition_used": null,
-        "fallback_used": false,
-        "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "ダート",
+          "distance": 2400
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 5,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1538,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "subsequence",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "name": "ダンカーク",
@@ -487,18 +629,36 @@
       "weight_carried": 55.0,
       "jockey": {
         "name_card": "ルメール",
-        "name": null,
+        "name": "Ｃ．ルメール",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 6
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "starts": 6,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.167,
+        "quinella_rate": 0.333,
+        "raw_place_rate": 0.333,
+        "adjusted_place_rate": 0.2856,
+        "win_return_pct": 50.0,
+        "place_return_pct": 45.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "name": "リオンディーズ",
@@ -559,18 +719,36 @@
       "weight_carried": 57.0,
       "jockey": {
         "name_card": "佐々木",
-        "name": null,
+        "name": "佐々木大輔",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 12
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "starts": 12,
+        "wins": 0,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.167,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "win_return_pct": 0.0,
+        "place_return_pct": 43.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "name": "ルヴァンスレーヴ",
@@ -631,18 +809,36 @@
       "weight_carried": 54.0,
       "jockey": {
         "name_card": "横山和",
-        "name": null,
+        "name": "横山和生",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 15
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "starts": 15,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 0,
+        "win_rate": 0.133,
+        "quinella_rate": 0.267,
+        "raw_place_rate": 0.267,
+        "adjusted_place_rate": 0.2611,
+        "win_return_pct": 185.0,
+        "place_return_pct": 85.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "name": "クリソベリル",
@@ -708,13 +904,13 @@
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 0
         },
         "condition_used": null,
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "status": "not_found",
+        "reason": "no_starts_in_condition_or_name_unmatched"
       },
       "sire": {
         "name": "ロードカナロア",
@@ -775,18 +971,36 @@
       "weight_carried": 51.0,
       "jockey": {
         "name_card": "丸田",
-        "name": null,
+        "name": "丸田恭介",
         "primary_condition": {
           "racecourse": "中山",
           "surface": "ダート",
           "distance": 2400,
-          "starts": null
+          "starts": 6
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "中山",
+          "surface": "ダート",
+          "distance": 2400
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401;http_401"
+        "starts": 6,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.167,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.667,
+        "adjusted_place_rate": 0.4287,
+        "win_return_pct": 80.0,
+        "place_return_pct": 213.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
       },
       "sire": {
         "name": "デクラレーションオブウォー",
@@ -841,22 +1055,24 @@
     }
   ],
   "quality": {
-    "jockey_data_complete": false,
+    "jockey_data_complete": true,
     "jockey_status_counts": {
-      "error": 12
+      "insufficient_sample": 1,
+      "not_found": 2,
+      "ok": 9
     },
-    "sire_data_complete": false,
+    "sire_data_complete": true,
     "damsire_data_complete": false,
     "sire_status_counts": {
-      "error": 2,
       "insufficient_sample": 4,
-      "ok": 6
-    },
-    "damsire_status_counts": {
-      "error": 2,
-      "insufficient_sample": 2,
       "not_found": 1,
       "ok": 7
+    },
+    "damsire_status_counts": {
+      "error": 1,
+      "insufficient_sample": 2,
+      "not_found": 1,
+      "ok": 8
     },
     "pending": [],
     "d1_cutoff_verified": true,

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-25T08:20:53+09:00",
+  "generated_at": "2026-09-26T11:09:00+09:00",
   "race": {
     "date": "2026-09-20",
     "race_id_netkeiba": "202609040602",
@@ -29,6 +29,16 @@
       "status": "ok",
       "rows": 184,
       "column_mode": "header"
+    },
+    "pedigree_name_list": {
+      "father": {
+        "status": "ok",
+        "count": 2180
+      },
+      "mfather": {
+        "status": "ok",
+        "count": 2790
+      }
     }
   },
   "horses": [
@@ -271,13 +281,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 21
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401"
+        "starts": 21,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.069,
+        "status": "ok"
       }
     },
     {
@@ -1127,13 +1148,24 @@
           "racecourse": "阪神",
           "surface": "ダート",
           "distance": 1200,
-          "starts": null
+          "starts": 21
         },
-        "condition_used": null,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1200
+        },
         "fallback_used": false,
         "fallback_reason": null,
-        "status": "error",
-        "reason": "http_401"
+        "starts": 21,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.069,
+        "status": "ok"
       }
     }
   ],
@@ -1143,19 +1175,18 @@
       "ok": 13
     },
     "sire_data_complete": true,
-    "damsire_data_complete": false,
+    "damsire_data_complete": true,
     "sire_status_counts": {
       "insufficient_sample": 2,
       "not_found": 2,
       "ok": 9
     },
     "damsire_status_counts": {
-      "error": 2,
       "not_found": 2,
-      "ok": 9
+      "ok": 11
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }
