@@ -176,13 +176,15 @@ def _parse_data01(text: str) -> tuple[int | None, str | None, str | None]:
     """ '芝1600m' / '馬場:良' などから 距離・馬場種別・状態 を抽出。"""
     if not text:
         return None, None, None
+    # 判定順が重要。障害競走は「障芝2970m」「障ダ3000m」のように表示されるため、
+    # 芝を先に見ると障害を芝と誤認する（実測: 阪神1R 3歳以上障害未勝利 が 芝2970 になった）。
     surface = None
-    if "芝" in text:
+    if "障" in text:
+        surface = "障害"
+    elif "芝" in text:
         surface = "芝"
     elif "ダ" in text:
         surface = "ダート"
-    elif "障" in text:
-        surface = "障害"
     m = re.search(r"(\d{3,4})m", text)
     distance = int(m.group(1)) if m else None
     # 馬場は「馬場:稍重」「馬場:稍」等どちらの表記もあるので両対応（長い順に判定）
