@@ -41,6 +41,7 @@ class PedigreeCache:
         self.session, self.race_date = session, race_date
         self.memo: dict = {}
         self.name_lists: dict = {}
+        self.list_status: dict = {}
         self.requests = 0
 
     def _names(self, fld: str):
@@ -48,6 +49,7 @@ class PedigreeCache:
             self.requests += 1
             lst, st = U.fetch_name_list(self.session, fld)
             self.name_lists[fld] = lst
+            self.list_status[fld] = st          # JSONに残す（失敗を見えなくしない）
             print(f"  umarengod {fld} 登録名リスト: {st}")
         return self.name_lists[fld]
 
@@ -168,7 +170,8 @@ def build_race(race: dict, race_date: str, jt: JockeyTables,
         },
         "aggregation_period": {"start": start.isoformat(), "end": end.isoformat(),
                                "leakage_safe": d1_ok},
-        "fetch_status": {"jockey_primary": place_st, "jockey_all": all_st},
+        "fetch_status": {"jockey_primary": place_st, "jockey_all": all_st,
+                         "pedigree_name_list": (pc.list_status if pc else None)},
         "horses": horses,
         "quality": {
             "jockey_data_complete": jockey_complete,
