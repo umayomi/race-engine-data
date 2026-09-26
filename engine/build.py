@@ -146,7 +146,9 @@ def build_race(race: dict, race_date: str, jt: JockeyTables,
         return [x[key]["status"] for x in horses]
 
     def _complete(key):
-        return bool(horses) and all(s in ("ok", "insufficient_sample", "not_found")
+        # unsupported（障害戦など、そもそも umarengod に該当データが無い条件）は
+        # 取得失敗ではないので欠損扱いにしない。
+        return bool(horses) and all(s in ("ok", "insufficient_sample", "not_found", "unsupported")
                                     for s in _states(key))
     jk_states = _states("jockey")
     jockey_complete = _complete("jockey")
