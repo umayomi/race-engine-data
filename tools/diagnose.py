@@ -208,15 +208,30 @@ def main():
     #      リストには存在する名前なのに失敗する → 実際に何が返るのかを見る。
     import umarengod as _U
     probe_date = os.environ.get("PROBE_DATE") or (datetime.date.today() - datetime.timedelta(days=4)).strftime("%Y%m%d")
-    for fld, nm in (("father", "ドレフォン"), ("father", "モーリス"),
-                    ("mfather", "クロフネ"), ("mfather", "フジキセキ"),
-                    ("father", "Giant's Causeway"), ("father", "Giant's Causeway\u00a0(米)")):
-        html, info = fetch(_U.URL_PEDIGREE, "POST", _U.pedigree_payload(fld, nm, probe_date))
+    # 名前一覧を取得して、照合後の「正式名」でPOSTした実レスポンスを保存する。
+    # （照合は合っているのに表が返らない、という事象の切り分け用）
+    lists = {}
+    for fld in ("father", "mfather"):
+        names, st = _U.fetch_name_list(S, fld)
+        lists[fld] = names
+        REPORT.setdefault("name_lists", {})[fld] = {**st, "sample": names[:3]}
+        print(f"  {fld} 一覧: {st}")
+        if names:
+            (OUT / f"namelist_{fld}.txt").write_text("\n".join(names), encoding="utf-8")
+    probes = [("father", "ドレフォン"), ("mfather", "フジキセキ"),
+              ("mfather", "Giant's Causeway (米)"), ("mfather", "Medaglia d'Oro (米)"),
+              ("mfather", "Sadler's Wells (米)"), ("father", "スーパーステション"),
+              ("mfather", "Vadamos (仏)")]
+    for fld, nm in probes:
+        matched = _U.match_horse_name(nm, lists.get(fld) or [])
+        send = matched or _U.clean_horse_name(nm)
+        html, info = fetch(_U.URL_PEDIGREE, "POST", _U.pedigree_payload(fld, send, probe_date))
         rec = save(f"ped_post_{fld}_{_slug(nm)}", html, info)
+        rec["probe"] = {"card_name": nm, "matched": matched, "sent": send}
         if html:
             rows, meta = _U.parse_pedigree_table(html)
             rec["pedigree_parse"] = {"meta": meta, "sample": rows[:2]}
-            print(f"    → {fld} {nm!r}: rows={meta['rows']} table_found={meta['table_found']}")
+            print(f"    → {fld} {nm!r} 送信={send!r} rows={meta['rows']} found={meta['table_found']}")
 
     # F2. 出馬表系ページ（父・母父の同コース成績が1ページに揃う画面の調査）
     #     全レース対応か重賞限定か、URLに race_id/日付をどう渡すかを確認する。
