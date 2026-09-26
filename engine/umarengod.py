@@ -609,3 +609,222 @@ def resolve_pedigree(name: str, rows: list[dict], st: dict,
     rec["adjusted_place_rate"] = round(shrink(rec["raw_place_rate"], rec["starts"]), 4)
     rec["status"] = "insufficient_sample" if rec["starts"] < PED_MIN_STARTS else "ok"
     return rec
+
+
+# ================================================================ srch6（出馬表ルート）
+# umarengod の「特別登録馬・出馬表から検索」ページ。1レース1ページに全頭の
+#   父・母父の「同コース成績（過去3年）」が計算済みで載っている。
+# 経路: 入口(1回) → 日付×競馬場のレース一覧(場数ぶん) → 各レース(レース数ぶん)
+#   2場開催なら 1+2+24 = 27 リクエストで1日の全レースの血統が揃う。
+#
+# 実測で判明した重要な性質（検証済み）:
+#   ・「同コース」= 競馬場×芝ダ×距離（現行方式の値と4件中2件完全一致）
+#   ・「過去3年」は**レース日ではなく取得時点から**数える（残り2件の差がこれで説明できる）
+#     → レース当日の発走前に取得すれば安全、過去日を後から作るとリークする。
+URL_SRCH6 = "https://umarengod.com/srch6.php"
+SRCH6_SAFE_BEFORE = "09:30"     # この時刻（JST）より前の取得なら当日結果は未混入とみなす
+_VENUES = "札幌|函館|福島|新潟|東京|中山|中京|京都|阪神|小倉"
+
+
+def get_with_retry(session, url: str) -> tuple[object | None, dict]:
+    last = None
+    for i in range(RETRY):
+        try:
+            r = session.get(url, headers={"User-Agent": UA}, timeout=40)
+        except Exception as e:  # noqa: BLE001
+            last = {"status": "error", "reason": f"network:{type(e).__name__}"}
+            time.sleep(BACKOFF_SEC * (i + 1))
+            continue
+        finally:
+            time.sleep(INTERVAL_SEC)
+        if r.status_code == 200:
+            return r, {"status": "ok"}
+        last = {"status": "error", "reason": f"http_{r.status_code}"}
+        if r.status_code in (401, 403, 429) or r.status_code >= 500:
+            time.sleep(BACKOFF_SEC * (i + 1))
+            continue
+        break
+    return None, last or {"status": "error", "reason": "unknown"}
+
+
+def parse_srch6_tabs(html: str) -> list[dict]:
+    """srch6_post_tab(p, ki, "kd", "cs", bty) を全部拾う。p=0 は日付タブ、p=1 は競馬場タブ。"""
+    out = []
+    for p, ki, kd, cs, bty in re.findall(
+            r'srch6_post_tab\(\s*(\d+)\s*,\s*(\d+)\s*,\s*"([\d-]+)"\s*,\s*"([^"]+)"\s*,\s*(\d+)\s*\)', html):
+        out.append({"p": int(p), "ki": int(ki), "kd": kd, "cs": cs, "bty": int(bty)})
+    return out
+
+
+def srch6_list_url(ki: int, kd: str, cs: str, bty: int) -> str:
+    import urllib.parse
+    return (f"{URL_SRCH6}?p=1&ki={ki}&kd={kd}&cs={urllib.parse.quote(cs)}"
+            f"&bty={bty}&seni=1")
+
+
+def parse_srch6_list(html: str) -> list[dict]:
+    """レース一覧 → [{race_no, ki, i0, i1, i2, r, bty}]。i2 が 0〜11 で 1R〜12R。"""
+    out = []
+    for p, ki, i0, i1, i2, r, bty in re.findall(
+            r'srch6_post_sel\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)',
+            html):
+        out.append({"race_no": int(i2) + 1, "p": int(p), "ki": int(ki), "i0": int(i0),
+                    "i1": int(i1), "i2": int(i2), "r": int(r), "bty": int(bty)})
+    return out
+
+
+def srch6_race_url(sel: dict) -> str:
+    return (f"{URL_SRCH6}?p=2&ki={sel['ki']}&i0={sel['i0']}&i1={sel['i1']}&i2={sel['i2']}"
+            f"&r={sel['r']}&bty={sel['bty']}&seni=1")
+
+
+def parse_record(s: str):
+    """「5-2-2-45」「0-\\xa00-\\xa00-\\xa01」→ (1着,2着,3着,着外,出走)。空なら None。"""
+    nums = re.findall(r"\d+", (s or "").replace("\xa0", " "))
+    if len(nums) != 4:
+        return None
+    w, s2, s3, o = (int(x) for x in nums)
+    return w, s2, s3, o, w + s2 + s3 + o
+
+
+def _expand(tr) -> list[str]:
+    """colspan を展開したセル文字列の列。"""
+    cells = []
+    for c in tr.find_all(["th", "td"], recursive=False) or tr.find_all(["th", "td"]):
+        cells.extend([c.get_text(" ", strip=True).replace("\xa0", " ")]
+                     * int(c.get("colspan") or 1))
+    return cells
+
+
+def parse_srch6_race(html: str) -> tuple[dict, list[dict]]:
+    """出馬表ページ → (meta, horses)。
+    右表の見出し行の colspan から列位置を計算する（固定位置の決め打ちで一度事故ったため）。
+    meta: table_found / venue / surface / distance / validated / horse_count"""
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "lxml")
+    tables = [t for t in soup.find_all("table") if t.find("table") is None]
+    right = next((t for t in tables if "父名" in t.get_text() and "母父名" in t.get_text()), None)
+    left = next((t for t in tables if "馬番" in t.get_text() and "騎" in t.get_text()
+                 and "父名" not in t.get_text()), None)
+    meta = {"table_found": right is not None, "venue": None, "surface": None,
+            "distance": None, "validated": False, "horse_count": 0}
+    if right is None:
+        return meta, []
+
+    rows = right.find_all("tr")
+    head_i, spans = None, {}
+    for i, tr in enumerate(rows[:4]):
+        pos = 0
+        found = {}
+        for c in tr.find_all(["th", "td"]):
+            cs = int(c.get("colspan") or 1)
+            t = _norm_header(c.get_text())
+            if t.startswith("母父名"):
+                found["damsire"] = pos
+            elif t.startswith("父名"):
+                found["sire"] = pos
+            elif t.startswith("騎手・"):
+                found["jockey_cond"] = pos
+                m = re.match(r"騎手・(" + _VENUES + r")(障芝|障ダ|障|芝|ダ)(\d{3,4})", t)
+                if m:
+                    meta["venue"] = m.group(1)
+                    meta["surface"] = ("障害" if "障" in m.group(2)
+                                       else ("ダート" if m.group(2) == "ダ" else "芝"))
+                    meta["distance"] = int(m.group(3))
+            elif t == "馬番":
+                found["umaban"] = pos
+            pos += cs
+        if {"sire", "damsire", "umaban"} <= set(found):
+            head_i, spans = i, found
+            break
+    if head_i is None:
+        meta["table_found"] = False
+        return meta, []
+
+    # 左表: 馬番 → 馬名・騎手
+    names = {}
+    order = []
+    if left is not None:
+        lrows = left.find_all("tr")
+        lh, lcol = None, {}
+        for i, tr in enumerate(lrows[:4]):
+            cells = [_norm_header(c.get_text()) for c in tr.find_all(["th", "td"])]
+            if "馬番" in cells:
+                lh = i
+                for j, c in enumerate(cells):
+                    if c == "馬番":
+                        lcol["umaban"] = j
+                    elif c == "馬名":
+                        lcol["name"] = j
+                    elif c == "騎手":
+                        lcol["jockey"] = j
+                break
+        if lh is not None:
+            for tr in lrows[lh + 1:]:
+                cells = [c.get_text(" ", strip=True).replace("\xa0", " ")
+                         for c in tr.find_all(["th", "td"])]
+                if len(cells) <= max(lcol.values()) or not cells[lcol.get("name", 0)]:
+                    continue
+                ub = _to_int(cells[lcol["umaban"]]) if "umaban" in lcol else None
+                rec = {"umaban": ub, "name": cells[lcol.get("name", 2)],
+                       "jockey_entry": cells[lcol["jockey"]] if "jockey" in lcol else None}
+                order.append(rec)
+                if ub is not None:
+                    names[ub] = rec
+
+    horses, checks = [], []
+    total = max(spans.values()) + 1
+    data_rows = [tr for tr in rows[head_i + 1:] if len(_expand(tr)) >= total]
+    for k, tr in enumerate(data_rows):
+        c = _expand(tr)
+        ub = _to_int(c[spans["umaban"]])
+        info = names.get(ub) if ub is not None else (order[k] if k < len(order) else None)
+        blk = {}
+        for key in ("sire", "damsire"):
+            base = spans[key]
+            nm = c[base].strip() or None
+            rec = parse_record(c[base + 1])
+            blk[key] = {"name": nm, "record": rec,
+                        "quinella_rate_page": _rate(c[base + 2]) if len(c) > base + 2 else None,
+                        "place_rate_page": _rate(c[base + 4]) if len(c) > base + 4 else None}
+            if rec and rec[4]:
+                exp_pl = (rec[0] + rec[1] + rec[2]) / rec[4]
+                pl = blk[key]["place_rate_page"]
+                if pl is not None:
+                    checks.append(abs(pl - exp_pl) < 0.0015)
+        horses.append({"umaban": ub, "name": info["name"] if info else None,
+                       "jockey_entry": info["jockey_entry"] if info else None, **blk})
+    # 検算: 着度数から出した3着内率とページ表示が一致するか（列ずれ検出）
+    meta["validated"] = bool(checks) and all(checks)
+    meta["horse_count"] = len(horses)
+    return meta, horses
+
+
+def srch6_leakage_safe(fetched_at_iso: str, race_date: str) -> bool:
+    """取得時刻がレース当日の発走前(09:30 JST)より前なら True。
+    srch6 の『過去3年』は取得時点基準なので、後から過去日を作るとそのレース以降の
+    結果が混入する（実測で確認）。それを機械的に判定する。"""
+    d = f"{race_date[0:4]}-{race_date[4:6]}-{race_date[6:8]}"
+    return fetched_at_iso < f"{d}T{SRCH6_SAFE_BEFORE}"
+
+
+def srch6_pedigree_block(part: dict, racecourse: str, surface: str, distance_m: int,
+                         leakage_safe: bool) -> dict:
+    """srch6 の父/母父セル → JSON ブロック。fallback は行わない（同コースの値のみ）。"""
+    nm, rec = part.get("name"), part.get("record")
+    base = {"name": nm, "source": "umarengod_srch6",
+            "period_basis": "past_3y_as_of_fetch", "leakage_safe": leakage_safe,
+            "condition_used": {"racecourse": racecourse, "surface": surface,
+                               "distance": distance_m},
+            "fallback_used": False, "fallback_reason": None}
+    if not nm:
+        return {**base, "status": "not_found", "reason": "name_missing_on_page"}
+    if rec is None or rec[4] == 0:
+        return {**base, "status": "not_found", "reason": "no_runs_in_condition", "starts": 0}
+    w, s2, s3, _o, st = rec
+    out = {**base, "starts": st, "wins": w, "seconds": s2, "thirds": s3,
+           "win_rate": round(w / st, 4), "quinella_rate": round((w + s2) / st, 4),
+           "raw_place_rate": round((w + s2 + s3) / st, 4),
+           "adjusted_place_rate": round(shrink((w + s2 + s3) / st, st), 4)}
+    out["status"] = "insufficient_sample" if st < PED_MIN_STARTS else "ok"
+    return out
