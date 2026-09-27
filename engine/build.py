@@ -92,14 +92,16 @@ class Srch6Source:
                        "leakage_safe": U.srch6_leakage_safe(self.fetched_at or "", self.race_date)}
         return self.status
 
-    def get(self, racecourse: str, race_no: int, horse_name: str, surface, distance_m):
-        """馬名で突き合わせて (sire_block, damsire_block) を返す。"""
+    def get(self, racecourse: str, race_no: int, horse_name: str, surface, distance_m,
+            post_time: str | None = None):
+        """馬名で突き合わせて (sire_block, damsire_block) を返す。
+        リーク判定は**そのレースの発走時刻**と取得時刻を比較する（一律の時刻ではない）。"""
         page = self.by_race.get((racecourse, race_no))
         if page is None:
             st = {"status": "error", "reason": f"srch6_page_missing:{racecourse}{race_no}R",
                   "source": "umarengod_srch6"}
             return st, dict(st)
-        safe = self.status.get("leakage_safe", False)
+        safe = U.srch6_leakage_safe(self.fetched_at or "", self.race_date, post_time)
         key = U.norm_horse_key(horse_name or "")
         hit = next((h for h in page["horses"] if U.norm_horse_key(h.get("name") or "") == key), None)
         if hit is None:
@@ -197,7 +199,8 @@ def build_race(race: dict, race_date: str, jt: JockeyTables,
                               place_tbl, place_st, all_tbl, all_st)
         sire = damsire = {"status": "not_implemented"}
         if s6 is not None:
-            sire, damsire = s6.get(course, race.get("race_no"), h.get("name"), surface, dist)
+            sire, damsire = s6.get(course, race.get("race_no"), h.get("name"), surface, dist,
+                                   race.get("post_time"))
         elif pn is not None and pc is not None:
             names = pn.get(h.get("horse_id"))
             out2 = {}
@@ -265,8 +268,14 @@ def build_race(race: dict, race_date: str, jt: JockeyTables,
             "sire_status_counts": {s: _states("sire").count(s) for s in sorted(set(_states("sire")))},
             "damsire_status_counts": {s: _states("damsire").count(s) for s in sorted(set(_states("damsire")))},
             "pending": [] if has_ped else ["sire", "damsire"],
+            "pedigree_leakage_safe": (
+                U.srch6_leakage_safe(s6.fetched_at or "", race_date, race.get("post_time"))
+                if s6 else (True if pc else None)),
             "d1_cutoff_verified": d1_ok,
-            "full_r1_ready": bool(jockey_complete and sire_complete and damsire_complete and d1_ok),
+            "full_r1_ready": bool(
+                jockey_complete and sire_complete and damsire_complete and d1_ok
+                and (U.srch6_leakage_safe(s6.fetched_at or "", race_date, race.get("post_time"))
+                     if s6 else True)),
         },
     }
 
@@ -290,6 +299,9 @@ def main():
     ap.add_argument("--date", required=True, help="YYYYMMDD")
     ap.add_argument("--race", default=None, help="netkeiba race_id（1レースだけ作る場合）")
     ap.add_argument("--no-pedigree", action="store_true", help="血統を取得しない（騎手のみ）")
+    ap.add_argument("--look-ahead", type=int, default=0,
+                    help="指定日に開催が無い場合、翌日以降この日数まで探して最初の開催日を作る"
+                         "（金曜に走らせて土曜ぶんを先取りする用）")
     ap.add_argument("--pedigree-source", choices=("srch6", "etcfatherm"), default="srch6",
                     help="血統の取得元。srch6=出馬表ページ(軽量・既定) / etcfatherm=種牡馬ページ(従来)")
     args = ap.parse_args()
@@ -297,6 +309,21 @@ def main():
 
     import requests
     session = requests.Session()
+
+    # 開催が無い日に走らせた場合、翌日以降を探す（金曜実行→土曜ぶんを作る）
+    if not args.race and args.look_ahead > 0:
+        base = datetime.datetime.strptime(args.date, "%Y%m%d").date()
+        for off in range(0, args.look_ahead + 1):
+            cand = (base + datetime.timedelta(days=off)).strftime("%Y%m%d")
+            if nk.find_race_ids(cand):
+                if cand != args.date:
+                    print(f"{args.date} は開催なし → {cand} を対象にします")
+                args.date = cand
+                break
+        else:
+            print(f"{args.date} から {args.look_ahead} 日先まで開催が見つかりません")
+            return
+
     jt = JockeyTables(session, args.date)
     use_s6 = (not args.no_pedigree) and args.pedigree_source == "srch6"
     s6 = None
