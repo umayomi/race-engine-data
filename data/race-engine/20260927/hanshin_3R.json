@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-09-26T17:43:03+09:00",
+  "generated_at": "2026-09-27T09:50:16+09:00",
   "race": {
     "date": "2026-09-27",
     "race_id_netkeiba": "202609040903",
@@ -34,13 +34,14 @@
     "pedigree_name_list": null,
     "srch6": {
       "status": "ok",
-      "races": 12,
+      "races": 24,
       "venues": [
-        "中山"
+        "中山",
+        "阪神"
       ],
       "errors": [],
-      "fetched_at": "2026-09-26T17:41:33+09:00",
-      "leakage_safe": true
+      "fetched_at": "2026-09-27T09:48:23+09:00",
+      "leakage_safe": false
     }
   },
   "horses": [
@@ -84,14 +85,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "ダノンスマッシュ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 6,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1429,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "ダイワメジャー",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 75,
+        "wins": 5,
+        "seconds": 3,
+        "thirds": 5,
+        "win_rate": 0.0667,
+        "quinella_rate": 0.1067,
+        "raw_place_rate": 0.1733,
+        "adjusted_place_rate": 0.1807,
+        "status": "ok"
       }
     },
     {
@@ -134,14 +169,42 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "リアルスティール",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 70,
+        "wins": 8,
+        "seconds": 5,
+        "thirds": 4,
+        "win_rate": 0.1143,
+        "quinella_rate": 0.1857,
+        "raw_place_rate": 0.2429,
+        "adjusted_place_rate": 0.2436,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "Lope de Vega",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
       }
     },
     {
@@ -184,14 +247,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "ホッコータルマエ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 107,
+        "wins": 6,
+        "seconds": 8,
+        "thirds": 13,
+        "win_rate": 0.0561,
+        "quinella_rate": 0.1308,
+        "raw_place_rate": 0.2523,
+        "adjusted_place_rate": 0.2522,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "マンハッタンカフェ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 93,
+        "wins": 6,
+        "seconds": 5,
+        "thirds": 8,
+        "win_rate": 0.0645,
+        "quinella_rate": 0.1183,
+        "raw_place_rate": 0.2043,
+        "adjusted_place_rate": 0.2079,
+        "status": "ok"
       }
     },
     {
@@ -234,14 +331,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "マテラスカイ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 5,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1538,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "ステイゴールド",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 36,
+        "wins": 2,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0556,
+        "quinella_rate": 0.0556,
+        "raw_place_rate": 0.1111,
+        "adjusted_place_rate": 0.1364,
+        "status": "ok"
       }
     },
     {
@@ -284,14 +415,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "キズナ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 129,
+        "wins": 19,
+        "seconds": 17,
+        "thirds": 13,
+        "win_rate": 0.1473,
+        "quinella_rate": 0.2791,
+        "raw_place_rate": 0.3798,
+        "adjusted_place_rate": 0.3723,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "タートルボウル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 21,
+        "wins": 3,
+        "seconds": 3,
+        "thirds": 1,
+        "win_rate": 0.1429,
+        "quinella_rate": 0.2857,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.3103,
+        "status": "ok"
       }
     },
     {
@@ -334,14 +499,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "ミスチヴィアスアレックス",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 8,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "City Banker",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -384,14 +583,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "クリソベリル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 55,
+        "wins": 5,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.0909,
+        "quinella_rate": 0.1273,
+        "raw_place_rate": 0.1636,
+        "adjusted_place_rate": 0.1746,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "シンボリクリスエス",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 106,
+        "wins": 6,
+        "seconds": 11,
+        "thirds": 13,
+        "win_rate": 0.0566,
+        "quinella_rate": 0.1604,
+        "raw_place_rate": 0.283,
+        "adjusted_place_rate": 0.2807,
+        "status": "ok"
       }
     },
     {
@@ -434,14 +667,42 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "マインドユアビスケッツ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 73,
+        "wins": 5,
+        "seconds": 5,
+        "thirds": 3,
+        "win_rate": 0.0685,
+        "quinella_rate": 0.137,
+        "raw_place_rate": 0.1781,
+        "adjusted_place_rate": 0.1852,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "Dubai Destination",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
       }
     },
     {
@@ -484,14 +745,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "アドマイヤマーズ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 12,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.0833,
+        "quinella_rate": 0.1667,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:阪神3R",
-        "source": "umarengod_srch6"
+        "name": "キングカメハメハ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": false,
+        "condition_used": {
+          "racecourse": "阪神",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 211,
+        "wins": 27,
+        "seconds": 18,
+        "thirds": 13,
+        "win_rate": 0.128,
+        "quinella_rate": 0.2133,
+        "raw_place_rate": 0.2749,
+        "adjusted_place_rate": 0.274,
+        "status": "ok"
       }
     }
   ],
@@ -500,16 +795,18 @@
     "jockey_status_counts": {
       "ok": 9
     },
-    "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
     "sire_status_counts": {
-      "error": 9
+      "ok": 9
     },
     "damsire_status_counts": {
-      "error": 9
+      "insufficient_sample": 1,
+      "not_found": 2,
+      "ok": 6
     },
     "pending": [],
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }
