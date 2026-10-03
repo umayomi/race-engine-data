@@ -1,0 +1,966 @@
+{
+  "schema_version": "1.0",
+  "source": "umarengod",
+  "generated_at": "2026-10-03T19:54:14+09:00",
+  "race": {
+    "date": "2026-10-04",
+    "race_id_netkeiba": "202608040207",
+    "racecourse": "京都",
+    "racecourse_code": "kyoto",
+    "race_number": 7,
+    "race_name": "3歳以上1勝クラス",
+    "surface": "芝",
+    "distance": 1200,
+    "post_time": "13:10",
+    "race_class": 2
+  },
+  "aggregation_period": {
+    "start": "2023-10-04",
+    "end": "2026-10-03",
+    "leakage_safe": true
+  },
+  "fetch_status": {
+    "jockey_primary": {
+      "status": "ok",
+      "rows": 102,
+      "column_mode": "header"
+    },
+    "jockey_all": {
+      "status": "ok",
+      "rows": 200,
+      "column_mode": "header"
+    },
+    "pedigree_source": "srch6",
+    "pedigree_name_list": null,
+    "srch6": {
+      "status": "ok",
+      "races": 12,
+      "venues": [
+        "東京"
+      ],
+      "errors": [],
+      "fetched_at": "2026-10-03T19:52:20+09:00",
+      "leakage_safe": true
+    }
+  },
+  "horses": [
+    {
+      "horse_number": 1,
+      "horse_name": "ニシノトリビュート",
+      "horse_id_netkeiba": "2023104703",
+      "sex_age": "牡3",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "Ｍデムーロ",
+        "name": "Ｍ．デムーロ",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 18
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 18,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 2,
+        "win_rate": 0.167,
+        "quinella_rate": 0.222,
+        "raw_place_rate": 0.333,
+        "adjusted_place_rate": 0.3075,
+        "win_return_pct": 178.0,
+        "place_return_pct": 168.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 2,
+      "horse_name": "グロリアスマーチ",
+      "horse_id_netkeiba": "2023103680",
+      "sex_age": "牡3",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "鮫島駿",
+        "name": "鮫島克駿",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 45
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 45,
+        "wins": 3,
+        "seconds": 3,
+        "thirds": 3,
+        "win_rate": 0.067,
+        "quinella_rate": 0.133,
+        "raw_place_rate": 0.2,
+        "adjusted_place_rate": 0.2075,
+        "win_return_pct": 47.0,
+        "place_return_pct": 71.0,
+        "name_match": {
+          "tier": "subsequence",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 3,
+      "horse_name": "ミトノリン",
+      "horse_id_netkeiba": "2023105185",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "斎藤",
+        "name": "斎藤新",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 15
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 15,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.087,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 4,
+      "horse_name": "マウンテンバローズ",
+      "horse_id_netkeiba": "2023100942",
+      "sex_age": "牡3",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "川田",
+        "name": "川田将雅",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 15
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 15,
+        "wins": 0,
+        "seconds": 4,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.267,
+        "raw_place_rate": 0.267,
+        "adjusted_place_rate": 0.2611,
+        "win_return_pct": 0.0,
+        "place_return_pct": 47.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 5,
+      "horse_name": "ダイイズキャスト",
+      "horse_id_netkeiba": "2023107539",
+      "sex_age": "牡3",
+      "weight_carried": 56.0,
+      "jockey": {
+        "name_card": "☆田山",
+        "name": "田山旺佑",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 7
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 7,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.143,
+        "adjusted_place_rate": 0.2001,
+        "win_return_pct": 0.0,
+        "place_return_pct": 24.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 6,
+      "horse_name": "ブルズアイプリンス",
+      "horse_id_netkeiba": "2023104650",
+      "sex_age": "牡3",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "松本",
+        "name": "松本大輝",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 5
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 5,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1538,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 7,
+      "horse_name": "リアルアルバ",
+      "horse_id_netkeiba": "2023101065",
+      "sex_age": "牡3",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "西塚",
+        "name": "西塚洸二",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 10
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 10,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1111,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 8,
+      "horse_name": "ペルフェツィオーネ",
+      "horse_id_netkeiba": "2021106690",
+      "sex_age": "牡5",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "田口",
+        "name": "田口貫太",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 45
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 45,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.022,
+        "quinella_rate": 0.067,
+        "raw_place_rate": 0.111,
+        "adjusted_place_rate": 0.132,
+        "win_return_pct": 19.0,
+        "place_return_pct": 33.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 9,
+      "horse_name": "ベルサ",
+      "horse_id_netkeiba": "2022103473",
+      "sex_age": "牝4",
+      "weight_carried": 54.0,
+      "jockey": {
+        "name_card": "◇今村",
+        "name": "今村聖奈",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 5
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 5,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.2,
+        "quinella_rate": 0.2,
+        "raw_place_rate": 0.2,
+        "adjusted_place_rate": 0.2308,
+        "win_return_pct": 114.0,
+        "place_return_pct": 38.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 10,
+      "horse_name": "ラインピクシー",
+      "horse_id_netkeiba": "2022103291",
+      "sex_age": "牝4",
+      "weight_carried": 56.0,
+      "jockey": {
+        "name_card": "角田和",
+        "name": "角田大和",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 17
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 17,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.118,
+        "adjusted_place_rate": 0.1602,
+        "win_return_pct": 0.0,
+        "place_return_pct": 72.0,
+        "name_match": {
+          "tier": "subsequence",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 11,
+      "horse_name": "ホーリーステップ",
+      "horse_id_netkeiba": "2023102145",
+      "sex_age": "牝3",
+      "weight_carried": 52.0,
+      "jockey": {
+        "name_card": "▲森田",
+        "name": "森田誠也",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 7
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 7,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1333,
+        "win_return_pct": 0.0,
+        "place_return_pct": 0.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 12,
+      "horse_name": "アーリントンロウ",
+      "horse_id_netkeiba": "2022105921",
+      "sex_age": "牡4",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "国分優",
+        "name": "国分優作",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 16
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 16,
+        "wins": 2,
+        "seconds": 4,
+        "thirds": 0,
+        "win_rate": 0.125,
+        "quinella_rate": 0.375,
+        "raw_place_rate": 0.375,
+        "adjusted_place_rate": 0.3333,
+        "win_return_pct": 145.0,
+        "place_return_pct": 189.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 13,
+      "horse_name": "ラブアイミー",
+      "horse_id_netkeiba": "2022107258",
+      "sex_age": "牝4",
+      "weight_carried": 56.0,
+      "jockey": {
+        "name_card": "小崎",
+        "name": "小崎綾也",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 9
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 9,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.111,
+        "raw_place_rate": 0.111,
+        "adjusted_place_rate": 0.1764,
+        "win_return_pct": 0.0,
+        "place_return_pct": 79.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 14,
+      "horse_name": "ムーンリットアイル",
+      "horse_id_netkeiba": "2023107269",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "松山",
+        "name": "松山弘平",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 39
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 39,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 2,
+        "win_rate": 0.077,
+        "quinella_rate": 0.103,
+        "raw_place_rate": 0.154,
+        "adjusted_place_rate": 0.1703,
+        "win_return_pct": 45.0,
+        "place_return_pct": 36.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 15,
+      "horse_name": "アルサック",
+      "horse_id_netkeiba": "2023105125",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "北村友",
+        "name": "北村友一",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 26
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 26,
+        "wins": 5,
+        "seconds": 2,
+        "thirds": 0,
+        "win_rate": 0.192,
+        "quinella_rate": 0.269,
+        "raw_place_rate": 0.269,
+        "adjusted_place_rate": 0.2645,
+        "win_return_pct": 85.0,
+        "place_return_pct": 55.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 16,
+      "horse_name": "ブルーレース",
+      "horse_id_netkeiba": "2022106756",
+      "sex_age": "牝4",
+      "weight_carried": 56.0,
+      "jockey": {
+        "name_card": "吉村",
+        "name": "吉村誠之助",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 45
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 45,
+        "wins": 0,
+        "seconds": 3,
+        "thirds": 5,
+        "win_rate": 0.0,
+        "quinella_rate": 0.067,
+        "raw_place_rate": 0.178,
+        "adjusted_place_rate": 0.1889,
+        "win_return_pct": 0.0,
+        "place_return_pct": 57.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 2,
+          "ambiguous": true
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 17,
+      "horse_name": "ソリスディエス",
+      "horse_id_netkeiba": "2022105496",
+      "sex_age": "牡4",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "富田",
+        "name": "富田暁",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 13
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 13,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.077,
+        "quinella_rate": 0.077,
+        "raw_place_rate": 0.077,
+        "adjusted_place_rate": 0.1429,
+        "win_return_pct": 90.0,
+        "place_return_pct": 23.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    },
+    {
+      "horse_number": 18,
+      "horse_name": "グリフォン",
+      "horse_id_netkeiba": "2022103899",
+      "sex_age": "牝4",
+      "weight_carried": 54.0,
+      "jockey": {
+        "name_card": "△柴田裕",
+        "name": "柴田裕一郎",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200,
+          "starts": 7
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 1200
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 7,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.143,
+        "adjusted_place_rate": 0.2001,
+        "win_return_pct": 0.0,
+        "place_return_pct": 64.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      },
+      "damsire": {
+        "status": "error",
+        "reason": "srch6_page_missing:京都7R",
+        "source": "umarengod_srch6"
+      }
+    }
+  ],
+  "quality": {
+    "jockey_data_complete": true,
+    "jockey_status_counts": {
+      "ok": 18
+    },
+    "sire_data_complete": false,
+    "damsire_data_complete": false,
+    "sire_status_counts": {
+      "error": 18
+    },
+    "damsire_status_counts": {
+      "error": 18
+    },
+    "pending": [],
+    "pedigree_leakage_safe": true,
+    "d1_cutoff_verified": true,
+    "full_r1_ready": false
+  }
+}
