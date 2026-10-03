@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "umarengod",
-  "generated_at": "2026-10-03T19:53:49+09:00",
+  "generated_at": "2026-10-04T01:30:02+09:00",
   "race": {
     "date": "2026-10-04",
     "race_id_netkeiba": "202608040201",
@@ -34,12 +34,14 @@
     "pedigree_name_list": null,
     "srch6": {
       "status": "ok",
-      "races": 12,
+      "races": 24,
       "venues": [
-        "東京"
+        "東京",
+        "京都"
       ],
+      "venues_detected_from": "list_page",
       "errors": [],
-      "fetched_at": "2026-10-03T19:52:20+09:00",
+      "fetched_at": "2026-10-04T01:28:03+09:00",
       "leakage_safe": true
     }
   },
@@ -84,14 +86,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "アドマイヤマーズ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 23,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.087,
+        "quinella_rate": 0.1739,
+        "raw_place_rate": 0.2609,
+        "adjusted_place_rate": 0.2581,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "モーリス",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 2,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -134,14 +170,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "クリソベリル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 47,
+        "wins": 5,
+        "seconds": 1,
+        "thirds": 6,
+        "win_rate": 0.1064,
+        "quinella_rate": 0.1277,
+        "raw_place_rate": 0.2553,
+        "adjusted_place_rate": 0.2545,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "サウスヴィグラス",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 33,
+        "wins": 4,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.1212,
+        "quinella_rate": 0.1818,
+        "raw_place_rate": 0.2424,
+        "adjusted_place_rate": 0.2439,
+        "status": "ok"
       }
     },
     {
@@ -184,14 +254,42 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "ジャンダルム",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "エンパイアメーカー",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 134,
+        "wins": 5,
+        "seconds": 10,
+        "thirds": 10,
+        "win_rate": 0.0373,
+        "quinella_rate": 0.1119,
+        "raw_place_rate": 0.1866,
+        "adjusted_place_rate": 0.1901,
+        "status": "ok"
       }
     },
     {
@@ -234,14 +332,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "ブリックスアンドモルタル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 48,
+        "wins": 5,
+        "seconds": 2,
+        "thirds": 7,
+        "win_rate": 0.1042,
+        "quinella_rate": 0.1458,
+        "raw_place_rate": 0.2917,
+        "adjusted_place_rate": 0.2857,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "Quality Road",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 16,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.0625,
+        "quinella_rate": 0.1875,
+        "raw_place_rate": 0.3125,
+        "adjusted_place_rate": 0.2917,
+        "status": "ok"
       }
     },
     {
@@ -284,14 +416,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "スワーヴリチャード",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 18,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 4,
+        "win_rate": 0.0556,
+        "quinella_rate": 0.1111,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.3077,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "ロードカナロア",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 52,
+        "wins": 5,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.0962,
+        "quinella_rate": 0.1346,
+        "raw_place_rate": 0.1731,
+        "adjusted_place_rate": 0.1833,
+        "status": "ok"
       }
     },
     {
@@ -334,14 +500,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "アニマルキングダム",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 28,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 6,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.2143,
+        "adjusted_place_rate": 0.2222,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "ドゥラメンテ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 3,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.3333,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.2727,
+        "status": "insufficient_sample"
       }
     },
     {
@@ -384,14 +584,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "クリソベリル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 47,
+        "wins": 5,
+        "seconds": 1,
+        "thirds": 6,
+        "win_rate": 0.1064,
+        "quinella_rate": 0.1277,
+        "raw_place_rate": 0.2553,
+        "adjusted_place_rate": 0.2545,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "ダイワメジャー",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 103,
+        "wins": 8,
+        "seconds": 8,
+        "thirds": 10,
+        "win_rate": 0.0777,
+        "quinella_rate": 0.1553,
+        "raw_place_rate": 0.2524,
+        "adjusted_place_rate": 0.2523,
+        "status": "ok"
       }
     },
     {
@@ -434,14 +668,48 @@
         "status": "ok"
       },
       "sire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "ジャスタウェイ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 62,
+        "wins": 4,
+        "seconds": 2,
+        "thirds": 6,
+        "win_rate": 0.0645,
+        "quinella_rate": 0.0968,
+        "raw_place_rate": 0.1935,
+        "adjusted_place_rate": 0.2,
+        "status": "ok"
       },
       "damsire": {
-        "status": "error",
-        "reason": "srch6_page_missing:京都1R",
-        "source": "umarengod_srch6"
+        "name": "ディープインパクト",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "ダート",
+          "distance": 1800
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 190,
+        "wins": 14,
+        "seconds": 15,
+        "thirds": 18,
+        "win_rate": 0.0737,
+        "quinella_rate": 0.1526,
+        "raw_place_rate": 0.2474,
+        "adjusted_place_rate": 0.2475,
+        "status": "ok"
       }
     }
   ],
@@ -450,17 +718,19 @@
     "jockey_status_counts": {
       "ok": 8
     },
-    "sire_data_complete": false,
-    "damsire_data_complete": false,
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
     "sire_status_counts": {
-      "error": 8
+      "not_found": 1,
+      "ok": 7
     },
     "damsire_status_counts": {
-      "error": 8
+      "insufficient_sample": 2,
+      "ok": 6
     },
     "pending": [],
     "pedigree_leakage_safe": true,
     "d1_cutoff_verified": true,
-    "full_r1_ready": false
+    "full_r1_ready": true
   }
 }
