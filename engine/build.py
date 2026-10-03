@@ -60,19 +60,39 @@ class Srch6Source:
             self.status = {"status": "not_found", "reason": f"date_tab_missing:{self.kd}",
                            "stage": "entry"}
             return self.status
+        # 入口ページは「選択中の日付」の競馬場タブ(p=1)しか出さない。他日付のタブ(p=0)が持つ
+        # cs は選択中の場名の流用なので、そのまま使うと開催場を取りこぼす
+        # （実測: 10/4 東京・京都開催で東京しか拾えず、京都12レースの血統が全滅した）。
+        # → まず対象日の一覧ページを開き、そのページ内の競馬場タブ(p=1)から開催場を確定する。
+        seed = tabs[0]
+        rl0, st0 = U.get_with_retry(
+            self.session, U.srch6_list_url(seed["ki"], seed["kd"], seed["cs"], seed["bty"]))
+        self.requests += 1
+        if rl0 is None:
+            self.status = {**st0, "stage": "list_seed"}
+            return self.status
+        seed_html = U.decode(rl0)
         venues, seen = [], set()
-        for t in tabs:                      # 同日の競馬場（重複除去）
-            if t["cs"] not in seen:
+        for t in U.parse_srch6_tabs(seed_html):
+            if t["p"] == 1 and t["kd"] == self.kd and t["cs"] not in seen:
                 seen.add(t["cs"])
                 venues.append(t)
+        if not venues:                       # 競馬場タブが無い＝1場開催（seed がその場）
+            venues = [seed]
+            seen = {seed["cs"]}
         n_races, errs = 0, []
         for t in venues:
-            rl, st2 = U.get_with_retry(self.session, U.srch6_list_url(t["ki"], t["kd"], t["cs"], t["bty"]))
-            self.requests += 1
-            if rl is None:
-                errs.append({**st2, "venue": t["cs"], "stage": "list"})
-                continue
-            for sel in U.parse_srch6_list(U.decode(rl)):
+            if t["cs"] == seed["cs"]:
+                page = seed_html             # 1回目に取った一覧を再利用（無駄打ちしない）
+            else:
+                rl, st2 = U.get_with_retry(
+                    self.session, U.srch6_list_url(t["ki"], t["kd"], t["cs"], t["bty"]))
+                self.requests += 1
+                if rl is None:
+                    errs.append({**st2, "venue": t["cs"], "stage": "list"})
+                    continue
+                page = U.decode(rl)
+            for sel in U.parse_srch6_list(page):
                 rr, st3 = U.get_with_retry(self.session, U.srch6_race_url(sel))
                 self.requests += 1
                 if rr is None:
@@ -87,7 +107,8 @@ class Srch6Source:
                 self.by_race[key] = {"meta": meta, "horses": horses}
                 n_races += 1
         self.status = {"status": "ok" if n_races else "error", "races": n_races,
-                       "venues": [t["cs"] for t in venues], "errors": errs[:10],
+                       "venues": [t["cs"] for t in venues],
+                       "venues_detected_from": "list_page", "errors": errs[:10],
                        "fetched_at": self.fetched_at,
                        "leakage_safe": U.srch6_leakage_safe(self.fetched_at or "", self.race_date)}
         return self.status
