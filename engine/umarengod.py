@@ -800,12 +800,19 @@ def parse_srch6_race(html: str) -> tuple[dict, list[dict]]:
     return meta, horses
 
 
-def srch6_leakage_safe(fetched_at_iso: str, race_date: str) -> bool:
-    """取得時刻がレース当日の発走前(09:30 JST)より前なら True。
-    srch6 の『過去3年』は取得時点基準なので、後から過去日を作るとそのレース以降の
-    結果が混入する（実測で確認）。それを機械的に判定する。"""
+def srch6_leakage_safe(fetched_at_iso: str, race_date: str,
+                       post_time: str | None = None) -> bool:
+    """srch6 のデータがそのレースにとってリーク安全かを判定する。
+    srch6 の『過去3年』は**取得時点**基準なので、そのレースの発走より後に取得すると
+    当該レースの結果が集計に混入する（現行方式との突合せで実測確認）。
+    判定は「取得時刻 < そのレースの発走時刻」。発走時刻が不明な場合のみ、
+    当日全レースに安全な既定境界(09:30)を使う。"""
+    if not fetched_at_iso or len(race_date) != 8:
+        return False
     d = f"{race_date[0:4]}-{race_date[4:6]}-{race_date[6:8]}"
-    return fetched_at_iso < f"{d}T{SRCH6_SAFE_BEFORE}"
+    limit = post_time if (post_time and re.fullmatch(r"\d{1,2}:\d{2}", post_time)) else SRCH6_SAFE_BEFORE
+    hh, mm = limit.split(":")
+    return fetched_at_iso < f"{d}T{int(hh):02d}:{mm}"
 
 
 def srch6_pedigree_block(part: dict, racecourse: str, surface: str, distance_m: int,
