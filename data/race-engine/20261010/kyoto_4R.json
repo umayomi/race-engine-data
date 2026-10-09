@@ -1,0 +1,904 @@
+{
+  "schema_version": "1.0",
+  "source": "umarengod",
+  "generated_at": "2026-10-09T11:21:52+09:00",
+  "race": {
+    "date": "2026-10-10",
+    "race_id_netkeiba": "202608040304",
+    "racecourse": "京都",
+    "racecourse_code": "kyoto",
+    "race_number": 4,
+    "race_name": "3歳以上障害OP",
+    "surface": "障害",
+    "distance": 3170,
+    "post_time": "11:20",
+    "race_class": 5
+  },
+  "aggregation_period": {
+    "start": "2023-10-10",
+    "end": "2026-10-09",
+    "leakage_safe": true
+  },
+  "fetch_status": {
+    "jockey_primary": {
+      "status": "unsupported",
+      "reason": "surface_not_supported:障害"
+    },
+    "jockey_all": {
+      "status": "unsupported",
+      "reason": "surface_not_supported:障害"
+    },
+    "pedigree_source": "srch6",
+    "pedigree_name_list": null,
+    "srch6": {
+      "status": "ok",
+      "races": 24,
+      "venues": [
+        "東京",
+        "京都"
+      ],
+      "venues_detected_from": "list_page",
+      "errors": [],
+      "fetched_at": "2026-10-09T11:19:25+09:00",
+      "leakage_safe": true
+    }
+  },
+  "horses": [
+    {
+      "horse_number": 1,
+      "horse_name": "メイショウウネビ",
+      "horse_id_netkeiba": "2019104112",
+      "sex_age": "牡7",
+      "weight_carried": 60.0,
+      "jockey": {
+        "name_card": "中村",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "メイショウサムソン",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      },
+      "damsire": {
+        "name": "キングカメハメハ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 5,
+        "wins": 0,
+        "seconds": 2,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.4,
+        "raw_place_rate": 0.4,
+        "adjusted_place_rate": 0.3077,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 2,
+      "horse_name": "ルドヴィクス",
+      "horse_id_netkeiba": "2018105213",
+      "sex_age": "牡8",
+      "weight_carried": 61.0,
+      "jockey": {
+        "name_card": "上野",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "モーリス",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      },
+      "damsire": {
+        "name": "シンボリクリスエス",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 5,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.2,
+        "quinella_rate": 0.2,
+        "raw_place_rate": 0.2,
+        "adjusted_place_rate": 0.2308,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 3,
+      "horse_name": "ミレニアムヒロイン",
+      "horse_id_netkeiba": "2021103480",
+      "sex_age": "牝5",
+      "weight_carried": 59.0,
+      "jockey": {
+        "name_card": "草野",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "スクリーンヒーロー",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "マツリダゴッホ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 4,
+      "horse_name": "ホウオウプレシャス",
+      "horse_id_netkeiba": "2020103939",
+      "sex_age": "牡6",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "▲水沼",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "イスラボニータ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "フレンチデピュティ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 3,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1818,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 5,
+      "horse_name": "ソレルビュレット",
+      "horse_id_netkeiba": "2021110061",
+      "sex_age": "牡5",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "△坂口",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "Malibu Moon",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      },
+      "damsire": {
+        "name": "Curlin",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 6,
+      "horse_name": "アスクオンディープ",
+      "horse_id_netkeiba": "2019101612",
+      "sex_age": "セ7",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "▲井上",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "ディープインパクト",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "Curlin",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 7,
+      "horse_name": "リッケンバッカー",
+      "horse_id_netkeiba": "2018103590",
+      "sex_age": "牡8",
+      "weight_carried": 60.0,
+      "jockey": {
+        "name_card": "小牧加",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "ロードカナロア",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 2,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.3,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "City Zip",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 8,
+      "horse_name": "ライツフォル",
+      "horse_id_netkeiba": "2020103398",
+      "sex_age": "牡6",
+      "weight_carried": 60.0,
+      "jockey": {
+        "name_card": "難波",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "ミッキーアイル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 2,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "エンパイアメーカー",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 9,
+      "horse_name": "パープルアドミラル",
+      "horse_id_netkeiba": "2020104328",
+      "sex_age": "牡6",
+      "weight_carried": 61.0,
+      "jockey": {
+        "name_card": "金子",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "シビルウォー",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      },
+      "damsire": {
+        "name": "マンハッタンカフェ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 10,
+      "horse_name": "コスモチプリア",
+      "horse_id_netkeiba": "2020105774",
+      "sex_age": "牝6",
+      "weight_carried": 58.0,
+      "jockey": {
+        "name_card": "伴",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "ゴールドシップ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 2,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.3,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "スウェプトオーヴァーボード",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 11,
+      "horse_name": "シャンドゥレール",
+      "horse_id_netkeiba": "2020103053",
+      "sex_age": "セ6",
+      "weight_carried": 57.0,
+      "jockey": {
+        "name_card": "▲小林凌",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "エピファネイア",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 3,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.3333,
+        "quinella_rate": 0.3333,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.2727,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "Quality Road",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 12,
+      "horse_name": "アメリカンピース",
+      "horse_id_netkeiba": "2018110131",
+      "sex_age": "セ8",
+      "weight_carried": 60.0,
+      "jockey": {
+        "name_card": "小坂",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "Tapit",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      },
+      "damsire": {
+        "name": "Ghostzapper",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 13,
+      "horse_name": "ヴェールランス",
+      "horse_id_netkeiba": "2019104767",
+      "sex_age": "牡7",
+      "weight_carried": 61.0,
+      "jockey": {
+        "name_card": "五十嵐",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "キタサンブラック",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 5,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 2,
+        "win_rate": 0.2,
+        "quinella_rate": 0.4,
+        "raw_place_rate": 0.8,
+        "adjusted_place_rate": 0.4615,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ヴィクトワールピサ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 14,
+      "horse_name": "フォージドブリック",
+      "horse_id_netkeiba": "2021104800",
+      "sex_age": "牡5",
+      "weight_carried": 61.0,
+      "jockey": {
+        "name_card": "大江圭",
+        "name": null,
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170,
+          "starts": null
+        },
+        "condition_used": null,
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "unsupported",
+        "reason": "surface_not_supported:障害"
+      },
+      "sire": {
+        "name": "ブリックスアンドモルタル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      },
+      "damsire": {
+        "name": "クロフネ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "障害",
+          "distance": 3170
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 2,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.5,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.3,
+        "status": "insufficient_sample"
+      }
+    }
+  ],
+  "quality": {
+    "jockey_data_complete": true,
+    "jockey_status_counts": {
+      "unsupported": 14
+    },
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
+    "sire_status_counts": {
+      "insufficient_sample": 7,
+      "not_found": 6,
+      "ok": 1
+    },
+    "damsire_status_counts": {
+      "insufficient_sample": 3,
+      "not_found": 9,
+      "ok": 2
+    },
+    "pending": [],
+    "pedigree_leakage_safe": true,
+    "d1_cutoff_verified": true,
+    "full_r1_ready": true
+  }
+}
