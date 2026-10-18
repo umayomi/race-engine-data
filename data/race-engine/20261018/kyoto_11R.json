@@ -1,0 +1,1488 @@
+{
+  "schema_version": "1.0",
+  "source": "umarengod",
+  "generated_at": "2026-10-18T09:10:52+09:00",
+  "race": {
+    "date": "2026-10-18",
+    "race_id_netkeiba": "202608040711",
+    "racecourse": "京都",
+    "racecourse_code": "kyoto",
+    "race_number": 11,
+    "race_name": "秋華賞",
+    "surface": "芝",
+    "distance": 2000,
+    "post_time": "15:40",
+    "race_class": 8
+  },
+  "aggregation_period": {
+    "start": "2023-10-18",
+    "end": "2026-10-17",
+    "leakage_safe": true
+  },
+  "fetch_status": {
+    "jockey_primary": {
+      "status": "ok",
+      "rows": 108,
+      "column_mode": "header"
+    },
+    "jockey_all": {
+      "status": "ok",
+      "rows": 214,
+      "column_mode": "header"
+    },
+    "pedigree_source": "srch6",
+    "pedigree_name_list": null,
+    "srch6": {
+      "status": "ok",
+      "races": 36,
+      "venues": [
+        "東京",
+        "京都",
+        "新潟"
+      ],
+      "venues_detected_from": "list_page",
+      "errors": [],
+      "fetched_at": "2026-10-18T09:06:48+09:00",
+      "leakage_safe": true
+    }
+  },
+  "horses": [
+    {
+      "horse_number": 1,
+      "horse_name": "ギャラボーグ",
+      "horse_id_netkeiba": "2023105825",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "横山和",
+        "name": "横山和生",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 7
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 7,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.143,
+        "quinella_rate": 0.286,
+        "raw_place_rate": 0.286,
+        "adjusted_place_rate": 0.2668,
+        "win_return_pct": 26.0,
+        "place_return_pct": 60.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "ロードカナロア",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 38,
+        "wins": 6,
+        "seconds": 5,
+        "thirds": 4,
+        "win_rate": 0.1579,
+        "quinella_rate": 0.2895,
+        "raw_place_rate": 0.3947,
+        "adjusted_place_rate": 0.3696,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "Sligo Bay",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 2,
+      "horse_name": "テイエムアイラン",
+      "horse_id_netkeiba": "2023100448",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "富田",
+        "name": "富田暁",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 16
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 16,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.063,
+        "raw_place_rate": 0.125,
+        "adjusted_place_rate": 0.1667,
+        "win_return_pct": 0.0,
+        "place_return_pct": 30.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "ミッキーアイル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 12,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ノヴェリスト",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1667,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 3,
+      "horse_name": "マスターソアラ",
+      "horse_id_netkeiba": "2023106810",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "武豊",
+        "name": "武豊",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 38
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 38,
+        "wins": 11,
+        "seconds": 6,
+        "thirds": 4,
+        "win_rate": 0.289,
+        "quinella_rate": 0.447,
+        "raw_place_rate": 0.553,
+        "adjusted_place_rate": 0.5003,
+        "win_return_pct": 143.0,
+        "place_return_pct": 150.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "シスキン",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 8,
+        "wins": 3,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.375,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.375,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ダイワメジャー",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 36,
+        "wins": 2,
+        "seconds": 0,
+        "thirds": 2,
+        "win_rate": 0.0556,
+        "quinella_rate": 0.0556,
+        "raw_place_rate": 0.1111,
+        "adjusted_place_rate": 0.1364,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 4,
+      "horse_name": "エンネ",
+      "horse_id_netkeiba": "2023102102",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "坂井",
+        "name": "坂井瑠星",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 63
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 63,
+        "wins": 8,
+        "seconds": 5,
+        "thirds": 7,
+        "win_rate": 0.127,
+        "quinella_rate": 0.206,
+        "raw_place_rate": 0.317,
+        "adjusted_place_rate": 0.3095,
+        "win_return_pct": 59.0,
+        "place_return_pct": 57.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "キズナ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 113,
+        "wins": 19,
+        "seconds": 8,
+        "thirds": 3,
+        "win_rate": 0.1681,
+        "quinella_rate": 0.2389,
+        "raw_place_rate": 0.2655,
+        "adjusted_place_rate": 0.2645,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "Medaglia d'Oro",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 6,
+        "wins": 0,
+        "seconds": 2,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.3333,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.2857,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 5,
+      "horse_name": "タイセイボーグ",
+      "horse_id_netkeiba": "2023106900",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "西村淳",
+        "name": "西村淳也",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 72
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 72,
+        "wins": 8,
+        "seconds": 14,
+        "thirds": 5,
+        "win_rate": 0.111,
+        "quinella_rate": 0.306,
+        "raw_place_rate": 0.375,
+        "adjusted_place_rate": 0.3625,
+        "win_return_pct": 44.0,
+        "place_return_pct": 88.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "インディチャンプ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 2,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.5,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.3,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "Azamour",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 6,
+      "horse_name": "ラベルセーヌ",
+      "horse_id_netkeiba": "2023103818",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "荻野極",
+        "name": "荻野極",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 10
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 10,
+        "wins": 3,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.3,
+        "quinella_rate": 0.3,
+        "raw_place_rate": 0.4,
+        "adjusted_place_rate": 0.3333,
+        "win_return_pct": 167.0,
+        "place_return_pct": 82.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "キズナ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 113,
+        "wins": 19,
+        "seconds": 8,
+        "thirds": 3,
+        "win_rate": 0.1681,
+        "quinella_rate": 0.2389,
+        "raw_place_rate": 0.2655,
+        "adjusted_place_rate": 0.2645,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "Power",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 7,
+      "horse_name": "バースデイフライト",
+      "horse_id_netkeiba": "2023102906",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "田山",
+        "name": "田山旺佑",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 24
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 24,
+        "wins": 1,
+        "seconds": 3,
+        "thirds": 1,
+        "win_rate": 0.042,
+        "quinella_rate": 0.167,
+        "raw_place_rate": 0.208,
+        "adjusted_place_rate": 0.2185,
+        "win_return_pct": 55.0,
+        "place_return_pct": 111.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "コントレイル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 39,
+        "wins": 4,
+        "seconds": 2,
+        "thirds": 6,
+        "win_rate": 0.1026,
+        "quinella_rate": 0.1538,
+        "raw_place_rate": 0.3077,
+        "adjusted_place_rate": 0.2979,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "War Front",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.1667,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 8,
+      "horse_name": "モンローウォーク",
+      "horse_id_netkeiba": "2023106859",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "戸崎圭",
+        "name": "戸崎圭太",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 4
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 252,
+        "wins": 40,
+        "seconds": 40,
+        "thirds": 38,
+        "win_rate": 0.159,
+        "quinella_rate": 0.317,
+        "raw_place_rate": 0.468,
+        "adjusted_place_rate": 0.4613,
+        "win_return_pct": 63.0,
+        "place_return_pct": 86.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "キズナ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 113,
+        "wins": 19,
+        "seconds": 8,
+        "thirds": 3,
+        "win_rate": 0.1681,
+        "quinella_rate": 0.2389,
+        "raw_place_rate": 0.2655,
+        "adjusted_place_rate": 0.2645,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "Sebring",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "status": "not_found",
+        "reason": "no_runs_in_condition",
+        "starts": 0
+      }
+    },
+    {
+      "horse_number": 9,
+      "horse_name": "スウィートハピネス",
+      "horse_id_netkeiba": "2023104475",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "佐々木",
+        "name": "佐々木大輔",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 6
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 6,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.167,
+        "quinella_rate": 0.167,
+        "raw_place_rate": 0.333,
+        "adjusted_place_rate": 0.2856,
+        "win_return_pct": 113.0,
+        "place_return_pct": 68.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "リアルインパクト",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 4,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 1,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "ワークフォース",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 3,
+        "wins": 0,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.3333,
+        "raw_place_rate": 0.3333,
+        "adjusted_place_rate": 0.2727,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 10,
+      "horse_name": "ナイスプレーアスク",
+      "horse_id_netkeiba": "2023105420",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "岩田康",
+        "name": "岩田康誠",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 26
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 26,
+        "wins": 1,
+        "seconds": 3,
+        "thirds": 2,
+        "win_rate": 0.038,
+        "quinella_rate": 0.154,
+        "raw_place_rate": 0.231,
+        "adjusted_place_rate": 0.2355,
+        "win_return_pct": 110.0,
+        "place_return_pct": 97.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "アドマイヤマーズ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 9,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.1111,
+        "quinella_rate": 0.1111,
+        "raw_place_rate": 0.1111,
+        "adjusted_place_rate": 0.1765,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ディープインパクト",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 175,
+        "wins": 20,
+        "seconds": 16,
+        "thirds": 24,
+        "win_rate": 0.1143,
+        "quinella_rate": 0.2057,
+        "raw_place_rate": 0.3429,
+        "adjusted_place_rate": 0.3388,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 11,
+      "horse_name": "ガーネットフレア",
+      "horse_id_netkeiba": "2023107075",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "北村友",
+        "name": "北村友一",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 48
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 48,
+        "wins": 7,
+        "seconds": 4,
+        "thirds": 2,
+        "win_rate": 0.146,
+        "quinella_rate": 0.229,
+        "raw_place_rate": 0.271,
+        "adjusted_place_rate": 0.268,
+        "win_return_pct": 113.0,
+        "place_return_pct": 54.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "ニューイヤーズデイ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 1,
+        "wins": 0,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.0,
+        "quinella_rate": 0.0,
+        "raw_place_rate": 0.0,
+        "adjusted_place_rate": 0.2222,
+        "status": "insufficient_sample"
+      },
+      "damsire": {
+        "name": "ディープインパクト",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 175,
+        "wins": 20,
+        "seconds": 16,
+        "thirds": 24,
+        "win_rate": 0.1143,
+        "quinella_rate": 0.2057,
+        "raw_place_rate": 0.3429,
+        "adjusted_place_rate": 0.3388,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 12,
+      "horse_name": "カナルサンマルタン",
+      "horse_id_netkeiba": "2023106846",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "岩田望",
+        "name": "岩田望来",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 79
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 79,
+        "wins": 14,
+        "seconds": 10,
+        "thirds": 5,
+        "win_rate": 0.177,
+        "quinella_rate": 0.304,
+        "raw_place_rate": 0.367,
+        "adjusted_place_rate": 0.3562,
+        "win_return_pct": 100.0,
+        "place_return_pct": 76.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "リアルスティール",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 37,
+        "wins": 4,
+        "seconds": 6,
+        "thirds": 2,
+        "win_rate": 0.1081,
+        "quinella_rate": 0.2703,
+        "raw_place_rate": 0.3243,
+        "adjusted_place_rate": 0.3111,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "Distorted Humor",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 4,
+        "wins": 1,
+        "seconds": 1,
+        "thirds": 0,
+        "win_rate": 0.25,
+        "quinella_rate": 0.5,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.3333,
+        "status": "insufficient_sample"
+      }
+    },
+    {
+      "horse_number": 13,
+      "horse_name": "ドリームコア",
+      "horse_id_netkeiba": "2023107146",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "ルメール",
+        "name": "Ｃ．ルメール",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 22
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 22,
+        "wins": 6,
+        "seconds": 2,
+        "thirds": 3,
+        "win_rate": 0.273,
+        "quinella_rate": 0.364,
+        "raw_place_rate": 0.5,
+        "adjusted_place_rate": 0.4333,
+        "win_return_pct": 87.0,
+        "place_return_pct": 80.0,
+        "name_match": {
+          "tier": "exact",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "キズナ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 113,
+        "wins": 19,
+        "seconds": 8,
+        "thirds": 3,
+        "win_rate": 0.1681,
+        "quinella_rate": 0.2389,
+        "raw_place_rate": 0.2655,
+        "adjusted_place_rate": 0.2645,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ハービンジャー",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 46,
+        "wins": 3,
+        "seconds": 8,
+        "thirds": 3,
+        "win_rate": 0.0652,
+        "quinella_rate": 0.2391,
+        "raw_place_rate": 0.3043,
+        "adjusted_place_rate": 0.2963,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 14,
+      "horse_name": "サムシングスイート",
+      "horse_id_netkeiba": "2023106219",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "松山",
+        "name": "松山弘平",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 80
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 80,
+        "wins": 5,
+        "seconds": 13,
+        "thirds": 12,
+        "win_rate": 0.063,
+        "quinella_rate": 0.225,
+        "raw_place_rate": 0.375,
+        "adjusted_place_rate": 0.3636,
+        "win_return_pct": 26.0,
+        "place_return_pct": 67.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "サートゥルナーリア",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 54,
+        "wins": 3,
+        "seconds": 7,
+        "thirds": 6,
+        "win_rate": 0.0556,
+        "quinella_rate": 0.1852,
+        "raw_place_rate": 0.2963,
+        "adjusted_place_rate": 0.2903,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ヴィクトワールピサ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 24,
+        "wins": 2,
+        "seconds": 2,
+        "thirds": 2,
+        "win_rate": 0.0833,
+        "quinella_rate": 0.1667,
+        "raw_place_rate": 0.25,
+        "adjusted_place_rate": 0.25,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 15,
+      "horse_name": "フェスティバルヒル",
+      "horse_id_netkeiba": "2023107265",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "浜中",
+        "name": "浜中俊",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 35
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 35,
+        "wins": 5,
+        "seconds": 1,
+        "thirds": 3,
+        "win_rate": 0.143,
+        "quinella_rate": 0.171,
+        "raw_place_rate": 0.257,
+        "adjusted_place_rate": 0.2557,
+        "win_return_pct": 149.0,
+        "place_return_pct": 56.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "サートゥルナーリア",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 54,
+        "wins": 3,
+        "seconds": 7,
+        "thirds": 6,
+        "win_rate": 0.0556,
+        "quinella_rate": 0.1852,
+        "raw_place_rate": 0.2963,
+        "adjusted_place_rate": 0.2903,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ハーツクライ",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 55,
+        "wins": 6,
+        "seconds": 6,
+        "thirds": 3,
+        "win_rate": 0.1091,
+        "quinella_rate": 0.2182,
+        "raw_place_rate": 0.2727,
+        "adjusted_place_rate": 0.2698,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 16,
+      "horse_name": "ハヤブササキチャン",
+      "horse_id_netkeiba": "2023106894",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "吉田隼",
+        "name": "吉田隼人",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 3
+        },
+        "condition_used": {
+          "racecourse": "ALL",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": true,
+        "fallback_reason": "primary_starts_lt_5",
+        "starts": 137,
+        "wins": 5,
+        "seconds": 9,
+        "thirds": 9,
+        "win_rate": 0.036,
+        "quinella_rate": 0.102,
+        "raw_place_rate": 0.168,
+        "adjusted_place_rate": 0.1725,
+        "win_return_pct": 42.0,
+        "place_return_pct": 48.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "リアルスティール",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 37,
+        "wins": 4,
+        "seconds": 6,
+        "thirds": 2,
+        "win_rate": 0.1081,
+        "quinella_rate": 0.2703,
+        "raw_place_rate": 0.3243,
+        "adjusted_place_rate": 0.3111,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "ハービンジャー",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 46,
+        "wins": 3,
+        "seconds": 8,
+        "thirds": 3,
+        "win_rate": 0.0652,
+        "quinella_rate": 0.2391,
+        "raw_place_rate": 0.3043,
+        "adjusted_place_rate": 0.2963,
+        "status": "ok"
+      }
+    },
+    {
+      "horse_number": 17,
+      "horse_name": "ロザーンジュ",
+      "horse_id_netkeiba": "2023103661",
+      "sex_age": "牝3",
+      "weight_carried": 55.0,
+      "jockey": {
+        "name_card": "今村",
+        "name": "今村聖奈",
+        "primary_condition": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000,
+          "starts": 14
+        },
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 14,
+        "wins": 1,
+        "seconds": 0,
+        "thirds": 0,
+        "win_rate": 0.071,
+        "quinella_rate": 0.071,
+        "raw_place_rate": 0.071,
+        "adjusted_place_rate": 0.1361,
+        "win_return_pct": 397.0,
+        "place_return_pct": 107.0,
+        "name_match": {
+          "tier": "prefix",
+          "candidates": 1,
+          "ambiguous": false
+        },
+        "status": "ok"
+      },
+      "sire": {
+        "name": "フィエールマン",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 15,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 0,
+        "win_rate": 0.0667,
+        "quinella_rate": 0.2,
+        "raw_place_rate": 0.2,
+        "adjusted_place_rate": 0.2174,
+        "status": "ok"
+      },
+      "damsire": {
+        "name": "オルフェーヴル",
+        "source": "umarengod_srch6",
+        "period_basis": "past_3y_as_of_fetch",
+        "leakage_safe": true,
+        "condition_used": {
+          "racecourse": "京都",
+          "surface": "芝",
+          "distance": 2000
+        },
+        "fallback_used": false,
+        "fallback_reason": null,
+        "starts": 15,
+        "wins": 1,
+        "seconds": 2,
+        "thirds": 1,
+        "win_rate": 0.0667,
+        "quinella_rate": 0.2,
+        "raw_place_rate": 0.2667,
+        "adjusted_place_rate": 0.2609,
+        "status": "ok"
+      }
+    }
+  ],
+  "quality": {
+    "jockey_data_complete": true,
+    "jockey_status_counts": {
+      "ok": 17
+    },
+    "sire_data_complete": true,
+    "damsire_data_complete": true,
+    "sire_status_counts": {
+      "insufficient_sample": 3,
+      "ok": 14
+    },
+    "damsire_status_counts": {
+      "insufficient_sample": 6,
+      "not_found": 2,
+      "ok": 9
+    },
+    "pending": [],
+    "pedigree_leakage_safe": true,
+    "d1_cutoff_verified": true,
+    "full_r1_ready": true
+  }
+}
